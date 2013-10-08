@@ -1,0 +1,61 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiProgressbar">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Default integration <span version="0.3"/></header>
+
+			<div id="default" pui-progressbar="value" ></div>
+            <input ng-model="value" id="progressValue"/><br/>
+            <br/>
+            <div id="timer" pui-progressbar="timedValue" ></div>
+            <button ng-click="startTimer()" type="button" >Start timer</button>
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+    <div id="default" pui-progressbar="value" ></div>
+    <input ng-model="value" /><br/>
+    <br/>
+    <div id="timer" pui-progressbar="timedValue" ></div>
+    <button ng-click="startTimer()" type="button" >Start timer</button>
+						</pre>
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+    $scope.value = 0;
+
+    $scope.timedValue = 0;
+
+    $scope.doStep = function() {
+        $scope.timedValue = $scope.timedValue + 10;
+        $timeout(function() {
+            if ($scope.timedValue < 100) {
+                $scope.doStep();
+            }
+        }, 1000);
+    };
+
+    $scope.startTimer = function() {
+        $scope.timedValue = 0;
+        $scope.doStep();
+    }
+
+                        </pre>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+
+</div>

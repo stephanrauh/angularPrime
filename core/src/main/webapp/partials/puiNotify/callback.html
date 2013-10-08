@@ -1,0 +1,54 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiNotify">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Callback available when widget is closed.</header>
+			<button id="btn-show" type="button" ng-click="showWithCallback()">Show</button><br>
+
+			 <div id="ntfy" pui-notify="notifyCallbackOptions" >
+				 When this notify is closed, a callback is executed.
+			 </div>
+
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+	<button id="btn-show" type="button" ng-click="showWithCallback()">Show</button><br>
+
+	<div id="ntfy" pui-notify="notifyCallbackOptions" >
+		When this notify is closed, a callback is executed.
+	</div>
+						</pre>
+
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+	$scope.notifyCallbackOptions = {
+		visible : false
+		,callback : function () {
+			alert('Notify widget closed by user');
+		}
+	};
+
+	$scope.showWithCallback = function() {
+		$scope.notifyCallbackOptions.visible = true;
+	};
+
+						</pre>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>

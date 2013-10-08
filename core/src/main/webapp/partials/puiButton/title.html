@@ -1,0 +1,42 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiButton">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Text on button can be dynamic</header>
+
+			<button ng-click="showMessage('Button variable title clicked')" type="button" pui-button>{{buttonTitle}}</button>
+			<br/><input type="text" ng-model="buttonTitle"/>
+		</section>
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+	<button ng-click="showMessage('Button variable title clicked')" type="button" pui-button>{{buttonTitle}}</button><br/>
+	<input type="text" ng-model="buttonTitle"/>
+						</pre>
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+	$scope.showMessage = function(msg) {
+		alert(msg);
+	};
+
+	$scope.buttonTitle = 'change me';
+						</pre>
+
+					</div>
+				</div>
+			</div>
+		</fieldset>
+
+	</div>
+</div>

@@ -1,0 +1,121 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiAutocomplete">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<fieldset id="description" pui-fieldset style="margin-bottom:20px">
+			<legend>Description</legend>
+			Autocomplete functionality for input element.  Allows also the selection of multiple items.
+		</fieldset>
+		<fieldset id="supports" pui-fieldset style="margin-bottom:20px">
+			<legend>Supports</legend>
+			<ul>
+				<li>Selection from a fix list</li>
+				<li>JavaScript function which determines the proposed values</li>
+				<li>Integration with ng-disabled</li>
+				<li>Show multiple selected values</li>
+				<li>Limit the allowed values to fix list</li>
+			</ul>
+		</fieldset>
+		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
+			<legend>Known issues</legend>
+		</fieldset>
+		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
+			<legend>Planned</legend>
+			<ul>
+				<li>Custom content/layout of proposed values</li>
+			</ul>
+		</fieldset>
+
+		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
+			<legend>Configuration</legend>
+			There are 3 types supported as the value of the pui-autocomplete directive <br/>
+			<ul>
+				<li>Array, values are used as the proposed values</li>
+				<li>function (request, response) that can respond with the proposed values based on the already types characters</li>
+				<li>Object, inline or scope defined</li>
+			</ul>
+			<table class="doc-table">
+				<thead>
+				<tr>
+					<th class="ui-state-default">Name</th>
+					<th class="ui-state-default">Type</th>
+					<th class="ui-state-default">Default</th>
+					<th class="ui-state-default">Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="ui-widget-content">
+					<td>delay</td>
+					<td>integer</td>
+					<td>300</td>
+					<td>Delay in milliseconds before doing a search.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>minQueryLength</td>
+					<td>Integer</td>
+					<td>1</td>
+					<td>Minimum length of input value to run a query.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>completeSource</td>
+					<td>array/function (request, response)</td>
+					<td>undefined</td>
+					<td>determines thevalues that are shown in the proposed list</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>multiple</td>
+					<td>boolean</td>
+					<td>false</td>
+					<td>Enables multiple selection mode.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>dropdown</td>
+					<td>boolean</td>
+					<td>false</td>
+					<td>Displays a dropdown button next to the input field to search all items.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>scrollHeight</td>
+					<td>integer</td>
+					<td>200</td>
+					<td>Maximum height of the suggestions panel in pixels.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>forceSelection</td>
+					<td>boolean</td>
+					<td>false</td>
+					<td>When enabled, input value is restricted only with suggested items.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>effect</td>
+					<td>string</td>
+					<td>null</td>
+					<td>Name of effect to display when showing suggestions.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>effectSpeed</td>
+					<td>int/string</td>
+					<td>normal</td>
+					<td>Duration in milliseconds or keywords like slow, normal and fast.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>effectOptions</td>
+					<td>object</td>
+					<td>null</td>
+					<td>Additional options for effect, refer to jQuery UI effect api.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>caseSensitive</td>
+					<td>boolean</td>
+					<td>false</td>
+					<td>Defines if search on a local datasource should be case sensitive.</td>
+				</tr>
+				</tbody>
+			</table>
+		</fieldset>
+
+
+	</div>
+</div>

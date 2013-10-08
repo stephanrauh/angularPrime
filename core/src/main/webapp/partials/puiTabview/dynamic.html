@@ -1,0 +1,74 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiTabview">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Title and content can be dynamic</header>
+
+			<div id="default" pui-tabview>
+				<ul>
+					<li><a href="#d_tab1">{{title1}}</a></li>
+					<li><a href="#d_tab2">{{title2}}</a></li>
+				</ul>
+				<div>
+					<div id="d_tab1">
+						{{description1}}
+					</div>
+					<div id="d_tab2">
+						{{description2}}
+					</div>
+				</div>
+			</div>
+			title 1 = <input type="text" ng-model="title1" id="title1"><br/>
+			description 1 = <input type="text" ng-model="description1" id="desc1"><br/>
+			title 2 = <input type="text" ng-model="title2" id="title2"><br/>
+			description 2 = <input type="text" ng-model="description2" id="desc2"><br/>
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+	<div id="default" pui-tabview>
+		<ul>
+			<li><a href="#d_tab1">{{title1}}</a></li>
+			<li><a href="#d_tab2">{{title2}}</a></li>
+		</ul>
+		<div>
+			<div id="d_tab1">
+				{{description1}}
+			</div>
+			<div id="d_tab2">
+				{{description2}}
+			</div>
+		</div>
+	</div>
+	title 1 = <input type="text" ng-model="title1"><br/>
+	description 1 = <input type="text" ng-model="description1"><br/>
+	title 2 = <input type="text" ng-model="title2"><br/>
+	description 2 = <input type="text" ng-model="description2"><br/>
+						</pre>
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+	$scope.title1 = 'title1';
+	$scope.description1 = 'description1';
+	$scope.title2 = 'title2';
+	$scope.description2 = 'description2';
+
+						</pre>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+
+	</div>
+</div>

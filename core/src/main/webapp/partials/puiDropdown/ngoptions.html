@@ -1,0 +1,53 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiDropdown">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Integration with ng-options</header>
+
+			<select ng-model="selectedBasic" ng-options="f.name for f in friends" pui-dropdown >
+			</select>
+
+			<br/>Selected {{selectedBasic}}
+
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+	<select ng-model="selectedBasic" ng-options="f.name for f in friends" pui-dropdown >
+	</select>
+
+	<br/>Selected {{selectedBasic}}
+
+						</pre>
+
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+	$scope.selectedBasic = null;
+
+	$scope.friends =
+		[{name:'John', phone:'555-1212', age:10},
+		{name:'Mary', phone:'555-9876', age:19},
+		{name:'Mike', phone:'555-4321', age:21},
+		{name:'Adam', phone:'555-5678', age:35},
+		{name:'Julie', phone:'555-8765', age:29}];
+
+						</pre>
+
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>

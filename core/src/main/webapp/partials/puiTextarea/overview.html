@@ -1,0 +1,85 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiInput on &amp;lt;textarea &amp;gt;">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<fieldset id="description" pui-fieldset style="margin-bottom:20px">
+			<legend>Description</legend>
+			Extension to standard text area with skinning capabilities, autoresize, autocomplete and maximum number of characters.
+		</fieldset>
+		<fieldset id="supports" pui-fieldset style="margin-bottom:20px">
+			<legend>Supports</legend>
+			<ul>
+				<li>Auto resize when more rows are needed</li>
+				<li>Integration with ngDisabled</li>
+				<li>Autocomplete of words </li>
+				<li>Limit the number of characters and show the remaining count</li>
+			</ul>
+		</fieldset>
+		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
+			<legend>Known issues</legend>
+		</fieldset>
+		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
+			<legend>Planned</legend>
+		</fieldset>
+
+		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
+			<legend>Configuration</legend>
+			<table class="doc-table">
+				<thead>
+				<tr>
+					<th class="ui-state-default">Name</th>
+					<th class="ui-state-default">Type</th>
+					<th class="ui-state-default">Default</th>
+					<th class="ui-state-default">Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="ui-widget-content">
+					<td>autoResize</td>
+					<td>Boolean</td>
+					<td>false</td>
+					<td>Defines if textarea increase its size automatically.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>maxlength</td>
+					<td>Integer</td>
+					<td>null</td>
+					<td>Determines the maximum letters in textarea.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>display</td>
+					<td>string</td>
+					<td>null</td>
+					<td>JQuery selector that determines where the template is shown</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>template</td>
+					<td>String</td>
+					<td>'{0}'</td>
+					<td>Template the string which shows, how many letters left.</td>
+				</tr>
+				</tbody>
+				<tr class="ui-widget-content">
+					<td>minQueryLength</td>
+					<td>Integer</td>
+					<td>3</td>
+					<td>Number of characters to be typed to run a query.</td>
+				</tr>
+				</tbody>
+				<tr class="ui-widget-content">
+					<td>queryDelay</td>
+					<td>Integer</td>
+					<td>700</td>
+					<td>Delay in ms before sending each query.</td>
+				</tr>
+				</tbody>
+
+			</table>
+			pui-autocomplete directive can be used for autocomplete of words. It must point to a function (request, response) in the scope.
+		</fieldset>
+
+
+	</div>
+</div>

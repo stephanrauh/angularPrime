@@ -1,0 +1,59 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiGalleria">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<fieldset id="description" pui-fieldset style="margin-bottom:20px">
+			<legend>Description</legend>
+			Content gallery component featuring various customization options.
+		</fieldset>
+		<fieldset id="supports" pui-fieldset style="margin-bottom:20px">
+			<legend>Supports</legend>
+
+		</fieldset>
+		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
+			<legend>Known issues</legend>
+			<ul>
+				<li>No customization possible yet</li>
+			</ul>
+		</fieldset>
+		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
+			<legend>Planned</legend>
+			<ul>
+				<li>Custom content</li>
+				<li>Support for all options of PrimeUI widget</li>
+			</ul>
+		</fieldset>
+
+		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
+			<legend>Configuration</legend>
+			<table class="doc-table">
+				<thead>
+				<tr>
+					<th class="ui-state-default">Name</th>
+					<th class="ui-state-default">Type</th>
+					<th class="ui-state-default">Default</th>
+					<th class="ui-state-default">Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="ui-widget-content">
+					<td>panelWidth</td>
+					<td>integer</td>
+					<td>600</td>
+					<td>Width of the content panel.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>panelHeight</td>
+					<td>integer</td>
+					<td>400</td>
+					<td>Height of the content panel.</td>
+				</tr>
+				</tbody>
+			</table>
+		</fieldset>
+
+
+	</div>
+</div>

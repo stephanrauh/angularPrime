@@ -1,0 +1,59 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiInput on &amp;lt;input type='radio'&amp;gt;">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Integration with ng-change</header>
+			<table id="change">
+				<tr>
+					<td><input type="radio" pui-input ng-model="radioValue1" name="rd" id="rd1" value="1" ng-change="selectionMade()"/></td>
+					<td><label for="rd1">Option 1</label></td>
+				</tr>
+				<tr>
+					<td><input type="radio" pui-input ng-model="radioValue1" name="rd" id="rd2" value="2" ng-change="selectionMade()"/></td>
+					<td><label for="rd2">Option 2</label></td>
+				</tr>
+			</table>
+
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+	<table>
+		<tr>
+			<td><input type="radio" pui-input ng-model="radioValue1" name="rd" id="rd1" value="1" ng-change="selectionMade()"/></td>
+			<td><label for="rd1">Option 1</label></td>
+		</tr>
+		<tr>
+			<td><input type="radio" pui-input ng-model="radioValue1" name="rd" id="rd2" value="2" ng-change="selectionMade()"/></td>
+			<td><label for="rd2">Option 2</label></td>
+		</tr>
+	</table>
+						</pre>
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+	$scope.radioValue1 = null;
+
+	$scope.selectionMade = function () {
+		alert('Current selected value with radio button is '+$scope.radioValue1);
+	};
+
+						</pre>
+
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>

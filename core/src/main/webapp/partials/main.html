@@ -1,0 +1,59 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+	<div pui-panel title="Angular Prime {{version}}">
+		Based on PrimeUI version 0.9.5
+	</div>
+	<div pui-panel title="License">
+		<a href="#/license">Licensed under the Apache License, Version 2.0 (the "License");</a>
+	</div>
+	<div pui-panel title="History">
+		<ul>
+			<li>26/01/2013 -> v0.1: tryout of integration</li>
+			<li>13/03/2013 -> v0.2: first functional version. A lot of changes, not backwards compatible with v0.1</li>
+			<li>20/05/2013 -> v0.3: </li>
+			<li style="list-style-type:none">
+				<ul>
+					<li>puiGrowl improvements</li>
+                    <li>puiAccordion dynamic number of panels and 'included' fragments</li>
+                    <li>puiTabview dynamic number of panels and 'included' fragments</li>
+                    <li>puiPanel can be used to define panels within puiAccordion and puiTabview</li>
+                    <li>puiProgressbar widget from PrimeUI 0.9</li>
+                    <li>puiMenu widget from PrimeUI 0.9 (basic integration)</li>
+                    <li>puiMenubar widget from PrimeUI 0.9 (basic integration)</li>
+                    <li>puiBreadcrumb widget from PrimeUI 0.9</li>
+                    <li>puiLightbox dynamic number of items</li>
+				</ul>
+			</li>
+            <li>25/07/2013 -> v0.4: </li>
+            <li style="list-style-type:none">
+                <ul>
+                    <li>puiGrowl no longer accessible from $rootScope (breaking change)</li>
+                    <li>puiCheckbox directive for easier definition of checkbox input and support for ngShow and ngHide</li>
+                    <li>puiRadiobox directive for easier definition of radiobutton input and support for ngShow and ngHide</li>
+                    <li>puiDatatable widget from PrimeUI 0.9.5</li>
+                </ul>
+            </li>
+            <li>??/?/2013 -> v0.5: </li>
+            <li style="list-style-type:none">
+                <ul>
+                    <li>???</li>
+                </ul>
+            </li>
+		</ul>
+	</div>
+    <div pui-panel title="Thanks to">
+        AngularPrime would not be possible without
+        <ul>
+            <li>AngularJS <a href="http://angularjs.org" target="newWindow">(Google)</a></li>
+            <li>PrimeUI <a href="http://www.primefaces.org/prime-ui/" target="newWindow">(Çağatay Çivici and others from PrimeTek)</a></li>
+            <li>resources-optimizer-maven-plugin <a href="http://ovaraksin.blogspot.be/2011/12/maven-plugin-for-web-resource.html" target="newWindow">(Oleg Varaksin)</a></li>
+        </ul>
+        Demo application uses
+        <ul>
+            <li>google-code-prettify  <a href="http://code.google.com/p/google-code-prettify/" target="newWindow">(Mike Samuel and others)</a></li>
+        </ul>
+    </div>
+	<footer>
+		Demo running on AngularJS version {{angularVersion.full}} aka {{angularVersion.codeName}}
+	</footer>
+</div>

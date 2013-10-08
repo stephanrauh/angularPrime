@@ -1,0 +1,69 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiInput on &amp;lt;input type='checkbox'&amp;gt; and puiCheckbox">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<fieldset id="description" pui-fieldset style="margin-bottom:20px">
+			<legend>Description</legend>
+			Extends standard Checkbox with skinning capabilities.
+		</fieldset>
+		<fieldset id="supports" pui-fieldset style="margin-bottom:20px">
+			<legend>Supports</legend>
+			<ul>
+				<li>Integrated with checked attribute, when present it take precedence over the controller value.</li>
+				<li>Integrated with ng-disabled attribute</li>
+				<li>Integrated with ng-change so feedback possible when user selects or deselects checkbox</li>
+                <li>Integrated ng-true-value and ng-false-value, scope value can be a user defined String</li>
+                <li>High level directive puiCheckbox for easier creation of box with label.</li>
+                <li>Integration with ng-show and ng-hide only with pui-checkbox (no workaround needed)</li>
+			</ul>
+		</fieldset>
+		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
+			<legend>Known issues</legend>
+			<ul>
+				<li>ng-checked is not supported</li>
+			</ul>
+		</fieldset>
+        <fieldset id="fixes" pui-fieldset style="margin-bottom:20px">
+            <legend>History</legend>
+            <ul>
+                <li>0.4</li>
+                <li style="list-style-type:none">
+                    <ul>
+                        <li>High level directive puiCheckbox the include box and label</li>
+                        <li>Support for ng-show and ng-hide only with puiCheckbox</li>
+                    </ul>
+                </li>
+            </ul>
+        </fieldset>
+		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
+			<legend>Planned</legend>
+		</fieldset>
+
+		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
+			<legend>Configuration</legend>
+			<table class="doc-table">
+				<thead>
+				<tr>
+					<th class="ui-state-default">Name</th>
+					<th class="ui-state-default">Type</th>
+					<th class="ui-state-default">Default</th>
+					<th class="ui-state-default">Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="ui-widget-content">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>
+					</td>
+				</tr>
+			</tbody>
+			</table>
+		</fieldset>
+
+
+	</div>
+</div>

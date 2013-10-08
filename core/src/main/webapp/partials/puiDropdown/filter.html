@@ -1,0 +1,59 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiDropdown">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Allow filtering of options</header>
+
+			<select id="filter" pui-dropdown="{'filter' : true}" ng-model="selectedBasic">
+			    <option value="0">Select a City</option>
+			    <option value="1">Barcelona</option>
+			    <option value="2">Berlin</option>
+			    <option value="3">Istanbul</option>
+			    <option value="4">London</option>
+			    <option value="5">New York</option>
+			    <option value="6">Paris</option>
+			    <option value="7">Rome</option>
+			</select>
+			<br/>Selected index {{selectedBasic}}
+
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+	<select id="filter" pui-dropdown="{'filter' : true}" ng-model="selectedBasic">
+		<option value="0">Select a City</option>
+		<option value="1">Barcelona</option>
+		<option value="2">Berlin</option>
+		<option value="3">Istanbul</option>
+		<option value="4">London</option>
+		<option value="5">New York</option>
+		<option value="6">Paris</option>
+		<option value="7">Rome</option>
+	</select>
+	<br/>Selected index {{selectedBasic}}
+
+						</pre>
+
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+	$scope.selectedBasic = null;
+
+						</pre>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>

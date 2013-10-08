@@ -1,0 +1,52 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiMenu">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Default integration <span version="0.3"/></header>
+
+            <ul id="default" pui-menu>
+                <li><h3>File</h3></li>
+                <li> <a data-icon="ui-icon-document" ng-click="doCommand('new')">New</a></li>
+                <li> <a data-icon="ui-icon-folder-open" ng-click="doCommand('open')">Open</a></li>
+                <li><h3>Edit</h3></li>
+                <li> <a data-icon="ui-icon-arrowreturnthick-1-w" ng-click="doCommand('undo')">Undo</a></li>
+                <li> <a data-icon="ui-icon-arrowreturnthick-1-e" ng-click="doCommand('redo')">Redo</a></li>
+            </ul>
+        </section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+    <ul id="default" pui-menu>
+        <li><h3>File</h3></li>
+        <li> <a data-icon="ui-icon-document" ng-click="doCommand('new')">New</a></li>
+        <li> <a data-icon="ui-icon-folder-open" ng-click="doCommand('open')">Open</a></li>
+        <li><h3>Edit</h3></li>
+        <li> <a data-icon="ui-icon-arrowreturnthick-1-w" ng-click="doCommand('undo')">Undo</a></li>
+        <li> <a data-icon="ui-icon-arrowreturnthick-1-e" ng-click="doCommand('redo')">Redo</a></li>
+    </ul>
+						</pre>
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+    $scope.doCommand = function(commandText) {
+        alert("Click on item '"+commandText+"'");
+    };
+                        </pre>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+
+</div>

@@ -1,0 +1,58 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiMenubar">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+        <span version="0.3"/>
+		<fieldset id="description" pui-fieldset style="margin-bottom:20px">
+			<legend>Description</legend>
+            Shows menu in a bar layout.
+		</fieldset>
+		<fieldset id="supports" pui-fieldset style="margin-bottom:20px">
+			<legend>Supports</legend>
+			<ul>
+                <li>Themeable menu</li>
+                <li>Support for sub menu</li>
+			</ul>
+		</fieldset>
+		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
+			<legend>Known issues</legend>
+            <ul>
+                <li>When individual JavaScript files are used, the file for puiMenu is also needed.</li>
+            </ul>
+		</fieldset>
+		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
+			<legend>Planned</legend>
+            <ul>
+                <li>puiMenuItem directive for uniformization and easier encoding of menu</li>
+                <li>ng-disabled support on puiMenuItem</li>
+                <li>Menu 'model' that allows creation of menu based on JavaScript objects</li>
+            </ul>
+		</fieldset>
+
+		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
+			<legend>Configuration</legend>
+			<table class="doc-table">
+				<thead>
+				<tr>
+					<th class="ui-state-default">Name</th>
+					<th class="ui-state-default">Type</th>
+					<th class="ui-state-default">Default</th>
+					<th class="ui-state-default">Description</th>
+				</tr>
+				</thead>
+				<tbody>
+                <tr class="ui-widget-content">
+                    <td>autoDisplay</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td>Are submenus shown when hovered (true) or after a click (false)?
+                    </td>
+                </tr>
+    			</tbody>
+			</table>
+		</fieldset>
+
+
+	</div>
+</div>

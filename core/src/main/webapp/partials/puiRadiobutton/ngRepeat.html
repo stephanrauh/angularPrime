@@ -1,0 +1,74 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiInput on &amp;lt;input type='radio'&amp;gt;">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Integration with ng-repeat</header>
+			<table id="repeat">
+				<tr ng-repeat="option in options">
+					<td>
+						<input type="radio" ng-model="optionExample.selectedOptionValue" value="{{option.value}}"
+							   id="option-{{option.value}}" pui-input name="optionExample">
+					</td>
+					<td>
+						<label >{{option.description}}</label>
+					</td>
+				</tr>
+			</table>
+			Controller value = <span id="modelValue">{{optionExample.selectedOptionValue}}</span>
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+	<table>
+		<tr ng-repeat="option in options">
+			<td>
+				<input type="radio" ng-model="optionExample.selectedOptionValue" value="{{option.value}}"
+					id="option-{{option.value}}" pui-input name="optionExample">
+			</td>
+			<td>
+				<label >{{option.description}}</label>
+			</td>
+		</tr>
+	</table>
+	Controller value = {{optionExample.selectedOptionValue}}
+
+						</pre>
+
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+	$scope.optionExample = {
+		selectedOptionValue: null
+	};
+
+	$scope.options = [
+		{
+			value: "1", description: "Option 1"
+		},
+		{
+			value: "2", description: "Option 2"
+		},
+		{
+			value: "3", description: "Option 3"
+		}
+	];
+
+						</pre>
+
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>

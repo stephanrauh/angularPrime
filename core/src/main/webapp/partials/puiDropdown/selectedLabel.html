@@ -1,0 +1,50 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiDropdown">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Use the selected label and not the index</header>
+
+			<select id="label" pui-dropdown="{'useLabel' : true}" ng-model="selectedLabel">
+			    <option value="0">Select One</option>
+			    <option value="1">Option 1</option>
+			    <option value="2">Option 2</option>
+			    <option value="3">Option 3</option>
+			</select>
+			<br/>Selected value {{selectedLabel}}
+
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+	<select id="label" pui-dropdown="{'useLabel' : true}" ng-model="selectedLabel">
+		<option value="0">Select One</option>
+		<option value="1">Option 1</option>
+		<option value="2">Option 2</option>
+		<option value="3">Option 3</option>
+	</select>
+	<br/>Selected value {{selectedLabel}}
+
+						</pre>
+
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+	$scope.selectedLabel = null;
+						</pre>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>

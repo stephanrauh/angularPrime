@@ -1,0 +1,58 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiDatatable">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Paginator <span version="0.4"/></header>
+            <div pui-datatable="paginatedData"></div>
+
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+        <div pui-datatable="paginatedData"></div>
+
+						</pre>
+
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+
+    $scope.fixedData =  [
+        {'brand':'Volkswagen','year': 2012, 'color':'White', 'vin':'dsad231ff'},
+        {'brand':'Audi','year': 2011, 'color':'Black', 'vin':'gwregre345'},
+        {'brand':'Renault','year': 2005, 'color':'Gray', 'vin':'h354htr'},
+        {'brand':'Bmw','year': 2003, 'color':'Blue', 'vin':'j6w54qgh'},
+        {'brand':'Mercedes','year': 1995, 'color':'White', 'vin':'hrtwy34'},
+        {'brand':'Opel','year': 2005, 'color':'Black', 'vin':'jejtyj'},
+        {'brand':'Honda','year': 2012, 'color':'Yellow', 'vin':'g43gr'},
+        {'brand':'Chevrolet','year': 2013, 'color':'White', 'vin':'greg34'},
+        {'brand':'Opel','year': 2000, 'color':'Black', 'vin':'h54hw5'},
+        {'brand':'Mazda','year': 2013, 'color':'Red', 'vin':'245t2s'}
+    ];
+
+    $scope.paginatedData = {
+        tableData : $scope.fixedData
+        , paginatorRows : 4
+        , rowSelect: function(event, data) {
+            puiGrowl.showInfoMessage('Row selection', 'Selected a '+data.color+ ' '+data.brand+ ' of '+data.year +' (id = '+data.vin+')');
+        }
+    }
+						</pre>
+
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>

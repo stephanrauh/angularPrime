@@ -1,0 +1,55 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiInput on &amp;lt;input type='radio'&amp;gt;">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Setting selected radio button by code</header>
+			<table id="progSetting">
+				<tr>
+					<td><input type="radio" pui-input ng-model="radioValue2" name="rd" id="rd1" value="1"/></td>
+					<td><label for="rd1">Option 1</label></td>
+				</tr>
+				<tr>
+					<td><input type="radio" pui-input ng-model="radioValue2" name="rd" id="rd2" value="2"/></td>
+					<td><label for="rd2">Option 2</label></td>
+				</tr>
+			</table>
+			value =  <input type="text" ng-model="radioValue2" id="modelValue" /> Changing value sets selected radio button.
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+	<table>
+		<tr>
+			<td><input type="radio" pui-input ng-model="radioValue2" name="rd" id="rd1" value="1"/></td>
+			<td><label for="rd1">Option 1</label></td>
+		</tr>
+		<tr>
+			<td><input type="radio" pui-input ng-model="radioValue2" name="rd" id="rd2" value="2"/></td>
+			<td><label for="rd2">Option 2</label></td>
+		</tr>
+	</table>
+	value =  <input type="text" ng-model="radioValue2" /> Changing value sets selected radio button.
+
+						</pre>
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+	$scope.radioValue2 = 1;
+						</pre>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>

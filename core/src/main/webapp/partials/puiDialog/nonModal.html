@@ -1,0 +1,68 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiDialog">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Non modal dialog that can be minimized and maximized</header>
+			<button id="btn-show" type="button" ng-click="nonModalShowDlg()">Show</button>
+
+			 <div id="dlg" title="Godfather I" pui-dialog="nonModalDialogOptions" >
+			     <p>The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
+			     His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
+			     Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
+			     kind and benevolent to those who give respect,
+			     but given to ruthless violence whenever anything stands against the good of the family.</p>
+				 <button id="btn-close" type="button" ng-click="nonModalCloseDlg()" pui-button="{'icon': 'ui-icon-close'}">Close</button>
+			 </div>
+
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+	<button id="btn-show" type="button" ng-click="nonModalShowDlg()">Show</button>
+
+	<div id="dlg" title="Godfather I" pui-dialog="nonModalDialogOptions" >
+		<p>The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
+		...
+		but given to ruthless violence whenever anything stands against the good of the family.</p>
+		<button id="btn-close" type="button" ng-click="nonModalCloseDlg()" pui-button="{'icon': 'ui-icon-close'}">Close</button>
+	</div>
+
+						</pre>
+
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+	$scope.nonModalDialogOptions = {
+		dlgVisible : false
+		,modal : false
+		,minimizable: true
+		,maximizable: true
+	};
+
+	$scope.nonModalShowDlg = function() {
+		$scope.nonModalDialogOptions.dlgVisible = true;
+	};
+
+	$scope.nonModalCloseDlg = function() {
+		$scope.nonModalDialogOptions.dlgVisible = false;
+	};
+
+						</pre>
+
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>

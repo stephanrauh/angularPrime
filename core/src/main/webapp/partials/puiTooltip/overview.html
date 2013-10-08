@@ -1,0 +1,105 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiTooltip">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<fieldset id="description" pui-fieldset style="margin-bottom:20px">
+			<legend>Description</legend>
+			Tooltip widget goes beyond basic browser provided tooltips by feauturing various theming, effects, events and custom content support.
+		</fieldset>
+		<fieldset id="supports" pui-fieldset style="margin-bottom:20px">
+			<legend>Supports</legend>
+		</fieldset>
+		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
+			<legend>Known issues</legend>
+			<ul>
+				<li>When you define the location of the tooltip at 'left top' (at option), it is possible that tooltip isn't removed properly</li>
+				<li>You can't specify angular expressions in the content property when using the 'inline', option.  Only by referring to a scope property</li>
+				<li>When using Angular expressions in the title attribute, the default browser tooltip is also activated.</li>
+			</ul>
+		</fieldset>
+		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
+			<legend>Planned</legend>
+		</fieldset>
+
+		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
+			<legend>Configuration</legend>
+			<table class="doc-table">
+				<thead>
+				<tr>
+					<th class="ui-state-default">Name</th>
+					<th class="ui-state-default">Type</th>
+					<th class="ui-state-default">Default</th>
+					<th class="ui-state-default">Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="ui-widget-content">
+					<td>showEvent</td>
+					<td>string</td>
+					<td>mouseover</td>
+					<td>Event to show the tooltip.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>hideEvent</td>
+					<td>string</td>
+					<td>mouseout</td>
+					<td>Event to hide the tooltip.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>showEffect</td>
+					<td>string</td>
+					<td>fade</td>
+					<td>Effect to display when showing the tooltip.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>hideEffect</td>
+					<td>string</td>
+					<td>null</td>
+					<td>Effect to display when hiding the tooltip.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>showEffectSpeed</td>
+					<td>int/string</td>
+					<td>normal</td>
+					<td>Speed in milliseconds or keywords like slow, normal and fast.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>hideEffectSpeed</td>
+					<td>int/string</td>
+					<td>normal</td>
+					<td>Speed in milliseconds or keywords like slow, normal and fast.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>my</td>
+					<td>string</td>
+					<td>left top</td>
+					<td>Corner of tooltip relative to target.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>at</td>
+					<td>string</td>
+					<td>right bottom</td>
+					<td>Corner of target relative to tooltip.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>showDelay</td>
+					<td>int</td>
+					<td>150</td>
+					<td>Delay in milliseconds before showing the tooltip.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>content</td>
+					<td>string</td>
+					<td>undefined</td>
+					<td>Alternative content of the tooltip when you don't want to use the title attribute.</td>
+				</tr>
+
+				</tbody>
+			</table>
+		</fieldset>
+
+
+	</div>
+</div>

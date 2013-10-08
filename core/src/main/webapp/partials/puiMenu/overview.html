@@ -1,0 +1,89 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiMenu">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+        <span version="0.3"/>
+		<fieldset id="description" pui-fieldset style="margin-bottom:20px">
+			<legend>Description</legend>
+            Highly customizable navigation/command component that supports dynamic and static positioning.
+		</fieldset>
+		<fieldset id="supports" pui-fieldset style="margin-bottom:20px">
+			<legend>Supports</legend>
+			<ul>
+                <li>Themeable menu</li>
+                <li>Shown after button click or always visible</li>
+                <li>items can be 'grouped' under a title</li>
+                <li>Support for sub menu</li>
+                <li>Support for context menu (right click)</li>
+			</ul>
+		</fieldset>
+		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
+			<legend>Known issues</legend>
+            <ul>
+                <li>When context menu is bound to the page, it stays available on all pages of the application</li>
+            </ul>
+		</fieldset>
+		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
+			<legend>Planned</legend>
+            <ul>
+                <li>Customization of location where menu is shown when used as popup</li>
+                <li>Customization of trigger that shows popup menu (now always click)</li>
+                <li>puiMenuItem directive for uniformization and easier encoding of menu</li>
+                <li>ng-disabled support on puiMenuItem</li>
+                <li>Menu 'model' that allows creation of menu based on JavaScript objects</li>
+            </ul>
+		</fieldset>
+
+		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
+			<legend>Configuration</legend>
+			<table class="doc-table">
+				<thead>
+				<tr>
+					<th class="ui-state-default">Name</th>
+					<th class="ui-state-default">Type</th>
+					<th class="ui-state-default">Default</th>
+					<th class="ui-state-default">Description</th>
+                    <th class="ui-state-default">Comment</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="ui-widget-content">
+					<td>target</td>
+					<td>string</td>
+					<td></td>
+					<td>JQuery selector (like #id) of element that activates the popup menu.
+					</td>
+                    <td></td>
+				</tr>
+                <tr class="ui-widget-content">
+                    <td>autoDisplay</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td>Are submenus shown when hovered (true) or after a click (false)?
+                    </td>
+                    <td>Ignored when isContextMenu or isSlideMenu set to true or no sub menu items</td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>isContextMenu</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                    <td>Is this menu used as a context menu (right click)?
+                    </td>
+                    <td>Can't be combined with isSlideMenu.</td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>isSlideMenu</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                    <td>Are the sub menus shown by sliding them in?
+                    </td>
+                    <td>Can't be combined with isContextMenu</td>
+                </tr>
+    			</tbody>
+			</table>
+		</fieldset>
+
+
+	</div>
+</div>

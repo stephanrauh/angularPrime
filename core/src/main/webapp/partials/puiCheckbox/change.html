@@ -1,0 +1,40 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiInput on &amp;lt;input type='checkbox'&amp;gt;">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Integration with ng-change</header>
+
+			<input type="checkbox" id="chk4" ng-model="checkboxSelectedValue4" pui-input ng-change="checkboxClicked()"/><label for="chk4">Option 4</label><br/>
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+<input type="checkbox" id="chk4" ng-model="checkboxSelectedValue4" pui-input ng-change="checkboxClicked()"/><label for="chk4">Option 4</label>
+						</pre>
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+	$scope.checkboxSelectedValue4 = true;
+
+	$scope.checkboxClicked = function () {
+		alert("checkbox changed his state");
+	}
+
+						</pre>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>

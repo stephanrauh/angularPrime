@@ -1,0 +1,50 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiGrowl">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>No longer div needed <span version="0.3"/></header>
+            <button id="infoBtn" ng-click="showInfoGrowl()" type="button" >Info</button>
+            <button id="errorBtn" ng-click="showErrorGrowl()" type="button" >Error</button>
+            <button id="WarnBtn" ng-click="showWarnGrowl()" type="button" >Warn</button>
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+	<button ng-click="showInfoGrowl()" type="button" >Info</button>
+	<button ng-click="showErrorGrowl()" type="button" >Error</button>
+	<button ng-click="showWarnGrowl()" type="button" >Warn</button>
+
+						</pre>
+
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+	$scope.showInfoGrowl = function() {
+		$scope.showInfoMessage('Info message title', "Info detail message");
+	};
+
+	$scope.showErrorGrowl = function() {
+		$scope.showErrorMessage('Info message title', "Info detail message");
+	};
+
+	$scope.showWarnGrowl = function() {
+		$scope.showWarnMessage('Info message title', "Info detail message");
+	}
+						</pre>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>

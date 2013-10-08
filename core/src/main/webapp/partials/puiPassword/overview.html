@@ -1,0 +1,72 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiInput on &amp;lt;input type='password'&amp;gt;">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<fieldset id="description" pui-fieldset style="margin-bottom:20px">
+			<legend>Description</legend>
+			Password displays strength indicator for password fields.
+		</fieldset>
+		<fieldset id="supports" pui-fieldset style="margin-bottom:20px">
+			<legend>Supports</legend>
+			<ul>
+				<li>Customizable text messages</li>
+			</ul>
+		</fieldset>
+		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
+			<legend>Known issues</legend>
+		</fieldset>
+		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
+			<legend>Planned</legend>
+		</fieldset>
+
+		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
+			<legend>Configuration</legend>
+			<table class="doc-table">
+				<thead>
+				<tr>
+					<th class="ui-state-default">Name</th>
+					<th class="ui-state-default">Type</th>
+					<th class="ui-state-default">Default</th>
+					<th class="ui-state-default">Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="ui-widget-content">
+					<td>inline</td>
+					<td>boolean</td>
+					<td>false</td>
+					<td>Inline mode displays suggestions panel next to the field, not in a popup.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>promptLabel</td>
+					<td>string</td>
+					<td>Please enter a password</td>
+					<td>Text to prompt password entry.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>weakLabel</td>
+					<td>string</td>
+					<td>Weak</td>
+					<td>Text for a weak password.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>mediumLabel</td>
+					<td>string</td>
+					<td>Medium</td>
+					<td>Text for a medium password.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>strongLabel</td>
+					<td>string</td>
+					<td>Strong</td>
+					<td>Text for a strong password.</td>
+				</tr>
+				</tbody>
+			</table>
+		</fieldset>
+
+
+	</div>
+</div>

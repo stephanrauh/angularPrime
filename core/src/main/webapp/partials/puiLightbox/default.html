@@ -1,0 +1,77 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiLightbox">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Default integration</header>
+
+			PrimeUI way
+			<div id="images" pui-lightbox>
+			    <a href="demo/images/sopranos/sopranos1.jpg" title="One line about Sopranos 1">
+			        <img src="demo/images/sopranos/sopranos1_small.jpg" alt="Sopranos 1"/>
+			    </a>
+			    <a href="demo/images/sopranos/sopranos2.jpg" title="One line about Sopranos 2">
+			        <img src="demo/images/sopranos/sopranos2_small.jpg" alt="Sopranos 2"/>
+			    </a>
+			    <a href="demo/images/sopranos/sopranos3.jpg" title="One line about Sopranos 3">
+			        <img src="demo/images/sopranos/sopranos3_small.jpg" alt="Sopranos 3"/>
+			    </a>
+			    <a href="demo/images/sopranos/sopranos4.jpg" title="One line about Sopranos 4">
+			        <img src="demo/images/sopranos/sopranos4_small.jpg" alt="Sopranos 4"/>
+			    </a>
+			</div>
+
+			pui-lightbox-item way
+			<div id="images2" pui-lightbox>
+				<div pui-lightbox-item title="Sopranos 1" src="demo/images/sopranos/sopranos1_small.jpg">
+			        <img src="demo/images/sopranos/sopranos1.jpg" title="One line about Sopranos 1"/>
+			    </div>
+				<div pui-lightbox-item title="Sopranos 2" src="demo/images/sopranos/sopranos2_small.jpg">
+			        <img src="demo/images/sopranos/sopranos2.jpg" title="One line about Sopranos 2"/>
+			    </div>
+				<div pui-lightbox-item title="Sopranos 3" src="demo/images/sopranos/sopranos3_small.jpg">
+			        <img src="demo/images/sopranos/sopranos3.jpg" title="One line about Sopranos 3"/>
+			    </div>
+				<div pui-lightbox-item title="Sopranos 4" src="demo/images/sopranos/sopranos4_small.jpg">
+			        <img src="demo/images/sopranos/sopranos4.jpg" title="One line about Sopranos 4"/>
+			    </div>
+			</div>
+
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+	pui-lightbox-item way
+	<div id="images2" pui-lightbox>
+		<div pui-lightbox-item title="Sopranos 1" src="demo/images/sopranos/sopranos1_small.jpg">
+			<img src="demo/images/sopranos/sopranos1.jpg" title="One line about Sopranos 1"/>
+		</div>
+		<div pui-lightbox-item title="Sopranos 2" src="demo/images/sopranos/sopranos2_small.jpg">
+			<img src="demo/images/sopranos/sopranos2.jpg" title="One line about Sopranos 2"/>
+		</div>
+		<div pui-lightbox-item title="Sopranos 3" src="demo/images/sopranos/sopranos3_small.jpg">
+			<img src="demo/images/sopranos/sopranos3.jpg" title="One line about Sopranos 3"/>
+		</div>
+		<div pui-lightbox-item title="Sopranos 4" src="demo/images/sopranos/sopranos4_small.jpg">
+			<img src="demo/images/sopranos/sopranos4.jpg" title="One line about Sopranos 4"/>
+		</div>
+	</div>
+						</pre>
+					</div>
+					<div id="d_script">
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>

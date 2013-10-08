@@ -1,0 +1,109 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiDropdown">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<fieldset id="description" pui-fieldset style="margin-bottom:20px">
+			<legend>Description</legend>
+			 Dropdown with skinning capabilities, editing, effects, filtering and custom content display.
+		</fieldset>
+		<fieldset id="supports" pui-fieldset style="margin-bottom:20px">
+			<legend>Supports</legend>
+			<ul>
+				<li>Integrated with ng-disabled</li>
+				<li>Integrated with ng-options</li>
+				<li>Editable to input custom value</li>
+				<li>Dropdown items can be filtered</li>
+				<li>User callback function possible when selection is made</li>
+			</ul>
+		</fieldset>
+		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
+			<legend>Known issues</legend>
+
+		</fieldset>
+		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
+			<legend>Planned</legend>
+			<ul>
+				<li>Custom content functionality of PrimeUI Widget</li>
+				<li>Disabled option items</li>
+				<li>Source option of PrimeUI widget not supported</li>
+			</ul>
+		</fieldset>
+
+		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
+			<legend>Configuration</legend>
+			<table class="doc-table">
+				<thead>
+				<tr>
+					<th class="ui-state-default">Name</th>
+					<th class="ui-state-default">Type</th>
+					<th class="ui-state-default">Default</th>
+					<th class="ui-state-default">Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="ui-widget-content">
+					<td>editable</td>
+					<td>boolean</td>
+					<td>false</td>
+					<td>Allows entering a custom value in the 'dropdown' field</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>effect</td>
+					<td>string</td>
+					<td>fade</td>
+					<td>Animation to run on displaying the options overlay, refer to jQuery UI effect api for valid values.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>effectSpeed</td>
+					<td>int/string</td>
+					<td>normal</td>
+					<td>Duration in milliseconds or keywords like slow, normal and fast.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>filter</td>
+					<td>boolean</td>
+					<td>false</td>
+					<td>Adds a filter input at options panel when enabled.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>filterMatchMode</td>
+					<td>string</td>
+					<td>startsWith</td>
+					<td>Mode of filter, valid values are startsWith, contains, endsWith and custom.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>caseSensitiveFilter</td>
+					<td>boolean</td>
+					<td>false</td>
+					<td>Defines case sensitivity on filtering.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>filterFunction</td>
+					<td>function</td>
+					<td>null</td>
+					<td>Function to be used in custom filtering, this function gets option as parameter and needs to return a boolean.</td>
+				</tr>
+				<!--
+				<tr class="ui-widget-content">
+					<td>content</td>
+					<td>string</td>
+					<td>null</td>
+					<td>Content template of an item in overlay.</td>
+				</tr>
+				-->
+				<tr class="ui-widget-content">
+					<td>scrollHeight</td>
+					<td>integer</td>
+					<td>200</td>
+					<td>Maximum height boundary of overlay panel in pixels, if total height of items exceed this value, scrollbar is displayed.</td>
+				</tr>
+				</tbody>
+			</table>
+
+		</fieldset>
+
+
+	</div>
+</div>

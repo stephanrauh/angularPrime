@@ -1,0 +1,100 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiProgressbar">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+        <span version="0.3"/>
+		<fieldset id="description" pui-fieldset style="margin-bottom:20px">
+			<legend>Description</legend>
+            Process status indicator
+		</fieldset>
+		<fieldset id="supports" pui-fieldset style="margin-bottom:20px">
+			<legend>Supports</legend>
+			<ul>
+				<li>Themeable progressbar</li>
+                <li>Customizable label through template</li>
+                <li>Smooth transitions between current and next value</li>
+			</ul>
+		</fieldset>
+		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
+			<legend>Known issues</legend>
+		</fieldset>
+		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
+			<legend>Planned</legend>
+            <ul>
+                <li>Configurable minimum and maximum value</li>
+                <li>Customizable label through function</li>
+            </ul>
+		</fieldset>
+
+		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
+			<legend>Configuration</legend>
+            <table class="doc-table">
+                <thead>
+                <tr>
+                    <th class="ui-state-default">Type</th>
+                    <th class="ui-state-default">Default</th>
+                    <th class="ui-state-default">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="ui-widget-content">
+                    <td>number</td>
+                    <td></td>
+                    <td>Progress Bar value</td>
+                </tr>
+                </tbody>
+            </table>
+            When directive points to an object
+			<table class="doc-table">
+				<thead>
+				<tr>
+					<th class="ui-state-default">Name</th>
+					<th class="ui-state-default">Type</th>
+					<th class="ui-state-default">Default</th>
+					<th class="ui-state-default">Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="ui-widget-content">
+					<td>value</td>
+					<td>number</td>
+					<td>0</td>
+					<td>Progress Bar value
+					</td>
+				</tr>
+                <tr class="ui-widget-content">
+                    <td>labelTemplate</td>
+                    <td>string</td>
+                    <td>{value}%</td>
+                    <td>Progress Bar label template
+                    </td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>showLabel</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td>Shows label on ProgressBar
+                    </td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>easing</td>
+                    <td>string</td>
+                    <td>swing</td>
+                    <td>Optional easing to use in animation.
+                    </td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>effectSpeed</td>
+                    <td>int/string</td>
+                    <td>normal</td>
+                    <td>Speed in milliseconds or keywords like slow, normal and fast.
+                    </td>
+                </tr>
+				</tbody>
+			</table>
+		</fieldset>
+
+
+	</div>
+</div>

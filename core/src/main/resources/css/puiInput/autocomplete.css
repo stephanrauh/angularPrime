@@ -1,0 +1,82 @@
+.pui-autocomplete {
+    -moz-box-shadow: none;
+    cursor: pointer;
+    position: static;
+    width: auto;
+}
+.pui-autocomplete-query {
+    font-weight: bold;
+}
+.pui-autocomplete-panel {
+    overflow: auto;
+    position: absolute;
+}
+.pui-autocomplete-panel .pui-autocomplete-list {
+    border: 0 none;
+    padding: 0.4em;
+}
+.pui-autocomplete-panel .pui-autocomplete-list-item {
+    border: 0 none;
+    cursor: pointer;
+    font-weight: normal;
+    margin: 1px 0;
+    padding: 3px 5px;
+    text-align: left;
+}
+.pui-autocomplete-panel .pui-autocomplete-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+.pui-autocomplete-panel .pui-autocomplete-table td {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 1px;
+    padding: 4px 10px;
+}
+.pui-autocomplete .ui-button-icon-only .ui-button-text {
+    padding: 0.29em;
+}
+.pui-autocomplete-multiple {
+    clear: left;
+    cursor: text;
+    list-style-type: none;
+    margin: 0;
+    min-height: 1px;
+    overflow: hidden;
+    padding: 0;
+    width: 400px;
+}
+.pui-autocomplete-token {
+    cursor: default;
+    float: left;
+    margin: 2px;
+    overflow: hidden;
+    padding: 1px 3px;
+    position: relative;
+    white-space: nowrap;
+}
+.pui-autocomplete-token-label {
+    display: block;
+    padding: 0 2.1em 0 0.5em;
+}
+.pui-autocomplete-token-icon {
+    cursor: pointer;
+    margin-top: -9px;
+    position: absolute;
+    right: 0.2em;
+    top: 50%;
+}
+.pui-autocomplete-input-token {
+    float: left;
+    list-style-type: none;
+    margin: 1px;
+    padding: 0;
+}
+.pui-autocomplete-input-token .pui-inputtext {
+    background-color: transparent;
+    border: 0 none;
+    margin: 0;
+    outline: medium none;
+    padding: 4px;
+    width: 140px;
+}

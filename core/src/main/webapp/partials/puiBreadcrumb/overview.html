@@ -1,0 +1,115 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiBreadcrumb">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+        <span version="0.3"/>
+		<fieldset id="description" pui-fieldset style="margin-bottom:20px">
+			<legend>Description</legend>
+            Provides contextual information about page hierarchy.
+		</fieldset>
+		<fieldset id="supports" pui-fieldset style="margin-bottom:20px">
+			<legend>Supports</legend>
+			<ul>
+                <li>Themeable breadcrumb</li>
+                <li>First level can be shown as an icon, which is customizable</li>
+                <li>Dynamic items as widget can be based on an array of JavaScript objects</li>
+			</ul>
+		</fieldset>
+		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
+			<legend>Known issues</legend>
+		</fieldset>
+		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
+			<legend>Planned</legend>
+		</fieldset>
+
+		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
+			<legend>Configuration</legend>
+            <table class="doc-table">
+                <thead>
+                <tr>
+                    <th class="ui-state-default">Type</th>
+                    <th class="ui-state-default">Default</th>
+                    <th class="ui-state-default">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="ui-widget-content">
+                    <td>Array of Object</td>
+                    <td>null</td>
+                    <td>Objects that define the items in the breadcrumb</td>
+                </tr>
+                </tbody>
+            </table>
+            When directive points to an object
+			<table class="doc-table">
+				<thead>
+				<tr>
+					<th class="ui-state-default">Name</th>
+					<th class="ui-state-default">Type</th>
+					<th class="ui-state-default">Default</th>
+					<th class="ui-state-default">Description</th>
+				</tr>
+				</thead>
+				<tbody>
+                <tr class="ui-widget-content">
+                    <td>autoDisplay</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td>Are submenus shown when hovered (true) or after a click (false)?
+                    </td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>items</td>
+                    <td>Array of Object</td>
+                    <td>null</td>
+                    <td>Objects that define the items in the breadcrumb</td>
+                </tr>
+    			</tbody>
+			</table>
+            <br/>
+            Structure of the Javascript object that defines the Breadcrumb object
+            <table class="doc-table">
+                <thead>
+                <tr>
+                    <th class="ui-state-default">Name</th>
+                    <th class="ui-state-default">Type</th>
+                    <th class="ui-state-default">Default - Required?</th>
+                    <th class="ui-state-default">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="ui-widget-content">
+                    <td>id</td>
+                    <td>string</td>
+                    <td>null - required</td>
+                    <td>(unique) id that identifies the li instance for this item. Can also be used for the click action</td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>label</td>
+                    <td>string</td>
+                    <td>null - required</td>
+                    <td>Text to be displayed by the breadcrumb item</td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>onclick</td>
+                    <td>string</td>
+                    <td>null - optional</td>
+                    <td>Signature of the function that needs to be executed when item is clicked. When no value is specified,
+                    the item is nog clickable (see also globalAction). The value can contain the placeholder {id} which will be replaced by the
+                    id. example <span style="font-style:italic;">doCommand('{id}') </span>.</td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>globalAction</td>
+                    <td>boolean</td>
+                    <td>false - optional</td>
+                    <td>When true, the onclick value specified on this item will be used for lower levels items when no onclick is given</td>
+                </tr>
+                </tbody>
+            </table>
+
+		</fieldset>
+
+
+	</div>
+</div>

@@ -1,0 +1,80 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiPanel">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<fieldset id="description" pui-fieldset style="margin-bottom:20px">
+			<legend>Description</legend>
+			Grouping component providing with content toggle and close features.
+		</fieldset>
+		<fieldset id="supports" pui-fieldset style="margin-bottom:20px">
+			<legend>Supports</legend>
+			<ul>
+				<li>Toggling and closing can be specified in the view or in the controller</li>
+				<li>Title attribute supports AngularJS expressions</li>
+				<li>Collapsing and expanding panel can be triggered programmatic</li>
+				<li>Toggle orientation and speed and closing speed can be configured.</li>
+			</ul>
+		</fieldset>
+		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
+			<legend>Known issues</legend>
+		</fieldset>
+		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
+			<legend>Planned</legend>
+			<ul>
+				<li>Callbacks called for triggers collapse/expand/close</li>
+			</ul>
+		</fieldset>
+
+		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
+			<legend>Configuration</legend>
+			<table class="doc-table">
+				<thead>
+				<tr>
+					<th class="ui-state-default">Name</th>
+					<th class="ui-state-default">Type</th>
+					<th class="ui-state-default">Default</th>
+					<th class="ui-state-default">Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="ui-widget-content">
+					<td>collapsed</td>
+					<td>Boolean</td>
+					<td>undefined</td>
+					<td>If specified, content of panel can be expanded and collapsed and determines the initial state. When option is specified in the controller, changing the
+						controller value changes the screen appearance.
+					</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>closable</td>
+					<td>Boolean</td>
+					<td>false</td>
+					<td>Defines if content of panel can be hidden using close option (irreversible action).</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>toggleOrientation</td>
+					<td>String</td>
+					<td>vertical</td>
+					<td>Defines orientation of toggle direction, valid values are "vertical" and "horizontal".</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>toggleDuration</td>
+					<td>Number/String</td>
+					<td>normal</td>
+					<td>Defines the duration of the toggle effect, valid values are "slow", "normal", "fast" or a number in milliseconds.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>closeDuration</td>
+					<td>Number/String</td>
+					<td>normal</td>
+					<td>Defines the duration of the close effect, valid values are "slow", "normal", "fast" or a number in milliseconds.</td>
+				</tr>
+				</tbody>
+			</table>
+		</fieldset>
+
+
+	</div>
+</div>

@@ -1,0 +1,58 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiAccordion">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Accordion panels included<span version="0.3"/></header>
+
+			<div id="default" pui-accordion="includeList">
+			</div>
+            data field1: {{distributedData.field1}} <br/>
+            data field2: {{distributedData.field2}} <br/>
+            data field3: {{distributedData.field3}} <br/>
+            <button type="button" ng-click="addPanel()">Add panel</button>
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+    <div id="default" pui-accordion="includeList">
+    </div>
+    data field1: {{distributedData.field1}} <br/>
+    data field2: {{distributedData.field2}} <br/>
+    data field3: {{distributedData.field3}} <br/>
+    <button type="button" ng-click="addPanel()">Add panel</button>
+						</pre>
+					</div>
+					<div id="d_script">
+                        <pre pretty-print="js" >
+    $scope.includeList = ["partials/puiAccordion/include/panel1.html"
+        , "partials/puiAccordion/include/panel2.html"];
+
+    $scope.distributedData = {
+        field1: "field1"
+        , field2: "field2"
+        , field3: "field3"
+    };
+
+    $scope.addPanel = function() {
+        $scope.includeList.push("partials/puiAccordion/include/panel3.html");
+    }
+                        </pre>
+
+					</div>
+				</div>
+			</div>
+		</fieldset>
+
+	</div>
+</div>

@@ -1,0 +1,57 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiButton">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<fieldset id="description" pui-fieldset style="margin-bottom:20px">
+			<legend>Description</legend>
+			Button provides styling over native button elements.
+		</fieldset>
+		<fieldset id="supports" pui-fieldset style="margin-bottom:20px">
+			<legend>Supports</legend>
+			<ul>
+				<li>Themeable buttons</li>
+				<li>Integrated with the ng-disabled attribute</li>
+				<li>Support for icons</li>
+				<li>Dynamic value using Angular Expressions</li>
+			</ul>
+		</fieldset>
+		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
+			<legend>Known issues</legend>
+		</fieldset>
+		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
+			<legend>Planned</legend>
+		</fieldset>
+
+		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
+			<legend>Configuration</legend>
+			<table class="doc-table">
+				<thead>
+				<tr>
+					<th class="ui-state-default">Name</th>
+					<th class="ui-state-default">Type</th>
+					<th class="ui-state-default">Default</th>
+					<th class="ui-state-default">Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="ui-widget-content">
+					<td>icon</td>
+					<td>String</td>
+					<td>null</td>
+					<td>Defines the icon of the button. (from theme)</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>iconPos</td>
+					<td>String</td>
+					<td>left</td>
+					<td>Position of the icon, valid values are "left" and "right".</td>
+				</tr>
+				</tbody>
+			</table>
+		</fieldset>
+
+
+	</div>
+</div>

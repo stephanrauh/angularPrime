@@ -1,0 +1,114 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiTabview">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<fieldset id="description" pui-fieldset style="margin-bottom:20px">
+			<legend>Description</legend>
+			Tabbed panel component featuring client side tabs
+		</fieldset>
+		<fieldset id="supports" pui-fieldset style="margin-bottom:20px">
+			<legend>Supports</legend>
+			<ul>
+				<li>Themeable panel components</li>
+				<li>Title can be on top or on the left, also definable by angular expressions</li>
+				<li>Tabs can be removed</li>
+				<li>Programmatic setting the active tab</li>
+				<li>User callback when tab is selected</li>
+                <li>Panel can be in an included file.</li>
+                <li>Support for changing number of tabs dynamically</li>
+                <li>puiPanel can be used to define the panel</li>
+			</ul>
+		</fieldset>
+		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
+			<legend>Known issues</legend>
+		</fieldset>
+        <fieldset id="fixes" pui-fieldset style="margin-bottom:20px">
+            <legend>History</legend>
+            <ul>
+                <li>0.3</li>
+                <li style="list-style-type:none">
+                    <ul>
+                        <li>Support for tab panels from included files</li>
+                        <li>Number of tabs can be changed dynamically</li>
+                        <li>puiPanel can be used to define the panel</li>
+                    </ul>
+                </li>
+            </ul>
+        </fieldset>
+		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
+			<legend>Planned</legend>
+			<ul>
+				<li>Support of effects</li>
+                <li>Lazy loading</li>
+			</ul>
+		</fieldset>
+
+		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
+			<legend>Configuration</legend>
+            <table class="doc-table">
+                <thead>
+                <tr>
+                    <th class="ui-state-default">Type</th>
+                    <th class="ui-state-default">Default</th>
+                    <th class="ui-state-default">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="ui-widget-content">
+                    <td>Array of String</td>
+                    <td>null</td>
+                    <td>URL's of the included files as panel</td>
+                </tr>
+                </tbody>
+            </table>
+            When directive points to an object
+			<table class="doc-table">
+				<thead>
+				<tr>
+					<th class="ui-state-default">Name</th>
+					<th class="ui-state-default">Type</th>
+					<th class="ui-state-default">Default</th>
+					<th class="ui-state-default">Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="ui-widget-content">
+					<td>orientation</td>
+					<td>String</td>
+					<td>top</td>
+					<td>Orientation of tab headers, "top" or "left"</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>closeable</td>
+					<td>Boolean</td>
+					<td>false</td>
+					<td>Can a tab be closed by the end user</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>callback</td>
+					<td>function(index)</td>
+					<td>undefined</td>
+					<td>Callback function when user activate a tab.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>activeElement</td>
+					<td>int</td>
+					<td>0</td>
+					<td>The active tab in the view.</td>
+				</tr>
+                <tr class="ui-widget-content">
+                    <td>urls</td>
+                    <td>Array of String</td>
+                    <td>null</td>
+                    <td>URL's of the included files as tab</td>
+                </tr>
+				</tbody>
+			</table>
+		</fieldset>
+
+
+
+	</div>
+</div>

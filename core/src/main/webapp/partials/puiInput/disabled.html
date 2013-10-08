@@ -1,0 +1,54 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiInput">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Integration with ng-disabled</header>
+
+			<input id="disabled" type="text" pui-input ng-model="value1" ng-disabled="fieldDisabled"/><br/>
+			<br/>
+			<button ng-click="enableField()" type="button" ng-show="fieldDisabled" id="enableBtn">Enable</button>
+			<button ng-click="disableField()" type="button" ng-hide="fieldDisabled" id="disableBtn">Disable</button>
+
+
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+	<input id="default" type="text" pui-input ng-model="value1" ng-disabled="fieldDisabled"/><br/>
+	<br/>
+	<button ng-click="enableField()" type="button" ng-show="fieldDisabled">Enable</button>
+	<button ng-click="disableField()" type="button" ng-hide="fieldDisabled">Disable</button>
+
+						</pre>
+
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+	$scope.fieldDisabled = true;
+
+	$scope.enableField = function() {
+		$scope.fieldDisabled = false;
+	};
+
+	$scope.disableField = function() {
+		$scope.fieldDisabled =  true;
+	};
+						</pre>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+
+	</div>
+</div>

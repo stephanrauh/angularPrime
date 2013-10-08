@@ -1,0 +1,65 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiLightbox">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<fieldset id="description" pui-fieldset style="margin-bottom:20px">
+			<legend>Description</legend>
+			Modal overlay component to display images, videos, inline html content and iframes.
+		</fieldset>
+		<fieldset id="supports" pui-fieldset style="margin-bottom:20px">
+			<legend>Supports</legend>
+            <ul>
+                <li>Dynamic number of items by watching JavaScript array</li>
+            </ul>
+		</fieldset>
+		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
+			<legend>Known issues</legend>
+
+		</fieldset>
+        <fieldset id="fixes" pui-fieldset style="margin-bottom:20px">
+            <legend>History</legend>
+            <ul>
+                <li>0.3</li>
+                <li style="list-style-type:none">
+                    <ul>
+                        <li>Dynamic number of items </li>
+                    </ul>
+                </li>
+            </ul>
+        </fieldset>
+		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
+			<legend>Planned</legend>
+		</fieldset>
+
+		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
+			<legend>Configuration</legend>
+			<table class="doc-table">
+				<thead>
+				<tr>
+					<th class="ui-state-default">Name</th>
+					<th class="ui-state-default">Type</th>
+					<th class="ui-state-default">Default</th>
+					<th class="ui-state-default">Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="ui-widget-content">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				</tbody>
+			</table>
+			When pui-lightbox placed on &lt;a&gt; tag -> iframe mode <br/>
+			For the images and inline mode, the easiest way is to use one or more &lt;div&gt; tags with pui-lightbox-item.<br/>
+			See the examples for usages.
+
+
+		</fieldset>
+
+
+	</div>
+</div>

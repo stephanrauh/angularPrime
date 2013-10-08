@@ -1,0 +1,138 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiDialog">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<fieldset id="description" pui-fieldset style="margin-bottom:20px">
+			<legend>Description</legend>
+			A container component that can overlay other elements on page. Dialog has several customization options such as modal, resize, width and height.
+		</fieldset>
+		<fieldset id="supports" pui-fieldset style="margin-bottom:20px">
+			<legend>Supports</legend>
+			<ul>
+				<li>Modal an non modal overlay</li>
+				<li>Show and hide effects</li>
+				<li>Close when 'esc' is pressed</li>
+			</ul>
+		</fieldset>
+		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
+			<legend>Known issues</legend>
+			<ul>
+				<li>effectOptions, rtl, appendTo and buttons from PrimeUI widget is not supported</li>
+			</ul>
+		</fieldset>
+		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
+			<legend>Planned</legend>
+		</fieldset>
+
+		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
+			<legend>Configuration</legend>
+			<table class="doc-table">
+				<thead>
+				<tr>
+					<th class="ui-state-default">Name</th>
+					<th class="ui-state-default">Type</th>
+					<th class="ui-state-default">Default</th>
+					<th class="ui-state-default">Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="ui-widget-content">
+					<td>draggable</td>
+					<td>Boolean</td>
+					<td>true</td>
+					<td>Enables dragging using header.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>resizable</td>
+					<td>Boolean</td>
+					<td>false</td>
+					<td>Enables content resizing.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>location</td>
+					<td>Boolean</td>
+					<td>center</td>
+					<td>Defines the position of the dialog, valid values are combination of "left", "right", "top", "bottom" like "left right" or absolute coordinates like "50,150".</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>width</td>
+					<td>int</td>
+					<td>300</td>
+					<td>Width of the dialog.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>height</td>
+					<td>int</td>
+					<td>auto</td>
+					<td>Height of the dialog.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>minWidth</td>
+					<td>int</td>
+					<td>150</td>
+					<td>Minimum width of a resizable dialog.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>minHeight</td>
+					<td>int</td>
+					<td>25</td>
+					<td>Minimum height of a resizable dialog.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>modal</td>
+					<td>boolean</td>
+					<td>true</td>
+					<td>Defines if background should be blocked.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>showEffect</td>
+					<td>string</td>
+					<td>fade</td>
+					<td>Effect to run to show the dialog.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>hideEffect</td>
+					<td>string</td>
+					<td>fade</td>
+					<td>Effect to run to hide the dialog.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>effectSpeed</td>
+					<td>string</td>
+					<td>normal</td>
+					<td>Speed of the animation in milliseconds or predefined values like slow, normal and fast.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>closeOnEscape</td>
+					<td>boolean</td>
+					<td>true</td>
+					<td>Specifies if pressing escape key should hide the dialog.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>closable</td>
+					<td>boolean</td>
+					<td>true</td>
+					<td>Adds a close icon to the header to hide the dialog.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>minimizable</td>
+					<td>boolean</td>
+					<td>false</td>
+					<td>Adds a toggle icon to the header to minimize the dialog.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>maximizable</td>
+					<td>boolean</td>
+					<td>false</td>
+					<td>Adds a toggle icon to the header to maximize the dialog.</td>
+				</tr>
+				</tbody>
+			</table>
+
+		</fieldset>
+
+
+	</div>
+</div>

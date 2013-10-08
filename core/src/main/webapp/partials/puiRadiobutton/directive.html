@@ -1,0 +1,54 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiInput on &amp;lt;input type='radio'&amp;gt;">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+            <style>
+                .pui-radiobutton {
+                    display: inline-block !important;
+                    margin-right: 5px;
+                }
+
+                .pui-radiobutton .pui-radiobutton-box {
+                    display: inline-block !important;
+                }
+            </style>
+			<header>puiRadiobox directive <span version="0.4"/></header>
+            <div id="directiveExample">
+                <span pui-radiobutton="Option 1" ng-model="radioValue1" name="rd" id="rd1" value="1"></span> <br/>
+
+                <span pui-radiobutton="Option 2" ng-model="radioValue1" name="rd" id="rd2" value="2"></span> <br/>
+
+                Controller value = <span id="modelValue">{{radioValue1}}</span>
+            </div>
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+    <span pui-radiobutton="Option 1" ng-model="radioValue1" name="rd" id="rd1" value="1" ></span> <br/>
+
+    <span pui-radiobutton="Option 2" ng-model="radioValue1" name="rd" id="rd2" value="2" ></span> <br/>
+	Controller value = {{radioValue1}}
+						</pre>
+
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+	$scope.radioValue1 = null;
+						</pre>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>

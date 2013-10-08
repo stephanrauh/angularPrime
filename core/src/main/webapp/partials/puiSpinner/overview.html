@@ -1,0 +1,78 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiSpinner">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<fieldset id="description" pui-fieldset style="margin-bottom:20px">
+			<legend>Description</legend>
+			Input component to provide a numerical input via increment and decrement buttons.
+		</fieldset>
+		<fieldset id="supports" pui-fieldset style="margin-bottom:20px">
+			<legend>Supports</legend>
+			<ul>
+				<li>Integrated with theme</li>
+				<li>Support for keyboard and mouse wheel</li>
+				<li>Integrated with ng-disabled and ng-change</li>
+				<li>Prefix and postfix can be defined</li>
+			</ul>
+		</fieldset>
+		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
+			<legend>Known issues</legend>
+			<ul>
+				<li>When using prefix/suffix, it is only shown when you leave the field.</li>
+			</ul>
+		</fieldset>
+		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
+			<legend>Planned</legend>
+		</fieldset>
+
+		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
+			<legend>Configuration</legend>
+			<table class="doc-table">
+				<thead>
+				<tr>
+					<th class="ui-state-default">Name</th>
+					<th class="ui-state-default">Type</th>
+					<th class="ui-state-default">Default</th>
+					<th class="ui-state-default">Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="ui-widget-content">
+					<td>step</td>
+					<td>Double</td>
+					<td>1.0</td>
+					<td>Step factor to increment/decrement.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>min</td>
+					<td>Double</td>
+					<td>undefined</td>
+					<td>Minimum value when using the decrement button</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>max</td>
+					<td>Double</td>
+					<td>undefined</td>
+					<td>Maximum value when using the increment button</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>prefix</td>
+					<td>String</td>
+					<td>undefined</td>
+					<td>Prefix for the value when blur event occurs</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>suffix</td>
+					<td>String</td>
+					<td>undefined</td>
+					<td>Suffix for the value when blur event occurs</td>
+				</tr>
+				</tbody>
+			</table>
+		</fieldset>
+
+
+	</div>
+</div>

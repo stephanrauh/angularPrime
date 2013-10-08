@@ -1,0 +1,32 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiTooltip">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Combination of tooltip with other directives</header>
+			<button type="button" title="Tooltip for the AngularPrime button" pui-button pui-tooltip>Save</button>
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+	<button type="button" title="Tooltip for the AngularPrime button" pui-button pui-tooltip>Save</button>
+						</pre>
+
+					</div>
+					<div id="d_script">
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>

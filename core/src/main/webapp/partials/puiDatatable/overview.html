@@ -1,0 +1,202 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiDatatable">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+        <span version="0.4"/>
+		<fieldset id="description" pui-fieldset style="margin-bottom:20px">
+			<legend>Description</legend>
+            Datatable displays data in tabular format. Pagination, Sorting, Selection are built-in features supporting both local and remote data.
+		</fieldset>
+		<fieldset id="supports" pui-fieldset style="margin-bottom:20px">
+			<legend>Supports</legend>
+			<ul>
+				<li>Themeable table representation of data</li>
+                <li>Takes javascript array or function to supply data</li>
+                <li>Autodetection of columns based on properties of first object in array</li>
+                <li>Callback executed when row selected</li>
+                <li>Columns (properties of object) to show can be defined with nested pui-column directive</li>
+                <li>Sortable columns</li>
+                <li>Pagination of table</li>
+                <li>Table caption and column headers definable</li>
+                <li>Multiple row selection</li>
+                <li>Programmatic setting selected row(s) and page</li>
+			</ul>
+		</fieldset>
+		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
+			<legend>Known issues</legend>
+			<ul>
+				<li>When you sort on a column, you loose the selection (PrimeUI code)</li>
+			</ul>
+		</fieldset>
+		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
+			<legend>Planned</legend>
+            <ul>
+                <li>Integrate options of PrimeUI Paginator (like template)</li>
+            </ul>
+		</fieldset>
+
+		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
+			<legend>Configuration</legend>
+            <table class="doc-table">
+                <thead>
+                <tr>
+                    <th class="ui-state-default">Type</th>
+                    <th class="ui-state-default">Default</th>
+                    <th class="ui-state-default">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="ui-widget-content">
+                    <td>Array of Object</td>
+                    <td>null</td>
+                    <td>Each object is shown on a table row where properties of first object are used as columns. No selection, sorting or pagination</td>
+                </tr>
+                </tbody>
+            </table>
+            <br/>
+            <table class="doc-table">
+                <thead>
+                <tr>
+                    <th class="ui-state-default">Type</th>
+                    <th class="ui-state-default">Default</th>
+                    <th class="ui-state-default">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="ui-widget-content">
+                    <td>function (callback)</td>
+                    <td>null</td>
+                    <td>Result of function should be an array of objects that make up the table data. First object properties are used as columns. No selection, sorting or pagination</td>
+                </tr>
+                </tbody>
+            </table>
+            When directive points to an object
+			<table class="doc-table">
+				<thead>
+				<tr>
+					<th class="ui-state-default">Name</th>
+					<th class="ui-state-default">Type</th>
+					<th class="ui-state-default">Default</th>
+					<th class="ui-state-default">Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="ui-widget-content">
+					<td>tableData</td>
+					<td>Array of objects / function(callback)</td>
+					<td>null</td>
+					<td>Data to shown as an array of objects or function that supplies (remotely) the info.</td>
+				</tr>
+                <tr class="ui-widget-content">
+                    <td>columns</td>
+                    <td>Array of String / Array of Object</td>
+                    <td>null</td>
+                    <td>Information about the columns to shown. See below</td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>rowSelect</td>
+                    <td>function(event, data)</td>
+                    <td>null</td>
+                    <td>When specified, it activates the selection possibilities and function is called when user selects a row in the table.</td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>rowUnselect</td>
+                    <td>function(event, data)</td>
+                    <td>null</td>
+                    <td>When specified, it is called when user deselects a row in the table. No effect when selection options is not activated (rowSelect or selectionMode specified)</td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>selectionMode</td>
+                    <td>String</td>
+                    <td>null</td>
+                    <td>Determines if only one (value single) or multiple rows can be selected. If rowSelect function specified and no value for this option, the default of 'single' is taken</td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>paginatorRows</td>
+                    <td>int</td>
+                    <td>null</td>
+                    <td>When specified, it activates the paginator possibilities and it shows the data data with n rows at a time</td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>selectedData</td>
+                    <td>Array of int</td>
+                    <td>null</td>
+                    <td>Array containing the indices of the selected rows in the data table. When value is programmatic changed, visual row selection is updated on screen.
+                    It takes into account the selectionMode specified and works in combination with the user selection.</td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>selectedPage</td>
+                    <td>int</td>
+                    <td>null</td>
+                    <td>Only valid in combination with paginatorRows option. It contains the index (0 based) of the selected page in the paginator.
+                        When value is programmatic changed, the page selection on screen is also updated (and thus showing other set of rows)
+                    </td>
+                </tr>
+
+
+				</tbody>
+			</table>
+
+            <h3>column definition</h3>
+            Column information isn't needed but when specified, this is the where the information is taken from.
+            <ol>
+                <li>Child elements with pui-column directive on</li>
+                <li>columns property of the object referred to in the pui-datatable directive</li>
+                <li>Autodetect from the first object in the data</li>
+            </ol>
+
+            <h3>pui-column directive</h3>
+            <table class="doc-table">
+                <thead>
+                <tr>
+                    <th class="ui-state-default">Type</th>
+                    <th class="ui-state-default">Default</th>
+                    <th class="ui-state-default">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="ui-widget-content">
+                    <td>String</td>
+                    <td>null</td>
+                    <td>Name of the property of the object to show. It will also be the name of the column title. No sorting options.</td>
+                </tr>
+                </tbody>
+            </table>
+            When directive points to an object
+            <table class="doc-table">
+                <thead>
+                <tr>
+                    <th class="ui-state-default">Name</th>
+                    <th class="ui-state-default">Type</th>
+                    <th class="ui-state-default">Default</th>
+                    <th class="ui-state-default">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="ui-widget-content">
+                    <td>field</td>
+                    <td>String</td>
+                    <td>null</td>
+                    <td>Required, name of the property to show in this column</td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>headerText</td>
+                    <td>String</td>
+                    <td>null</td>
+                    <td>Name of column header. When not specified, no header text is displayed</td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>sortable</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                    <td>Is the data in the table sortable by this column.</td>
+                </tr>
+                </tbody>
+            </table>
+
+		</fieldset>
+
+
+	</div>
+</div>

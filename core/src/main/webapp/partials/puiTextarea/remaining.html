@@ -1,0 +1,40 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiInput on &amp;lt;textarea &amp;gt;">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Maximum number of characters and indication number remaining</header>
+
+			<textarea id="basic" rows="5" cols="30" pui-input="{'display': '#display', 'template' : '{0} chars remaining.', 'maxLength' : 20}" ng-model="value1"></textarea>
+			<span id="display" ></span>
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+	<textarea id="basic" rows="5" cols="30" pui-input="{'display': '#display', 'template' : '{0} chars remaining.', 'maxLength' : 20}" ng-model="value1"></textarea>
+	<span id="display" ></span>
+
+						</pre>
+
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+	$scope.value1 = 'Change me';
+						</pre>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+
+	</div>
+</div>

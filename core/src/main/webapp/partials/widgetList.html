@@ -1,0 +1,5 @@
+<h3>Widgets</h3>
+<div ng-repeat="widget in widgets.allWidgets">
+	<button type="button" pui-button ng-click="widgets.selectWidget(widget.label)" class="widgetSelection">{{widget.label}}</button>
+	<br/>
+</div>

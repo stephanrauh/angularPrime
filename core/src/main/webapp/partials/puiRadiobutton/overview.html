@@ -1,0 +1,73 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiInput on &amp;lt;input type='radio'&amp;gt;">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<fieldset id="description" pui-fieldset style="margin-bottom:20px">
+			<legend>Description</legend>
+			Extends standard radio button with skinning capabilities.
+		</fieldset>
+		<fieldset id="supports" pui-fieldset style="margin-bottom:20px">
+			<legend>Supports</legend>
+			<ul>
+				<li>Themeable radio button</li>
+				<li>Label can be click to change selection</li>
+				<li>Integration with ng-disabled, ng-change and ng-repeat</li>
+				<li>Programmatic setting the selected option</li>
+                <li>High level directive puiRadiobutton for easier creation of radio thick with label.</li>
+                <li>Integration with ng-show and ng-hide only with pui-radiobutton (no workaround needed)</li>
+			</ul>
+		</fieldset>
+		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
+			<legend>Known issues</legend>
+			<ul>
+				<li>Without the name attribute, you don't have the single selection in a 'group'</li>
+				<li>Specifying label in combination with ng-repeat doesn't work.</li>
+			</ul>
+		</fieldset>
+        <fieldset id="fixes" pui-fieldset style="margin-bottom:20px">
+            <legend>History</legend>
+            <ul>
+                <li>0.4</li>
+                <li style="list-style-type:none">
+                    <ul>
+                        <li>High level directive puiRadiobutton the include thick box and label</li>
+                        <li>Support for ng-show and ng-hide only with puiRadiobutton</li>
+                    </ul>
+                </li>
+            </ul>
+        </fieldset>
+		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
+			<legend>Planned</legend>
+			<ul>
+				<li>Label in combination with ng-repeat</li>
+			</ul>
+		</fieldset>
+
+		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
+			<legend>Configuration</legend>
+			<table class="doc-table">
+				<thead>
+				<tr>
+					<th class="ui-state-default">Name</th>
+					<th class="ui-state-default">Type</th>
+					<th class="ui-state-default">Default</th>
+					<th class="ui-state-default">Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="ui-widget-content">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>
+					</td>
+				</tr>
+			</tbody>
+			</table>
+		</fieldset>
+
+
+	</div>
+</div>

@@ -1,0 +1,72 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiGrowl">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<fieldset id="description" pui-fieldset style="margin-bottom:20px">
+			<legend>Description</legend>
+			The Mac's growl widget
+		</fieldset>
+		<fieldset id="supports" pui-fieldset style="margin-bottom:20px">
+			<legend>Supports</legend>
+			<ul>
+				<li>Show a skinnable message on the right top for a certain time.</li>
+				<li>Messages can be made sticky</li>
+			</ul>
+		</fieldset>
+		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
+			<legend>Known issues</legend>
+			<ul>
+				<li>Icon images must be specified in application</li>
+			</ul>
+			<pre>
+			.pui-growl-image {
+			    background: url("../demo/images/messages.png") no-repeat;
+			}
+			</pre>
+		</fieldset>
+		<fieldset id="fixes" pui-fieldset style="margin-bottom:20px">
+			<legend>History</legend>
+			<ul>
+				<li>0.3</li>
+				<li style="list-style-type:none">
+					<ul>
+						<li>puiGrowl is now also a service</li>
+						<li>div with id growl no longer needed in HTML</li>
+						<li>Support for sticky messages.</li>
+						<li>New messages don't remove current message. function clear exposed to remove remaining messages</li>
+					</ul>
+				</li>
+			</ul>
+		</fieldset>
+		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
+			<legend>Planned</legend>
+		</fieldset>
+
+		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
+			<legend>Configuration</legend>
+			<table class="doc-table">
+				<thead>
+				<tr>
+					<th class="ui-state-default">Name</th>
+					<th class="ui-state-default">Type</th>
+					<th class="ui-state-default">Default</th>
+					<th class="ui-state-default">Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="ui-widget-content">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				</tbody>
+			</table>
+			TODO Specify functions of service puiGrowl
+		</fieldset>
+
+
+	</div>
+</div>

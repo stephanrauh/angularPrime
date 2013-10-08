@@ -1,0 +1,51 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiBreadcrumb">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+        <section>
+            <header>Based on javaScript model<span version="0.3"/></header>
+
+            <ul id="model" pui-breadcrumb="items" />
+            id : <input type="text" ng-required="true" ng-model="newItem.id" /> <br/>
+            label : <input type="text" ng-required="true" ng-model="newItem.label" /> <br/>
+            <button ng-click="addItem()" type="button">Add item</button>
+        </section>
+
+        <fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+    <ul id="default" pui-breadcrumb>
+        <li><a ng-click="doCommand('categories')">Categories</a></li>
+        <li><a ng-click="doCommand('sports')">Sports</a></li>
+        <li><a ng-click="doCommand('football')">Football</a></li>
+        <li><a ng-click="doCommand('countries')">Countries</a></li>
+        <li><a ng-click="doCommand('spain')">Spain</a></li>
+        <li><a ng-click="doCommand('barcelona')">F.C. Barcelona</a></li>
+        <li><a ng-click="doCommand('squad')">Squad</a></li>
+        <li><a ng-click="doCommand('messi')">Lionel Messi</a></li>
+    </ul>
+
+        				</pre>
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+    $scope.doCommand = function(commandText) {
+        alert("Click on item '"+commandText+"'");
+    };
+                        </pre>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+
+</div>

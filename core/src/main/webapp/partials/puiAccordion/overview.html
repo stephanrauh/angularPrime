@@ -1,0 +1,107 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiAccordion">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<fieldset id="description" pui-fieldset style="margin-bottom:20px">
+			<legend>Description</legend>
+			Accordion is a container component with vertically stacked panels.
+		</fieldset>
+		<fieldset id="supports" pui-fieldset style="margin-bottom:20px">
+			<legend>Supports</legend>
+			<ul>
+				<li>Single panel or multiple panels can be expanded</li>
+				<li>Programmatic setting the expanded panel, not supported in case of multiple expandable panels</li>
+				<li>Callback function available when user has changed the expanded panel</li>
+                <li>Panel can be in an included file.</li>
+                <li>Support for changing number of panels dynamically</li>
+                <li>puiPanel can be used to define the panel</li>
+			</ul>
+		</fieldset>
+		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
+			<legend>Known issues</legend>
+			<ul>
+				<li>Title of panel cannot contain an AngularJS expression (see dynamic example)</li>
+			</ul>
+		</fieldset>
+        <fieldset id="fixes" pui-fieldset style="margin-bottom:20px">
+            <legend>History</legend>
+            <ul>
+                <li>0.3</li>
+                <li style="list-style-type:none">
+                    <ul>
+                        <li>Support for accordion panels from included files</li>
+                        <li>Number of panels can be changed dynamically</li>
+                        <li>puiPanel can be used to define the panel</li>
+                    </ul>
+                </li>
+            </ul>
+        </fieldset>
+		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
+			<legend>Planned</legend>
+            <ul>
+                <li>Lazy loading</li>
+            </ul>
+		</fieldset>
+
+		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
+			<legend>Configuration</legend>
+            <table class="doc-table">
+                <thead>
+                <tr>
+                    <th class="ui-state-default">Type</th>
+                    <th class="ui-state-default">Default</th>
+                    <th class="ui-state-default">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="ui-widget-content">
+                    <td>Array of String</td>
+                    <td>null</td>
+                    <td>URL's of the included files as panel</td>
+                </tr>
+                </tbody>
+            </table>
+            When directive points to an object
+			<table class="doc-table">
+				<thead>
+				<tr>
+					<th class="ui-state-default">Name</th>
+					<th class="ui-state-default">Type</th>
+					<th class="ui-state-default">Default</th>
+					<th class="ui-state-default">Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="ui-widget-content">
+					<td>activeIndex</td>
+					<td>Integer/Array</td>
+					<td>0</td>
+					<td>Index of the active tab. If multiple is enabled, an array of active indexes.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>multiple</td>
+					<td>Boolean</td>
+					<td>false</td>
+					<td>Defines if multiple tabs can be active at the same time.</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>callback</td>
+					<td>function (index)</td>
+					<td>null</td>
+					<td>Callback called when the user selects a panel (becomes expanded).</td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>urls</td>
+                    <td>Array of String</td>
+                    <td>null</td>
+                    <td>URL's of the included files as panel</td>
+				</tr>
+				</tbody>
+			</table>
+		</fieldset>
+
+
+	</div>
+</div>

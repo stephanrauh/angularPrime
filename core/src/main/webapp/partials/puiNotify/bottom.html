@@ -1,0 +1,52 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiNotify">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Notify panel located at the bottom of the screen</header>
+			<button id="btn-show" type="button" ng-click="showBottom()">Show</button>
+
+			 <div id="ntfy" pui-notify="notifyBottomOptions" >
+				 <h1>PrimeUI Notify Widget</h1>
+				 <p>Notify is a notification bar that can be positioned at the top or bottom of screen.</p>
+			 </div>
+
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+	<button id="btn-show" type="button" ng-click="showBottom()">Show</button>
+
+	<div id="ntfy" pui-notify="notifyBottomOptions" >
+		<h1>PrimeUI Notify Widget</h1>
+		<p>Notify is a notification bar that can be positioned at the top or bottom of screen.</p>
+	</div>
+						</pre>
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+	$scope.notifyBottomOptions = {
+		visible : false
+		, position : 'bottom'
+	};
+
+	$scope.showBottom = function() {
+		$scope.notifyBottomOptions.visible = true;
+	};
+						</pre>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>

@@ -1,0 +1,53 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiInput on &amp;lt;input type='checkbox'&amp;gt;">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Integration with ng-disabled</header>
+			<input type="checkbox" id="chk3" ng-disabled="disabledWidget" ng-model="checkboxSelectedValue3" pui-input/> <label id="lblchk3" for="chk3">Option 3</label>
+			<br/>
+			<button id="enableBtn" ng-click="enableWidget()" type="button" ng-show="disabledWidget">Enable input</button>
+			<button id="disableBtn" ng-click="disableWidget()" type="button" ng-hide="disabledWidget">Disable input</button>
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+	<input type="checkbox" id="chk3" ng-disabled="disabledWidget" ng-model="checkboxSelectedValue3" pui-input/> <label for="chk3">Option 3</label>
+	<br/>
+	<button ng-click="enableWidget()" type="button" ng-show="disabledWidget">Enable input</button>
+	<button ng-click="disableWidget()" type="button" ng-hide="disabledWidget">Disable input</button>
+
+						</pre>
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+	$scope.checkboxSelectedValue3 = false;
+
+	$scope.disabledWidget = true;
+
+	$scope.enableWidget = function() {
+		$scope.disabledWidget = false;
+	};
+
+	$scope.disableWidget = function() {
+		$scope.disabledWidget =  true;
+	};
+
+						</pre>
+
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>
