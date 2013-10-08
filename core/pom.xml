@@ -108,28 +108,53 @@
 	</build>
 
 	<profiles>
-		<profile>
-			<id>development</id>
-			<build>
-
-				<plugins>
-
-					<plugin>
-						<groupId>be.rubus.web.statelessprime</groupId>
-						<artifactId>angular-directives-maven-plugin</artifactId>
-						<version>0.1</version>
-						<executions>
-							<execution>
-								<id>optimize</id>
-								<goals>
-									<goal>generate-optimize-resources</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
+        <profile>
+            <id>development</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>be.rubus.web.statelessprime</groupId>
+                        <artifactId>angular-directives-maven-plugin</artifactId>
+                        <version>0.2</version>
+                        <executions>
+                            <execution>
+                                <id>optimize</id>
+                                <goals>
+                                    <goal>generate-optimize-resources</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <library>angularPrime</library>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>be.rubus.web.statelessprime</groupId>
+                        <artifactId>angular-directives-maven-plugin</artifactId>
+                        <version>0.2</version>
+                        <executions>
+                            <execution>
+                                <id>optimize</id>
+                                <goals>
+                                    <goal>generate-optimize-resources</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <library>angularPrime</library>
+                            <release>true</release>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
         <profile>
             <id>jshint</id>
             <build>

@@ -1111,6 +1111,10 @@ $(function() {
             var $this = this;
 
             this.element.on('keyup.puiautocomplete', function(e) {
+                var keyCode = $.ui.keyCode,
+                    key = e.which,
+                    shouldSearch = true;
+
                 if(key == keyCode.UP ||
                     key == keyCode.LEFT ||
                     key == keyCode.DOWN ||
@@ -1121,10 +1125,6 @@ $(function() {
                     key == keyCode.NUMPAD_ENTER) {
                     shouldSearch = false;
                 }
-
-                var keyCode = $.ui.keyCode,
-                    key = e.which,
-                    shouldSearch = true;
 
                 if(shouldSearch) {
                     var value = $this.element.val();

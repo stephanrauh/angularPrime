@@ -1,4 +1,5 @@
 /target
+/core/target
 
 # Package Files #
 *.jar
@@ -7,3 +8,5 @@
 
 /.idea
 /*.iml
+/core/.idea
+/core/*.iml
