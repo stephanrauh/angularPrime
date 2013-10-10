@@ -36,6 +36,11 @@ demo.config(['$routeProvider', 'ConfigurationProvider', function($routeProvider,
         controller: Ctrl
     });
 
+    $routeProvider.when('/history', {
+        templateUrl: 'partials/history.html',
+        controller: Ctrl
+    });
+
     $routeProvider.otherwise({ redirectTo: '/main' });
 
 }]);
