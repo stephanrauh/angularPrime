@@ -1,0 +1,48 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiTerminal">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Clear widget<span version="0.5"/></header>
+
+			<div id="clean" pui-terminal="terminalWithClear" ></div>
+            <button type="button" ng-click="clearTerminal()" id="clear">Clear</button>
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+        <div id="clean" pui-terminal="terminalWithClear" ></div>
+        <button type="button" ng-click="clearTerminal()" id="clear">Clear</button>
+
+						</pre>
+
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+    $scope.terminalHandler = function(command) {
+        return "response for "+command;
+    };
+
+    /* the clearTerminal() function is added by the directive */
+    $scope.terminalWithClear = {
+        terminalHandler: $scope.terminalHandler
+    };
+						</pre>
+
+					</div>
+				</div>
+			</div>
+		</fieldset>
+
+	</div>
+</div>

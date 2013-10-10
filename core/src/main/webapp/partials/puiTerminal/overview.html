@@ -1,0 +1,72 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiterminal">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+        <span version="0.5"/>
+		<fieldset id="description" pui-fieldset style="margin-bottom:20px">
+			<legend>Description</legend>
+			Terminal is a text based interface, optionally linked to a backend.
+		</fieldset>
+		<fieldset id="supports" pui-fieldset style="margin-bottom:20px">
+			<legend>Supports</legend>
+			<ul>
+				<li>Sending commands to javascript handler method</li>
+                <li>Customize prompt message</li>
+                <li>Optional welcome message</li>
+			</ul>
+		</fieldset>
+		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
+			<legend>Known issues</legend>
+            <ul>
+                <li>The <i>clearTerminal</i> function works only on the last widget in the scope/controller.</li>
+            </ul>
+		</fieldset>
+		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
+			<legend>Planned</legend>
+		</fieldset>
+
+		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
+			<legend>Configuration</legend>
+            The value of the pui-terminal directive can have 2 types:
+            <ul>
+                <li>function (command) to process the command entered by the user</li>
+                <li>Object, scope defined, containing the options and the handler method</li>
+            </ul>
+			<table class="doc-table">
+				<thead>
+				<tr>
+					<th class="ui-state-default">Name</th>
+					<th class="ui-state-default">Type</th>
+					<th class="ui-state-default">Default</th>
+					<th class="ui-state-default">Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="ui-widget-content">
+					<td>terminalHandler</td>
+					<td>function( String)</td>
+					<td></td>
+					<td>Function needs to return the response based on the command entered on the screen</td>
+				</tr>
+                <tr class="ui-widget-content">
+                    <td>prompt</td>
+                    <td>String</td>
+                    <td>prime $</td>
+                    <td>Prompt message shown before the command entry</td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>welcomeMessage</td>
+                    <td>String</td>
+                    <td></td>
+                    <td>First line in the terminal widget with the welcome message</td>
+                </tr>
+				</tbody>
+
+			</table>
+            The directive adds also a new function <i>clearTerminal</i> to the scope. This function can be used to clear the output of the terminal widget.
+		</fieldset>
+
+
+	</div>
+</div>

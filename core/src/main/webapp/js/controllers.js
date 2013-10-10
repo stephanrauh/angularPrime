@@ -749,6 +749,25 @@ function BreadcrumbController($scope, Widgets) {
     }
 }
 
+function TerminalController($scope, Widgets) {
+    $scope.widgets = Widgets;
+
+    $scope.terminalHandler = function(command) {
+        return "response for "+command;
+    };
+
+    $scope.terminalWithOptions = {
+        welcomeMessage: 'Welcome to the angularPrime Terminal demo',
+        prompt: 'angularPrime :',
+        terminalHandler: $scope.terminalHandler
+    };
+
+    $scope.terminalWithClear = {
+        terminalHandler: $scope.terminalHandler
+    };
+
+}
+
 function Ctrl($scope, Widgets, version) {
 
     $scope.widgets = Widgets;

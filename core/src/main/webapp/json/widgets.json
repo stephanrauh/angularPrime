@@ -711,6 +711,29 @@
         ]
     },
     {
+        "widget": "puiTerminal",
+        "controller": "TerminalController",
+        "defaultPath": "puiTerminal/overview",
+        "subPages": [
+            {
+                "label": "overview",
+                "path": "puiTerminal/overview"
+            },
+            {
+                "label": "default",
+                "path": "puiTerminal/default"
+            },
+            {
+                "label": "withOptions",
+                "path": "puiTerminal/options"
+            },
+            {
+                "label": "clean",
+                "path": "puiTerminal/clean"
+            }
+        ]
+    },
+    {
          "widget": "puiTooltip",
          "controller": "TooltipController",
          "defaultPath": "puiTooltip/overview",
