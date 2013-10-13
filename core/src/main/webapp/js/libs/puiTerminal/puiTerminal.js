@@ -9,7 +9,7 @@
                 compile: function (element, attrs) {
                     return function postLink (scope, element, attrs) {
                         var options = scope.$eval(attrs.puiTerminal) || {},
-                            handler = undefined;
+                            handler;
 
                         if (angular.isFunction(options)) {
                             handler = options;
@@ -37,9 +37,9 @@
                             });
 
                         });
-                    }
+                    };
                 }
-            }
+            };
 
 
 });

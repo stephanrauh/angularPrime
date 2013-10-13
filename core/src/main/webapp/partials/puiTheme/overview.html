@@ -1,0 +1,63 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiTheme">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<fieldset id="description" pui-fieldset style="margin-bottom:20px">
+			<legend>Description</legend>
+			Theme switcher
+		</fieldset>
+		<fieldset id="supports" pui-fieldset style="margin-bottom:20px">
+			<legend>Supports</legend>
+			<ul>
+				<li>Shows dropdown for theme selection</li>
+				<li>Configurable feedback for storing selected theme</li>
+				<li>Theme change without page reload</li>
+			</ul>
+		</fieldset>
+		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
+			<legend>Known issues</legend>
+		</fieldset>
+		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
+			<legend>Planned</legend>
+            <ul>
+                <li>Customizable set of themes</li>
+                <li>Customizable contents of dropdown panel</li>
+                <li>Customizable directory of themes</li>
+            </ul>
+		</fieldset>
+
+		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
+			<legend>Configuration</legend>
+			<table class="doc-table">
+				<thead>
+				<tr>
+					<th class="ui-state-default">Name</th>
+					<th class="ui-state-default">Type</th>
+					<th class="ui-state-default">Default</th>
+					<th class="ui-state-default">Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="ui-widget-content">
+					<td>name</td>
+					<td>String</td>
+					<td>aristo</td>
+					<td>Default theme when page is shown</td>
+				</tr>
+				<tr class="ui-widget-content">
+					<td>dropdown</td>
+					<td>boolean</td>
+					<td>null</td>
+					<td>Is a dropdown shown for theme selection?</td>
+				</tr>
+				</tbody>
+
+			</table>
+            Themes can be set programmatic by calling themeService.setSelectedTheme(String) function.
+		</fieldset>
+
+
+	</div>
+</div>

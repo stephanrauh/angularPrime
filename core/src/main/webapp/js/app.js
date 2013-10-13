@@ -45,6 +45,12 @@ demo.config(['$routeProvider', 'ConfigurationProvider', function($routeProvider,
 
 }]);
 
+demo.config(['themeServiceProvider', function(themeServiceProvider) {
+    themeServiceProvider.setSelectedThemeCallback(function(selectedTheme) {
+        console.log('Selected theme is '+selectedTheme);
+    })
+}]);
+
 /*
 demo.config(['$locationProvider', function ($locationProvider) {
     $locationProvider.html5Mode(true).hashPrefix('!');

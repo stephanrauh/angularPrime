@@ -734,6 +734,21 @@
         ]
     },
     {
+        "widget": "puiTheme",
+        "controller": "Ctrl",
+        "defaultPath": "puiTheme/overview",
+        "subPages": [
+            {
+                "label": "overview",
+                "path": "puiTheme/overview"
+            },
+            {
+                "label": "default",
+                "path": "puiTheme/default"
+            }
+        ]
+    },
+    {
          "widget": "puiTooltip",
          "controller": "TooltipController",
          "defaultPath": "puiTooltip/overview",
