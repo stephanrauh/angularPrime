@@ -660,6 +660,21 @@
         ]
     },
     {
+        "widget": "puiSticky",
+        "controller": "MenubarController",
+        "defaultPath": "puiSticky/overview",
+        "subPages": [
+            {
+                "label": "overview",
+                "path": "puiSticky/overview"
+            },
+            {
+                "label": "default",
+                "path": "puiSticky/default"
+            }
+        ]
+    },
+    {
         "widget": "puiTabview",
         "controller": "TabviewController",
         "defaultPath": "puiTabview/overview",
