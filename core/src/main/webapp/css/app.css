@@ -79,3 +79,7 @@ pre {
 tr.pui-datatable-odd {
     background: none repeat scroll 0 0 #F2F5F9;
 }
+
+.ui-icon-empty {
+    background-position: 16px 0px;
+}

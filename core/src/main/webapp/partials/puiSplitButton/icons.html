@@ -1,0 +1,46 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiSplitButton">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Icons can be defined<span version="0.5"/></header>
+
+            <div id="icons" pui-splitbutton="{'icon':'ui-icon-check'}" ng-click="showMessage('Save clicked')" type="button" >Save
+                <button ng-click="showMessage('Update clicked')" type="button" pui-button>Update</button>
+                <button ng-click="showMessage('Delete clicked')" type="button" pui-button="{'icon':'ui-icon-trash'}" >Delete</button>
+            </div>
+
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+            <div id="icons" pui-splitbutton="{'icon':'ui-icon-check'}" ng-click="showMessage('Save clicked')" type="button" >Save
+                <button ng-click="showMessage('Update clicked')" type="button" pui-button>Update</button>
+                <button ng-click="showMessage('Delete clicked')" type="button" pui-button="{'icon':'ui-icon-trash'}" >Delete</button>
+            </div>
+
+						</pre>
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+    $scope.showMessage = function(msg) {
+        alert(msg);
+    };
+						</pre>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+
+	</div>
+</div>

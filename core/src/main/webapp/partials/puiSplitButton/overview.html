@@ -1,0 +1,67 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiSplitButton">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+        <span version="0.5"></span>
+		<fieldset id="description" pui-fieldset style="margin-bottom:20px">
+			<legend>Description</legend>
+            Groups a set of commands in an overlay with a default command.
+		</fieldset>
+		<fieldset id="supports" pui-fieldset style="margin-bottom:20px">
+			<legend>Supports</legend>
+            <ul>
+                <li>Themeable buttons</li>
+                <li>Integrated with the ng-disabled attribute</li>
+                <li>Support for icons</li>
+                <li>Dynamic value using Angular Expressions</li>
+                <li>Button in overlay defined with &lt;button> pui-button so that they can be moved easily into or out the widget</li>
+            </ul>
+		</fieldset>
+		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
+			<legend>Known issues</legend>
+            <ul>
+                <li>Buttons for overlay aren't actually placed inside overlay, they are recreated. So not all attributes are used.</li>
+            </ul>
+		</fieldset>
+		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
+			<legend>Planned</legend>
+            <ul>
+                <li>Support ng-disabled on additional buttons within overlay</li>
+            </ul>
+		</fieldset>
+
+		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
+			<legend>Configuration</legend>
+			<table class="doc-table">
+				<thead>
+				<tr>
+					<th class="ui-state-default">Name</th>
+					<th class="ui-state-default">Type</th>
+					<th class="ui-state-default">Default</th>
+					<th class="ui-state-default">Description</th>
+				</tr>
+				</thead>
+				<tbody>
+                <tr class="ui-widget-content">
+                    <td>icon</td>
+                    <td>String</td>
+                    <td>null</td>
+                    <td>Defines the icon of the button. (from theme)</td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>iconPos</td>
+                    <td>String</td>
+                    <td>left</td>
+                    <td>Position of the icon, valid values are "left" and "right".</td>
+                </tr>
+
+				</tbody>
+                The elements within pui-splitbutton which have the attribute pui-button are considered.
+                Except for the text and ng-click attributes, no other attributes are picked up.
+			</table>
+		</fieldset>
+
+
+	</div>
+</div>

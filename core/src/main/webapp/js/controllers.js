@@ -768,6 +768,27 @@ function TerminalController($scope, Widgets) {
 
 }
 
+function SplitButtonController($scope, Widgets) {
+
+    $scope.widgets = Widgets;
+
+    $scope.showMessage = function(msg) {
+        alert(msg);
+    };
+
+    $scope.buttonDisabled = true;
+
+    $scope.enableButton = function() {
+        $scope.buttonDisabled = false;
+    };
+
+    $scope.disableButton = function() {
+        $scope.buttonDisabled =  true;
+    };
+
+    $scope.buttonTitle = "Title";
+}
+
 function Ctrl($scope, Widgets, version) {
 
     $scope.widgets = Widgets;

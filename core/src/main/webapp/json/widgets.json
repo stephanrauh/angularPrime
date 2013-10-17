@@ -633,6 +633,33 @@
         ]
     },
     {
+        "widget": "puiSplitbutton",
+        "controller": "SplitButtonController",
+        "defaultPath": "puiSplitButton/overview",
+        "subPages": [
+            {
+                "label": "overview",
+                "path": "puiSplitButton/overview"
+            },
+            {
+                "label": "default",
+                "path": "puiSplitButton/default"
+            },
+            {
+                "label": "disabled",
+                "path": "puiSplitButton/disabled"
+            },
+            {
+                "label": "icons",
+                "path": "puiSplitButton/icons"
+            },
+            {
+                "label": "dynamic",
+                "path": "puiSplitButton/title"
+            }
+        ]
+    },
+    {
         "widget": "puiTabview",
         "controller": "TabviewController",
         "defaultPath": "puiTabview/overview",
