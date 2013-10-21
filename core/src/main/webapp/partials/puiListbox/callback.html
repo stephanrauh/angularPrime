@@ -1,0 +1,55 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiListbox">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>User defined function called when selection is made <span version="0.5"/></header>
+            <select id="callback" pui-listbox="callbackOptions" ng-model="selectedOption">
+                <option value="0">Select One</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+                <option value="4">Option 4</option>
+                <option value="5">Option 5</option>
+            </select>
+        </section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+            <select id="callback" pui-listbox="callbackOptions" ng-model="selectedOption">
+                <option value="0">Select One</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+                <option value="4">Option 4</option>
+                <option value="5">Option 5</option>
+            </select>
+						</pre>
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+    $scope.selectedOption = null;
+
+    $scope.callbackOptions = {
+        callback : function (value) {
+            alert('user selected option (index) '+value);
+        }
+    };
+                        </pre>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+
+</div>

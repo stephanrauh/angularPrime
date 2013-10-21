@@ -789,6 +789,36 @@ function SplitButtonController($scope, Widgets) {
     $scope.buttonTitle = "Title";
 }
 
+function ListboxController($scope, Widgets) {
+
+    $scope.widgets = Widgets;
+
+    $scope.selectedOption = null;
+
+    $scope.disabledWidget = true;
+
+    $scope.enableWidget = function() {
+        $scope.disabledWidget = false;
+    };
+
+    $scope.disableWidget = function() {
+        $scope.disabledWidget =  true;
+    };
+
+    $scope.friends =
+        [{name:'John', phone:'555-1212', age:10},
+            {name:'Mary', phone:'555-9876', age:19},
+            {name:'Mike', phone:'555-4321', age:21},
+            {name:'Adam', phone:'555-5678', age:35},
+            {name:'Julie', phone:'555-8765', age:29}];
+
+    $scope.callbackOptions = {
+        callback : function (value) {
+            alert('user selected option (index) '+value);
+        }
+    };
+}
+
 function Ctrl($scope, Widgets, version) {
 
     $scope.widgets = Widgets;

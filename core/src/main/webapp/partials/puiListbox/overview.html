@@ -1,0 +1,67 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiListbox">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+        <span version="0.5"/>
+		<fieldset id="description" pui-fieldset style="margin-bottom:20px">
+			<legend>Description</legend>
+            Advanced widget to select an item from a collection.
+		</fieldset>
+		<fieldset id="supports" pui-fieldset style="margin-bottom:20px">
+			<legend>Supports</legend>
+            <ul>
+                <li>Customizable widget by themes</li>
+                <li>Multiple selection</li>
+                <li>Integration with ng-disabled attribute</li>
+                <li>Programmatic selection of the selected option</li>
+                <li>Feedback on user selection</li>
+            </ul>
+		</fieldset>
+		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
+			<legend>Known issues</legend>
+            <ul>
+                <li>ngOptions integration issue</li>
+            </ul>
+		</fieldset>
+		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
+			<legend>Planned</legend>
+            <ul>
+                <li>Support for content</li>
+                <li>Support for option definition within code.</li>
+                <li>Dynamic options</li>
+                <li>Programmatic selection in case of multiple selections</li>
+            </ul>
+		</fieldset>
+
+		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
+			<legend>Configuration</legend>
+			<table class="doc-table">
+				<thead>
+				<tr>
+					<th class="ui-state-default">Name</th>
+					<th class="ui-state-default">Type</th>
+					<th class="ui-state-default">Default</th>
+					<th class="ui-state-default">Description</th>
+				</tr>
+				</thead>
+				<tbody>
+                <tr class="ui-widget-content">
+                    <td>scrollHeight</td>
+                    <td>integer</td>
+                    <td>200</td>
+                    <td>Maximum height boundary of overlay panel in pixels, if total height of items exceed this value, scrollbar is displayed.</td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>callback</td>
+                    <td>function(selectedValue)</td>
+                    <td>null</td>
+                    <td>Callback functional which is called when item selection is made.</td>
+                </tr>
+    			</tbody>
+			</table>
+		</fieldset>
+
+
+	</div>
+</div>

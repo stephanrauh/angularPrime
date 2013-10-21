@@ -1,0 +1,51 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiListbox">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Multiple selection<span version="0.5"/></header>
+            <select id="multiple" pui-listbox ng-model="selectedOption" multiple>
+                <option value="0">Select One</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+                <option value="4">Option 4</option>
+                <option value="5">Option 5</option>
+            </select> <br/>
+            Selected option (index) : <span id="selectedOptions">{{selectedOption}}</span>
+        </section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+            <select id="multiple" pui-listbox ng-model="selectedOption" multiple>
+                <option value="0">Select One</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+                <option value="4">Option 4</option>
+                <option value="5">Option 5</option>
+            </select> <br/>
+            Selected option (index) : <span id="selectedOptions">{{selectedOption}}</span>
+						</pre>
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+    $scope.selectedOption = null;
+                        </pre>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+
+</div>

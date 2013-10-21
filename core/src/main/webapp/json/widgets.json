@@ -398,6 +398,41 @@
         ]
     },
     {
+        "widget": "puiListbox",
+        "controller": "ListboxController",
+        "defaultPath": "puiListbox/overview",
+        "subPages": [
+            {
+                "label": "overview",
+                "path": "puiListbox/overview"
+            },
+            {
+                "label": "default",
+                "path": "puiListbox/default"
+            },
+            {
+                "label": "multiple",
+                "path": "puiListbox/multiple"
+            },
+            {
+                "label": "ngDisabled",
+                "path": "puiListbox/disabled"
+            },
+            {
+                "label": "ngOptions",
+                "path": "puiListbox/ngoptions"
+            },
+            {
+                "label": "progSelect",
+                "path": "puiListbox/progSelect"
+            },
+            {
+                "label": "callback",
+                "path": "puiListbox/callback"
+            }
+        ]
+    },
+    {
         "widget": "puiMenu",
         "controller": "MenuController",
         "defaultPath": "puiMenu/overview",
