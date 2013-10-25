@@ -1,0 +1,57 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiPicklist">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Default integration <span version="0.5"/></header>
+            <select id="default" pui-picklist ng-model="selectedOptions">
+                <option value="1">Volkswagen</option>
+                <option value="2">Ford</option>
+                <option value="3">Mercedes</option>
+                <option value="4">Audi</option>
+                <option value="5">BMW</option>
+                <option value="6">Honda</option>
+                <option value="7">Porsche</option>
+                <option value="8">Chevrolet</option>
+                <option value="9">Jaguar</option>
+            </select>    <br/>
+            Selected options =  <span id="selectedOptions">{{selectedOptions}}</span>
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+            <select id="default" pui-picklist ng-model="selectedOptions">
+                <option value="1">Volkswagen</option>
+                <option value="2">Ford</option>
+                <option value="3">Mercedes</option>
+                <option value="4">Audi</option>
+                <option value="5">BMW</option>
+                <option value="6">Honda</option>
+                <option value="7">Porsche</option>
+                <option value="8">Chevrolet</option>
+                <option value="9">Jaguar</option>
+            </select>    <br/>
+            Selected options =  <span id="selectedOptions">{{selectedOptions}}</span>
+						</pre>
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+    $scope.selectedOptions = [];
+                        </pre>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+
+</div>

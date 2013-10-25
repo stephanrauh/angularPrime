@@ -83,3 +83,11 @@ tr.pui-datatable-odd {
 .ui-icon-empty {
     background-position: 16px 0px;
 }
+
+.pui-picklist .pui-picklist-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow:auto;
+    height:205px;  /* Otherwise there apears a scrollbar when hovering over pickList items */
+}

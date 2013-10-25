@@ -819,6 +819,79 @@ function ListboxController($scope, Widgets) {
     };
 }
 
+function PicklistController($scope, Widgets) {
+
+    $scope.widgets = Widgets;
+
+    $scope.selectedOptions = [];
+
+    $scope.disabledWidget = true;
+
+    $scope.enableWidget = function() {
+        $scope.disabledWidget = false;
+    };
+
+    $scope.disableWidget = function() {
+        $scope.disabledWidget =  true;
+    };
+
+    $scope.selectedCars = ["3"];
+
+    $scope.createValue = function() {
+        var val = Math.floor(Math.random() * 8) + 1;
+        return val.toString();
+    };
+
+    $scope.addSelectedCar = function() {
+        var l = $scope.selectedCars.length,
+            value;
+
+        do {
+            value = $scope.createValue();
+            if ($scope.selectedCars.indexOf(value) === -1) {
+                $scope.safeApply(function() {
+                    $scope.selectedCars.push(value);
+                });
+
+            }
+        } while ($scope.selectedCars.length == l);
+    };
+
+    $scope.removeSelectedCar = function() {
+        var idx = Math.floor(Math.random() * $scope.selectedCars.length);
+        $scope.safeApply(function() {
+            $scope.selectedCars.splice(idx, 1);
+        });
+    };
+
+    $scope.callbackOptions = {
+        callback : function (eventType, value) {
+            alert('user changed option (value) '+value+" - type = "+eventType);
+        }
+    };
+
+    $scope.picklistOptions = {
+        sourceCaption : "Available",
+        targetCaption : "Selected",
+        showSourceControls : true,
+        showTargetControls : true
+    };
+
+    $scope.picklistData = [
+        {value: "1", label: "Volkswagen" },
+        {value: "2", label: "Ford" },
+        {value: "3", label: "Mercedes" },
+        {value: "4", label: "Audi" },
+        {value: "5", label: "BMW" },
+        {value: "6", label: "Honda" },
+        {value: "7", label: "Porsche" },
+        {value: "8", label: "Chevrolet" },
+        {value: "9", label: "Jaguar"}
+    ];
+
+
+}
+
 function Ctrl($scope, Widgets, version) {
 
     $scope.widgets = Widgets;

@@ -1,0 +1,126 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiPicklist">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+        <span version="0.5"/>
+		<fieldset id="description" pui-fieldset style="margin-bottom:20px">
+			<legend>Description</legend>
+            Used to reorder items between differents lists.
+		</fieldset>
+		<fieldset id="supports" pui-fieldset style="margin-bottom:20px">
+			<legend>Supports</legend>
+            <ul>
+                <li>Themeable selection of options</li>
+                <li>Selection by buttons, double click and drag-drop</li>
+                <li>Integration with ng-disabled directive</li>
+                <li>Programmatic selection of options</li>
+                <li>Options defined in Javascript object</li>
+                <li>options can be filtered</li>
+                <li>Reorderable options</li>
+            </ul>
+		</fieldset>
+		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
+			<legend>Known issues</legend>
+            <ul>
+                <li>When individual JavaScript files are used, the file for puiButton is also needed.</li>
+            </ul>
+		</fieldset>
+		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
+			<legend>Planned</legend>
+            <ul>
+                <li>Support for custom content</li>
+                <li>Allow dynamic number of options</li>
+            </ul>
+		</fieldset>
+
+		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
+			<legend>Configuration</legend>
+            <table class="doc-table">
+                <thead>
+                <tr>
+                    <th class="ui-state-default">Type</th>
+                    <th class="ui-state-default">Default</th>
+                    <th class="ui-state-default">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="ui-widget-content">
+                    <td>Array of String/Object</td>
+                    <td>null</td>
+                    <td>When string, it is used as value and label for each option. When it is an object, then properties value and label are used.</td>
+                </tr>
+                </tbody>
+            </table>
+            When directive points to an object
+			<table class="doc-table">
+				<thead>
+				<tr>
+					<th class="ui-state-default">Name</th>
+					<th class="ui-state-default">Type</th>
+					<th class="ui-state-default">Default</th>
+					<th class="ui-state-default">Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="ui-widget-content">
+					<td>filter</td>
+					<td>boolean</td>
+					<td>false</td>
+					<td>When set to true, filtering fields are shown above the source and target lists</td>
+				</tr>
+                <tr class="ui-widget-content">
+                    <td>filterMatchMode</td>
+                    <td>String</td>
+                    <td>startsWith</td>
+                    <td>Indicate which filtering mode will be used.  Supported values are startsWith, contains, endsWith, custom</td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>filterFunction</td>
+                    <td>function(value, filter)</td>
+                    <td>null</td>
+                    <td>Filter function to use in case filterMatchMode is custom. This function gets item label and filter value as parameters and required to return a boolean value to implement filtering. true accepts the item and false rejects it.</td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>sourceCaption</td>
+                    <td>String</td>
+                    <td>null</td>
+                    <td>Caption text for source list.</td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>targetCaption</td>
+                    <td>String</td>
+                    <td>null</td>
+                    <td>Caption text for target list.</td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>showSourceControls</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                    <td>Show the controls for reordering the items in the source list.</td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>showTargetControls</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                    <td>Show the controls for reordering the items in the target list.</td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>sourceData</td>
+                    <td>Array of String/Object</td>
+                    <td>null</td>
+                    <td>When string, it is used as value and label for each option. When it is an object, then properties value and label are used.</td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>callback</td>
+                    <td>function (eventType, value)</td>
+                    <td>null</td>
+                    <td>Callback function called when item is selected or deselected from the target list. eventType is ADD or REMOVE, value is the value of the option.</td>
+                </tr>
+				</tbody>
+			</table>
+		</fieldset>
+
+
+	</div>
+</div>

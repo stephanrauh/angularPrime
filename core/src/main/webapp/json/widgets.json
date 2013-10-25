@@ -556,6 +556,45 @@
         ]
     },
     {
+        "widget": "puiPicklist",
+        "controller": "PicklistController",
+        "defaultPath": "puiPicklist/overview",
+        "subPages": [
+            {
+                "label": "overview",
+                "path": "puiPicklist/overview"
+            },
+            {
+                "label": "default",
+                "path": "puiPicklist/default"
+            },
+            {
+                "label": "ngDisabled",
+                "path": "puiPicklist/disabled"
+            },
+            {
+                "label": "progSelect",
+                "path": "puiPicklist/progSelect"
+            },
+            {
+                "label": "callback",
+                "path": "puiPicklist/callback"
+            },
+            {
+                "label": "filter",
+                "path": "puiPicklist/filter"
+            },
+            {
+                "label": "options",
+                "path": "puiPicklist/options"
+            },
+            {
+                "label": "JSdata",
+                "path": "puiPicklist/data"
+            }
+        ]
+    },
+    {
         "widget": "puiProgressbar",
         "controller": "ProgressbarController",
         "defaultPath": "puiProgressbar/overview",
