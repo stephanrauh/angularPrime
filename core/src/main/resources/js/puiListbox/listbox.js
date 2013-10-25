@@ -1,3 +1,5 @@
+/*globals $ PUI */
+
 /**
  * PrimeUI listvox widget
  */
