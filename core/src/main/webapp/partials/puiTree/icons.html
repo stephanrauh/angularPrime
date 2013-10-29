@@ -5,8 +5,8 @@
 		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
 
 		<section>
-			<header>Default integration <span version="0.5"/></header>
-            <div id="default" pui-tree >
+			<header>Node icons <span version="0.5"/></header>
+            <div id="icons" pui-tree="treeIcons" >
                 <div pui-treenode="Documents" >
                     <div pui-treenode="Work" >
                         <div pui-treenode="{label: 'Expenses.doc', iconType:'doc'}" ></div>
@@ -26,64 +26,6 @@
                 </div>
             </div>
 
-            <!--
-animate: true,
-        selectionMode: 'single',
-        nodes: [
-            {
-                label: 'Documents',
-                data: 'Documents Folder',
-                children: [{
-                        label: 'Work',
-                        data: 'Work Folder',
-                        children: [{label: 'Expenses.doc', iconType:'doc', data: 'Expenses Document'},{label: 'Resume.doc', iconType:'doc', data: 'Resume Document'}]
-                    },
-                    {
-                        label: 'Home',
-                        data: 'Home Folder',
-                        children: [{label: 'Invoices.txt', iconType:'doc', data: 'Invoices for this month'}]
-                    }]
-            },
-            {
-                label: 'Pictures',
-                data: 'Pictures Folder',
-                children:[
-                    {label:'barcelona.jpg',iconType:'picture',data: 'Barcelona Photo'},
-                    {label:'logo.jpg',iconType:'picture',data: 'PrimeFaces Logo'},
-                    {label:'primeui.png',iconType:'picture', data: 'PrimeUI Logo'}]
-            },
-            {
-                label: 'Movies',
-                data: 'Movies Folder',
-                children: [{
-                        label: 'Al Pacino',
-                        data: 'Pacino Movies',
-                        children: [{label: 'Scarface',iconType:'video',data:'Scarface Movie'},{label: 'Serpico',iconType:'video',data:'Serpico Movie'}]
-                    },
-                    {
-                        label: 'Robert De Niro',
-                        data: 'De Niro Movies',
-                        children: [{label: 'Goodfellas',iconType:'video',data:'Goodfellas Movie'},{label: 'Untouchables',iconType:'video',data:'Untouchables Movie'}]
-                    }]
-            }
-        ],
-        icons: {
-            def: {
-                expanded: 'ui-icon-folder-open',
-                collapsed: 'ui-icon-folder-collapsed'
-            },
-            picture: 'ui-icon-image',
-            doc: 'ui-icon-document',
-            picture: 'ui-icon-image',
-            video: 'ui-icon-video'
-        },
-        nodeSelect: function(event, ui) {
-            $('#messages').puigrowl('show', [{severity:'info', summary: 'Node Selected', detail: 'Data: ' + ui.data}]);
-        },
-        nodeUnselect: function(event, ui) {
-            $('#messages').puigrowl('show', [{severity:'info', summary: 'Node Unselected', detail: 'Data: ' + ui.data}]);
-        }
-            -->
 		</section>
 
 		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
@@ -96,11 +38,40 @@ animate: true,
 				<div>
 					<div id="d_html">
 						<pre pretty-print="html" >
+            <div id="icons" pui-tree="treeIcons" >
+                <div pui-treenode="Documents" >
+                    <div pui-treenode="Work" >
+                        <div pui-treenode="{label: 'Expenses.doc', iconType:'doc'}" ></div>
+                        <div pui-treenode="{label: 'Resume.doc', iconType:'doc'}" ></div>
+                    </div>
+                    <div pui-treenode="Home" >
+                        <div pui-treenode="{label: 'Invoices.txt', iconType:'doc'}" ></div>
+                    </div>
+                </div>
+                <div pui-treenode="Pictures" >
+                    <div pui-treenode="{label: 'barcelona.jpg', iconType:'picture'}" ></div>
+                    <div pui-treenode="{label: 'logo.jpg', iconType:'picture'}" ></div>
+                    <div pui-treenode="{label: 'primeui.jpg', iconType:'picture'}" ></div>
+                    <div pui-treenode="Special" >
+                        <div pui-treenode="{label: 'test.doc', iconType:'doc'}" ></div>
+                    </div>
+                </div>
+            </div>
 						</pre>
 					</div>
 					<div id="d_script">
 						<pre pretty-print="js" >
-
+    $scope.treeIcons = {
+        icons: {
+            def: {
+                expanded: 'ui-icon-folder-open',
+                collapsed: 'ui-icon-folder-collapsed'
+            },
+            picture: 'ui-icon-image',
+            doc: 'ui-icon-document',
+            video: 'ui-icon-video'
+        }
+    };
                         </pre>
 					</div>
 				</div>

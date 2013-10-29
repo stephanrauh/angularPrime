@@ -890,7 +890,41 @@
                  "path": "puiTooltip/dynamic"
              }
          ]
+    },
+    {
+        "widget": "puiTree",
+        "controller": "TreeController",
+        "defaultPath": "puiTree/overview",
+        "subPages": [
+            {
+                "label": "overview",
+                "path": "puiTree/overview"
+            },
+            {
+                "label": "default",
+                "path": "puiTree/default"
+            },
+            {
+                "label": "icons",
+                "path": "puiTree/icons"
+            },
+            {
+                "label": "remoteData",
+                "path": "puiTree/remoteData"
+            },
+            {
+                "label": "lazyLoaded",
+                "path": "puiTree/lazy"
+            },
+            {
+                "label": "multiple",
+                "path": "puiTree/multiple"
+            },
+            {
+                "label": "animate",
+                "path": "puiTree/animate"
+            }
+        ]
     }
-
 
 ]

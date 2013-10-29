@@ -888,8 +888,82 @@ function PicklistController($scope, Widgets) {
         {value: "8", label: "Chevrolet" },
         {value: "9", label: "Jaguar"}
     ];
+}
 
+function TreeController($scope, Widgets) {
 
+    $scope.widgets = Widgets;
+
+    $scope.nodeSelect = function(event, ui) {
+        alert('Node Selected - Data: ' + ui.data);
+    };
+
+    $scope.treeIcons = {
+        icons: {
+            def: {
+                expanded: 'ui-icon-folder-open',
+                collapsed: 'ui-icon-folder-collapsed'
+            },
+            picture: 'ui-icon-image',
+            doc: 'ui-icon-document',
+            video: 'ui-icon-video'
+        }
+    };
+
+    $scope.remoteData = {
+        nodes: function (ui, callback) {
+            $.ajax({
+                type: "GET",
+                url: 'json/tree.json',
+                dataType: "json",
+                context: this,
+                success: function (response) {
+                    $scope.safeApply(  // external changes aren't picked up by angular
+                        callback.call(this, response))
+                }
+            });
+        },
+        nodeSelect : function(event, ui) {
+            alert('Node Selected - Data: ' + ui.data);
+        }
+    };
+
+    $scope.lazyLoaded = {
+        lazy: true,
+        nodes: function (ui, callback) {
+            $.ajax({
+                type: "GET",
+                url: 'data/tree/' + (ui.data ? ui.data : 'root'),
+                dataType: "json",
+                context: this,
+                success: function (data) {
+                    callback.call(this, data, ui.node);
+                }
+            });
+        },
+        icons: {
+            def: {
+                expanded: 'ui-icon-folder-open',
+                collapsed: 'ui-icon-folder-collapsed'
+            },
+            picture: 'ui-icon-image',
+            doc: 'ui-icon-document',
+            video: 'ui-icon-video'
+        },
+        nodeSelect: function (event, ui) {
+            alert('Node Selected - Data: ' + ui.data);
+        }
+    };
+
+    $scope.multipleSelect = {
+        selectionMode: 'multiple',
+        nodeSelect: function(event, ui) {
+            alert('Node Selected - Data: ' + ui.data);
+        },
+        nodeUnselect: function(event, ui) {
+            alert('Node Unselected - Data: ' + ui.data);
+        }
+    }
 }
 
 function Ctrl($scope, Widgets, version) {

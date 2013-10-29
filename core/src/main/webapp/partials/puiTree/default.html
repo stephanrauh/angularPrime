@@ -1,23 +1,31 @@
 <div ng-include="'partials/widgetList.html'" id="widgetList"></div>
 <div id="content">
 
-	<div pui-panel title="puiPicklist">
+	<div pui-panel title="puiTree">
 		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
 
 		<section>
 			<header>Default integration <span version="0.5"/></header>
-            <select id="default" pui-picklist ng-model="selectedOptions">
-                <option value="1">Volkswagen</option>
-                <option value="2">Ford</option>
-                <option value="3">Mercedes</option>
-                <option value="4">Audi</option>
-                <option value="5">BMW</option>
-                <option value="6">Honda</option>
-                <option value="7">Porsche</option>
-                <option value="8">Chevrolet</option>
-                <option value="9">Jaguar</option>
-            </select>    <br/>
-            Selected options =  <span id="selectedOptions">{{selectedOptions}}</span>
+            <div id="default" pui-tree="nodeSelect" >
+                <div pui-treenode="Documents" id="documents">
+                    <div pui-treenode="Work" id="work">
+                        <div pui-treenode="Expenses.doc" id="expenses" ></div>
+                        <div pui-treenode="Resume.doc" id="resume"></div>
+                    </div>
+                    <div pui-treenode="Home" >
+                        <div pui-treenode="Invoices.txt" id="invoices"></div>
+                    </div>
+                </div>
+                <div pui-treenode="Pictures" id="pictures">
+                    <div pui-treenode="barcelona.jpg" id="barcelona" ></div>
+                    <div pui-treenode="logo.jpg" id="logo"></div>
+                    <div pui-treenode="primeui.jpg" id="primeui"></div>
+                    <div pui-treenode="Special" id="special">
+                        <div pui-treenode="test.doc" id="test" ></div>
+                    </div>
+                </div>
+            </div>
+
 		</section>
 
 		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
@@ -30,23 +38,33 @@
 				<div>
 					<div id="d_html">
 						<pre pretty-print="html" >
-            <select id="default" pui-picklist ng-model="selectedOptions">
-                <option value="1">Volkswagen</option>
-                <option value="2">Ford</option>
-                <option value="3">Mercedes</option>
-                <option value="4">Audi</option>
-                <option value="5">BMW</option>
-                <option value="6">Honda</option>
-                <option value="7">Porsche</option>
-                <option value="8">Chevrolet</option>
-                <option value="9">Jaguar</option>
-            </select>    <br/>
-            Selected options =  <span id="selectedOptions">{{selectedOptions}}</span>
+            <div id="default" pui-tree="nodeSelect" >
+                <div pui-treenode="Documents" id="documents">
+                    <div pui-treenode="Work" id="work">
+                        <div pui-treenode="Expenses.doc" id="expenses" ></div>
+                        <div pui-treenode="Resume.doc" id="resume"></div>
+                    </div>
+                    <div pui-treenode="Home" >
+                        <div pui-treenode="Invoices.txt" id="invoices"></div>
+                    </div>
+                </div>
+                <div pui-treenode="Pictures" id="pictures">
+                    <div pui-treenode="barcelona.jpg" id="barcelona" ></div>
+                    <div pui-treenode="logo.jpg" id="logo"></div>
+                    <div pui-treenode="primeui.jpg" id="primeui"></div>
+                    <div pui-treenode="Special" id="special">
+                        <div pui-treenode="test.doc" id="test" ></div>
+                    </div>
+                </div>
+            </div>
 						</pre>
 					</div>
 					<div id="d_script">
 						<pre pretty-print="js" >
-    $scope.selectedOptions = [];
+    $scope.nodeSelect = function(event, ui) {
+        alert('Node Selected - Data: ' + ui.data);
+    };
+
                         </pre>
 					</div>
 				</div>

@@ -70,13 +70,15 @@
                         }
                     });
 
-                }
+                };
             }
         };
     });
 
 }());
-;/**
+;/*globals $ PUI */
+
+/**
  * PrimeUI listvox widget
  */
 $(function() {

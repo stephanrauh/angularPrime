@@ -3,197 +3,108 @@
 (function () {
     "use strict";
 
-angular.module('angular.prime').directive('puiDatatable', [ '$log', function ($log) {
-    return {
-        restrict: 'A',
-        priority: 5,
-        compile: function (element, attrs) {
-            return function postLink(scope, element, attrs) {
-                var options = scope.$eval(attrs.puiDatatable) || {},
-                    data = [],
-                    functionBasedData = false,
-                    columns = element.data('puiColumns') || [],
-                    selectionMode = null,
-                    paginator = null;
+    angular.module('angular.prime').directive('puiTree', function () {
+        return {
+            restrict: 'A',
+            priority: 5,
+            compile: function (element, attrs) {
+                return function postLink(scope, element, attrs) {
+                    var options = scope.$eval(attrs.puiTree) || {},
+                        nodes = element.data('puiTreeNodes') || [],
+                        selectionMode = null;
 
-                if (angular.isArray(options)) {
-                    data = options;
-                }
-
-                if (angular.isFunction(options)) {
-                    data = options;
-                    functionBasedData = true;
-                }
-
-                if (angular.isArray(data) && data.length === 0) {
-                    if (angular.isFunction(options.tableData)) {
-                        functionBasedData = true;
+                    if (angular.isObject(nodes)) {
+                        element.html('');  // remove DIV elements with definition of nodes
                     }
-                    data = options.tableData;
-
-                }
-
-                if (columns.length === 0) {
-                    if (options.columns) {
-                        columns = options.columns;
+                    if (angular.isFunction(options)) {
+                        selectionMode = options.selectionMode || 'single';
+                        options = {nodeSelect : options };
                     }
-                    if (!functionBasedData && columns.length === 0) {
-                        for (var property in data[0]) {
-                            columns.push({field: property, headerText: property});
+
+                    if (angular.isObject(options)) {
+                        selectionMode = options.selectionMode;
+                        if (options.nodeSelect) {
+                            selectionMode = options.selectionMode || 'single';
                         }
                     }
-                }
+                    $(function () {
 
-                if (options.selectionMode) {
-                    selectionMode = options.selectionMode;
-                }
-
-                if (options.rowSelect && selectionMode === null) {
-                    selectionMode = 'single';
-                }
-
-                if (options.selectedData) {
-
-                    if (selectionMode === null) {
-                        selectionMode = 'multiple';
-                    }
-
-                    element.bind('puidatatablerowselect', function (eventData, idx) {
-                        $(function () {
-                            var data = element.puidatatable('getData');
-                            scope.safeApply(function () {
-                                var rowIndex = data.indexOf(idx),
-                                    index = options.selectedData.indexOf(rowIndex);
-                                if (index === -1) {
-                                    options.selectedData.push(rowIndex);
-                                }
-
-
-                            });
-
-
+                        element.puitree({
+                            nodes: nodes.children || options.nodes,
+                            selectionMode: selectionMode,
+                            nodeSelect: options.nodeSelect,
+                            nodeUnselect: options.nodeUnselect,
+                            lazy: options.lazy,
+                            icons: options.icons,
+                            animate: options.animate
                         });
+
                     });
+                };
+            }
+        };
+    });
 
-                    element.bind('puidatatablerowunselect', function (eventData, idx) {
-                        $(function () {
-                            var data = element.puidatatable('getData');
-                            scope.safeApply(function () {
-                                var rowIndex = data.indexOf(idx),
-                                    index = options.selectedData.indexOf(rowIndex);
-                                if (index !== -1) {
-                                    options.selectedData.splice(index, 1);
-                                }
+    angular.module('angular.prime').directive('puiTreenode', function () {
+        return {
+            restrict: 'A',
+            priority: 5,
+            compile: function (element, attrs) {
+                return function postLink(scope, element, attrs) {
+                    var nodes = element.parent().data('puiTreeNodes'),
+                        children = element.data('puiTreeNodes') || [],
+                        options = scope.$eval(attrs.puiTreenode) || attrs.puiTreenode,
+                        nodeInfo = {};
 
-                            });
+                    if (children.length === 0) {
+                        // Leaf
 
-                        });
-                    });
+                        if (nodes === undefined) {
+                            // First leaf so create object
+                            nodes = {children: []};
+                        }
 
-                    element.bind('puidatatableunselectallrows', function (eventData, idx) {
-                        $(function () {
-                            scope.safeApply(function () {
-                                options.selectedData = [];
-                            });
-                        });
-                    });
+                        if (angular.isObject(options)) {
+                            nodeInfo = options;
+                        } else {
+                            nodeInfo = {label: options};
+                        }
 
-                }
-
-                if (options.paginatorRows) {
-                    paginator = {
-                        rows: options.paginatorRows
-                    };
-                }
-
-                if (options.selectedData) {
-                    scope.$watch(attrs.puiDatatable + '.selectedData', function (x) {
-                        $(function () {
-                            element.puidatatable('unselectAllRows', true);
-                            if (selectionMode === 'single' && x.length === 2) {
-                                x = x.splice(1,1);  // assume the last added one (now 2 elements) is the one we need
-                                options.selectedData = x;
-                            }
-                            angular.forEach(x, function (row) {
-                                element.puidatatable('selectRowByIndex', row);
-                            });
-                        });
-                    }, true);
-                }
-
-                $(function () {
-
-                    element.puidatatable({
-                        caption: options.caption,
-                        datasource : data,
-                        columns: columns,
-                        selectionMode: selectionMode,
-                        rowSelect: options.rowSelect,
-                        rowUnselect: options.rowUnselect,
-                        paginator: paginator
-                    });
-
-                });
-
-                if (options.selectedPage !== undefined) {
-                    if (options.paginatorRows !== undefined) {
-                        $(function () {
-                            var paginator = element.puidatatable('getPaginator');
-
-                            paginator.bind('puipaginatorpaginate', function (eventData, pageState) {
-                                scope.safeApply(function () {
-                                    options.selectedPage = pageState.page;
-                                });
-
-                            });
-
-                            scope.$watch(attrs.puiDatatable + '.selectedPage', function (selectedPage) {
-                                $(function () {
-                                    paginator.puipaginator('setPage', parseInt(selectedPage, 10));
-                                });
-                            });
-                        });
+                        nodeInfo.data = options.data || attrs.id || nodeInfo.label;
+                        // Keep info on parent
+                        nodes.children.push(nodeInfo);
                     } else {
-                        $log.warn('selectedPage option specified but no value for paginatorRows option defined');
+                        // Node, leaf already discovered
+                        if (nodes === undefined) {
+                            // First node so create object representing this node
+                            nodes = {children: children.children };
+
+                            if (angular.isObject(options)) {
+                                nodes.label = options.label;
+
+                            } else {
+                                nodes.label = options;
+                            }
+                            nodes.data = options.data || attrs.id || nodes.label;
+                            // Set this node as the children property of the parent
+                            nodes = {children: [nodes]};
+                        } else {
+                            if (angular.isObject(options)) {
+                                nodeInfo = options;
+                            } else {
+                                nodeInfo = {label: options};
+                            }
+                            nodeInfo.children = children.children;
+                            nodeInfo.data = options.data || attrs.id || nodeInfo.label;
+
+                            nodes.children.push(nodeInfo);
+                        }
                     }
-                }
 
-            };
-        }
-    };
-}]);
-
-angular.module('angular.prime').directive('puiColumn', function () {
-    return {
-        restrict: 'A',
-        priority: 5,
-        compile: function (element, attrs) {
-            return function postLink(scope, element, attrs) {
-                  var columns = element.parent().data('puiColumns') ,
-                      options = scope.$eval(attrs.puiColumn) || {} ,
-                      columnInfo = {};
-
-                if (columns === undefined) {
-                    columns = [];
-                }
-
-                if (options.hasOwnProperty('field')) {
-                    columnInfo.field = options.field;
-                    columnInfo.headerText = options.headerText;
-                    if (columnInfo.headerText === undefined) {
-                        columnInfo.headerText = columnInfo.field;
-                    }
-                    columnInfo.sortable = options.sortable;
-
-                } else {
-                    columnInfo.field = attrs.puiColumn;
-                    columnInfo.headerText = attrs.puiColumn;
-                }
-                columns.push(columnInfo);
-                element.parent().data('puiColumns', columns);
-            };
-        }
-    };
-});
+                    element.parent().data('puiTreeNodes', nodes);
+                };
+            }
+        };
+    });
 
 }());

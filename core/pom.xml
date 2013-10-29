@@ -44,6 +44,15 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <angular-version>1.0.7</angular-version>
 	</properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 	<build>
 
 		<plugins>
