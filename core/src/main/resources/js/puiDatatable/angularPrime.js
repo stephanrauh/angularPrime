@@ -14,7 +14,8 @@ angular.module('angular.prime').directive('puiDatatable', [ '$log', function ($l
                     functionBasedData = false,
                     columns = element.data('puiColumns') || [],
                     selectionMode = null,
-                    paginator = null;
+                    paginator = null,
+                    sortOrder = null;
 
                 if (angular.isArray(options)) {
                     data = options;
@@ -102,7 +103,8 @@ angular.module('angular.prime').directive('puiDatatable', [ '$log', function ($l
 
                 if (options.paginatorRows) {
                     paginator = {
-                        rows: options.paginatorRows
+                        rows: options.paginatorRows,
+                        totalRecords: options.totalRecords
                     };
                 }
 
@@ -121,16 +123,26 @@ angular.module('angular.prime').directive('puiDatatable', [ '$log', function ($l
                     }, true);
                 }
 
+                if (options.sortOrder) {
+                    if ('down' === options.sortOrder.toLowerCase()) {
+                        sortOrder = -1;
+                    } else {
+                        sortOrder = 1;
+                    }
+                }
                 $(function () {
 
                     element.puidatatable({
                         caption: options.caption,
+                        lazy: options.lazy || false,
                         datasource : data,
                         columns: columns,
                         selectionMode: selectionMode,
                         rowSelect: options.rowSelect,
                         rowUnselect: options.rowUnselect,
-                        paginator: paginator
+                        paginator: paginator,
+                        sortField: options.sortField,
+                        sortOrder: sortOrder
                     });
 
                 });

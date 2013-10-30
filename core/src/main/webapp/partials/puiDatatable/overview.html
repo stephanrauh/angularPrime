@@ -29,6 +29,18 @@
 				<li>When you sort on a column, you loose the selection (PrimeUI code)</li>
 			</ul>
 		</fieldset>
+        <fieldset id="fixes" pui-fieldset style="margin-bottom:20px">
+            <legend>History</legend>
+            <ul>
+                <li>0.5</li>
+                <li style="list-style-type:none">
+                    <ul>
+                        <li>Lazy loaded data (on pagination)</li>
+                        <li>Support for initially sorted column</li>
+                    </ul>
+                </li>
+            </ul>
+        </fieldset>
 		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
 			<legend>Planned</legend>
             <ul>
@@ -133,6 +145,35 @@
                         When value is programmatic changed, the page selection on screen is also updated (and thus showing other set of rows)
                     </td>
                 </tr>
+                <tr class="ui-widget-content">
+                    <td>lazy (0.5)</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                    <td>When data is loaded lazy, the tableData property should point to a function that loads the data lazy into the browser.
+                    </td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>totalRecords (0.5)</td>
+                    <td>int</td>
+                    <td>null</td>
+                    <td>When lazy loading is in effect, the total number of rows needs to be specified upfront in order that the paginator can work correctly.
+                    </td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>sortField (0.5)</td>
+                    <td>String</td>
+                    <td>null</td>
+                    <td>The name of the property / column on which the initial sorting (at first display) must be performed.
+                    </td>
+                </tr>
+                <tr class="ui-widget-content">
+                    <td>sortOrder (0.5)</td>
+                    <td>String</td>
+                    <td>null</td>
+                    <td>The order for the initial sorting where the values 'down' and 'up' are recognized.
+                    </td>
+                </tr>
+
 
 
 				</tbody>

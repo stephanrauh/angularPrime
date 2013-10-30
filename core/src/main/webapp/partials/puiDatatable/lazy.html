@@ -1,0 +1,69 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiDatatable">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Lazy loaded data <span version="0.5"/></header>
+            <div pui-datatable="lazyData">
+                <div pui-column="{field: 'brand', sortable: true}"></div>
+                <div pui-column="{field: 'year', sortable: true}"></div>
+                <div pui-column="{field: 'color', sortable: true}"></div>
+                <div pui-column="vin"></div>
+            </div>
+
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+				<ul>
+					<li><a href="#d_html">html</a></li>
+					<li><a href="#d_script">controller</a></li>
+				</ul>
+				<div>
+					<div id="d_html">
+						<pre pretty-print="html" >
+            <div pui-datatable="lazyData">
+                <div pui-column="{field: 'brand', sortable: true}"></div>
+                <div pui-column="{field: 'year', sortable: true}"></div>
+                <div pui-column="{field: 'color', sortable: true}"></div>
+                <div pui-column="vin"></div>
+            </div>
+						</pre>
+
+					</div>
+					<div id="d_script">
+						<pre pretty-print="js" >
+    $scope.lazyData = {
+        lazy: true,
+        paginatorRows: 5,
+        totalRecords: 200,
+        tableData: function (callback, ui) {
+            var uri = 'data/cars/lazylist/' + ui.first;
+            if (ui.sortField) {
+                uri += '/' + ui.sortField + '/' + ui.sortOrder;
+            }
+
+            $.ajax({
+                type: "GET",
+                url: uri,
+                dataType: "json",
+                context: this,
+                success: function (response) {
+                    $scope.safeApply(  // external changes aren't picked up by angular
+                        callback.call(this, response))
+                }
+
+            });
+        }
+    };
+						</pre>
+
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>

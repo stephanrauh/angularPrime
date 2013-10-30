@@ -225,6 +225,35 @@ function DatatableController($scope, Widgets, puiGrowl) {
         , selectedPage: 0
     };
 
+    $scope.lazyData = {
+        lazy: true,
+        paginatorRows: 5,
+        totalRecords: 200,
+        tableData: function (callback, ui) {
+            var uri = 'data/cars/lazylist/' + ui.first;
+            if (ui.sortField) {
+                uri += '/' + ui.sortField + '/' + ui.sortOrder;
+            }
+
+            $.ajax({
+                type: "GET",
+                url: uri,
+                dataType: "json",
+                context: this,
+                success: function (response) {
+                    $scope.safeApply(  // external changes aren't picked up by angular
+                        callback.call(this, response))
+                }
+
+            });
+        }
+    };
+
+    $scope.initialSort = {
+        tableData : $scope.fixedData,
+        sortField: 'year',
+        sortOrder: 'down'
+    }
 }
 
 function DialogController($scope, Widgets) {

@@ -6,12 +6,19 @@
         <servlet-name>treeServlet</servlet-name>
         <servlet-class>be.rubus.angularprime.demo.TreeServlet</servlet-class>
     </servlet>
-    
+    <servlet>
+        <servlet-name>datatableServlet</servlet-name>
+        <servlet-class>be.rubus.angularprime.demo.DatatableServlet</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>treeServlet</servlet-name>
         <url-pattern>/data/tree/*</url-pattern>
     </servlet-mapping>
-
+    <servlet-mapping>
+        <servlet-name>datatableServlet</servlet-name>
+        <url-pattern>/data/cars/lazylist/*</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
 		<welcome-file>angularPrime.html</welcome-file>
 	</welcome-file-list>

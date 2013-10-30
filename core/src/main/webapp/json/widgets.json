@@ -211,6 +211,14 @@
             {
                 "label": "progpagination",
                 "path": "puiDatatable/progPagination"
+            },
+            {
+                "label": "lazyLoaded",
+                "path": "puiDatatable/lazy"
+            },
+            {
+                "label": "initialSort",
+                "path": "puiDatatable/initialSort"
             }
         ]
     },
