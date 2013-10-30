@@ -79,7 +79,7 @@ angular.module('angular.prime').directive('puiPicklist', function () {
                         data.items.each(function (index, item) {
                             var itemValue = $(item).data()['item-value'];
                             scope.safeApply(function () {
-                                processTransfer(itemValue)
+                                processTransfer(itemValue);
                             });
                             if (options.callback) {
                                 options.callback(eventType, itemValue);
@@ -93,7 +93,7 @@ angular.module('angular.prime').directive('puiPicklist', function () {
                     var values = [];
 
                     data.items.each(function (index, item) {
-                        values.push($(item).data()['item-value'])
+                        values.push($(item).data()['item-value']);
                     });
                     scope.safeApply(
                         ngModel.$setViewValue(values)
@@ -138,7 +138,7 @@ angular.module('angular.prime').directive('puiPicklist', function () {
                             ngModel.$render();
                         }
                     }
-                }, true)
+                }, true);
 
             };
 

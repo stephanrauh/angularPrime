@@ -527,7 +527,7 @@ $(function() {
         },
 
         selectValue: function(val) {
-            var $this = this
+            var $this = this;
             this.items.each(function () {
                 var item = $(this);
                 if (item.data()['item-value'] == val) {

@@ -19,7 +19,7 @@ public class TreeServlet extends HttpServlet {
         String id = request.getPathInfo().substring(1);
         TreeNode node = findNode(root, id);
 
-        StringBuffer json = new StringBuffer();
+        StringBuilder json = new StringBuilder();
         json.append('[');
         for (TreeNode child : node.getChildren()) {
             if (json.length() > 1) {
