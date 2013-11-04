@@ -1,5 +1,4 @@
 /*globals $ window PUI document*/
-/*jshint laxcomma:true*/
 
 /**
  * PrimeUI autocomplete widget
@@ -104,13 +103,14 @@ $(function() {
             }
 
             if(this.options.forceSelection) {
-                this.cachedResults = [this.element.val()];
+                this.currentItems = [this.element.val()];
+
                 this.element.on('blur.puiautocomplete', function() {
-                    var value = $this.element.val(),
+                    var value = $(this).val(),
                         valid = false;
 
-                    for(var i = 0; i < $this.cachedResults.length; i++) {
-                        if($this.cachedResults[i] == value) {
+                    for(var i = 0; i < $this.currentItems.length; i++) {
+                        if($this.currentItems[i] === value) {
                             valid = true;
                             break;
                         }
@@ -356,9 +356,9 @@ $(function() {
                 }
 
                 if(this.options.forceSelection) {
-                    this.cachedResults = [];
-                    $.each(data, function(i, item) {  // Changed for AngularPrime
-                        $this.cachedResults.push(item.label);
+                    this.currentItems = [];
+                    $.each(data, function(i, item) {
+                        $this.currentItems.push(item.label);
                     });
                 }
 
@@ -436,9 +436,9 @@ $(function() {
                 'z-index': ++PUI.zindex
             })
                 .position({
-                    my: 'left top'
-                    ,at: 'left bottom'
-                    ,of: this.element
+                    my: 'left top',
+                    at: 'left bottom',
+                    of: this.element
                 });
         },
 

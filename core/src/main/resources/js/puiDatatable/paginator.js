@@ -124,7 +124,7 @@ $(function() {
                 boundaries = this.calculateBoundaries({
                     page: paginator.options.page,
                     pageLinks: paginator.options.pageLinks,
-                    pageCount: paginator.getPageCount(),
+                    pageCount: paginator.getPageCount()
                 }),
                 start = boundaries[0],
                 end = boundaries[1];

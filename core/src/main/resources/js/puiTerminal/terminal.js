@@ -1,4 +1,3 @@
-/*jshint laxcomma:true*/
 /*globals $ */
 
 /**

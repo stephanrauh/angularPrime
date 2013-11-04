@@ -1,4 +1,3 @@
-/*jshint laxcomma:true*/
 /*globals $ */
 
 /**
@@ -9,8 +8,8 @@ $(function() {
     $.widget("primeui.puitabview", {
 
         options: {
-            activeIndex:0
-            ,orientation:'top'
+            activeIndex:0,
+            orientation:'top'
         },
 
         _create: function() {

@@ -71,7 +71,7 @@ angular.module('angular.prime').directive('puiTooltip', ['$interpolate', functio
  * PrimeFaces Tooltip Widget
  */
 $(function() {
-    "use strict"; // Added for AnfularPrime
+    "use strict"; // Added for AngularPrime
 
     $.widget("primeui.puitooltip", {
 
@@ -184,7 +184,7 @@ $(function() {
         },
 
         hide: function() {
-            window.learTimeout(this.timeout);
+            window.clearTimeout(this.timeout);
 
             this.container.hide(this.options.hideEffect, {}, this.options.hideEffectSpeed, function() {
                 $(this).css('z-index', '');

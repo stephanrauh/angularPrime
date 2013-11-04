@@ -1,4 +1,3 @@
-/*jshint laxcomma:true*/
 /*globals $ document window PUI*/
 
 /**
@@ -88,8 +87,8 @@ $(function() {
             $(window).resize(function() {
                 if(!$this.isHidden()) {
                     $(document.body).children('.ui-widget-overlay').css({
-                        'width': $(document).width()
-                        ,'height': $(document).height()
+                        'width': $(document).width(),
+                        'height': $(document).height()
                     });
                 }
             });
@@ -114,8 +113,8 @@ $(function() {
 
                 //resize content for new image
                 $this.content.removeClass('pui-lightbox-loading').animate({
-                        width: image.width()
-                        ,height: image.height()
+                        width: image.width(),
+                        height: image.height()
                     },
                     500,
                     function() {
@@ -126,8 +125,8 @@ $(function() {
                     });
 
                 $this.panel.animate({
-                    left: '+=' + leftOffset
-                    ,top: '+=' + topOffset
+                    left: '+=' + leftOffset,
+                    top: '+=' + topOffset
                 }, 500);
             });
 
@@ -136,17 +135,17 @@ $(function() {
             })
                 .click(function(e) {
                     var nav = $(this),
-                        index; // Added for AngularPrime
+                        index;
 
                     $this._hideNavigators();
 
                     if(nav.hasClass('pui-lightbox-nav-left')) {
-                        index = $this.current === 0 ? $this.links.length - 1 : $this.current - 1; // Changed for AngularPrime
+                        index = $this.current === 0 ? $this.links.length - 1 : $this.current - 1;
 
                         $this.links.eq(index).trigger('click');
                     }
                     else {
-                        index = $this.current == $this.links.length - 1 ? 0 : $this.current + 1; // Changed for AngularPrime
+                        index = $this.current == $this.links.length - 1 ? 0 : $this.current + 1;
 
                         $this.links.eq(index).trigger('click');
                     }
@@ -165,8 +164,8 @@ $(function() {
                     $this.imageDisplay.fadeOut(function() {
                         //clear for onload scaling
                         $(this).css({
-                            'width': 'auto'
-                            ,'height': 'auto'
+                            'width': 'auto',
+                            'height': 'auto'
                         });
 
                         $this.content.addClass('pui-lightbox-loading');
@@ -208,8 +207,8 @@ $(function() {
             }
 
             image.css({
-                'width':imageWidth + 'px'
-                ,'height':imageHeight + 'px'
+                'width':imageWidth + 'px',
+                'height':imageHeight + 'px'
             });
         },
 
@@ -245,8 +244,8 @@ $(function() {
             this.element.click(function(e) {
                 if(!$this.iframeLoaded) {
                     $this.content.addClass('pui-lightbox-loading').css({
-                        width: $this.options.iframeWidth
-                        ,height: $this.options.iframeHeight
+                        width: $this.options.iframeWidth,
+                        height: $this.options.iframeHeight
                     });
 
                     $this.show();
@@ -310,9 +309,9 @@ $(function() {
         _enableModality: function() {
             this.modality = $('<div class="ui-widget-overlay"></div>')
                 .css({
-                    'width': $(document).width()
-                    ,'height': $(document).height()
-                    ,'z-index': this.panel.css('z-index') - 1
+                    'width': $(document).width(),
+                    'height': $(document).height(),
+                    'z-index': this.panel.css('z-index') - 1
                 })
                 .appendTo(document.body);
         },

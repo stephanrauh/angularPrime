@@ -45,8 +45,7 @@
 });
 
 }());
-;/*jshint laxcomma:true*/
-/*globals $ */
+;/*globals $ */
 
 /**
  * PrimeUI Terminal widget

@@ -54,8 +54,7 @@ angular.module('angular.prime').directive('puiSpinner', function () {
 });
 
 }());
-;/*jshint laxcomma:true*/
-/*globals $ window*/
+;/*globals $ window*/
 
 /**
  * PrimeUI spinner widget
@@ -96,9 +95,9 @@ $(function() {
 
             //aria
             input.attr({
-                'role': 'spinner'
-                ,'aria-multiline': false
-                ,'aria-valuenow': this.value
+                'role': 'spinner',
+                'aria-multiline': false,
+                'aria-valuenow': this.value
             });
 
             if(this.options.min !== undefined)
@@ -206,8 +205,8 @@ $(function() {
         },
 
         _spin: function(step) {
-            var newValue, // Changed for AngularPrime
-            currentValue = this.value ? this.value : 0;
+            var newValue,
+                currentValue = this.value ? this.value : 0;
 
             if(this.options.precision)
                 newValue = parseFloat(this._toFixed(currentValue + step, this.options.precision));

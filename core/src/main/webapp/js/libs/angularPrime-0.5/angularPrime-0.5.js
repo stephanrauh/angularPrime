@@ -462,9 +462,7 @@ $(function() {
             surroundSelectedText: jQuerify(surroundSelectedText, true)
         });
     });
-})(jQuery);;/*jshint laxcomma:true*/
-
-/*globals $ document window PUI */
+})(jQuery);;/*globals $ document window PUI */
 
 /**
  * PrimeUI BaseMenu widget
@@ -494,9 +492,9 @@ $(function() {
             this.element.closest('.pui-menu').addClass('pui-menu-dynamic pui-shadow').appendTo(document.body);
 
             this.positionConfig = {
-                my: this.options.my
-                ,at: this.options.at
-                ,of: this.options.trigger
+                my: this.options.my,
+                at: this.options.at,
+                of: this.options.trigger
             };
 
             this.options.trigger.on(this.options.triggerEvent + '.pui-menu', function(e) {
@@ -557,8 +555,7 @@ $(function() {
             this.element.closest('.pui-menu').css({left:'', top:''}).position(this.positionConfig);
         }
     });
-});
-;/*globals $ */
+});;/*globals $ */
 
 /**
  * PrimeUI Accordion widget
@@ -642,7 +639,7 @@ $(function() {
         select: function(index) {
             var panel = this.panels.eq(index);
 
-            //this._trigger('change', panel);
+            //this._trigger('change', panel); // AngularPrime disabled
 
             //update state
             if(this.options.multiple)
@@ -958,7 +955,6 @@ angular.module('angular.prime').directive('puiAutocomplete', function () {
 
 }());
 ;/*globals $ window PUI document*/
-/*jshint laxcomma:true*/
 
 /**
  * PrimeUI autocomplete widget
@@ -1063,13 +1059,14 @@ $(function() {
             }
 
             if(this.options.forceSelection) {
-                this.cachedResults = [this.element.val()];
+                this.currentItems = [this.element.val()];
+
                 this.element.on('blur.puiautocomplete', function() {
-                    var value = $this.element.val(),
+                    var value = $(this).val(),
                         valid = false;
 
-                    for(var i = 0; i < $this.cachedResults.length; i++) {
-                        if($this.cachedResults[i] == value) {
+                    for(var i = 0; i < $this.currentItems.length; i++) {
+                        if($this.currentItems[i] === value) {
                             valid = true;
                             break;
                         }
@@ -1315,9 +1312,9 @@ $(function() {
                 }
 
                 if(this.options.forceSelection) {
-                    this.cachedResults = [];
-                    $.each(data, function(i, item) {  // Changed for AngularPrime
-                        $this.cachedResults.push(item.label);
+                    this.currentItems = [];
+                    $.each(data, function(i, item) {
+                        $this.currentItems.push(item.label);
                     });
                 }
 
@@ -1395,9 +1392,9 @@ $(function() {
                 'z-index': ++PUI.zindex
             })
                 .position({
-                    my: 'left top'
-                    ,at: 'left bottom'
-                    ,of: this.element
+                    my: 'left top',
+                    at: 'left bottom',
+                    of: this.element
                 });
         },
 
@@ -1633,8 +1630,7 @@ angular.module('angular.prime').directive('puiButton', ['$interpolate', function
 );
 
 }());
-;/*jshint laxcomma:true*/
-/*globals $ */
+;/*globals $ */
 
 /**
  * PrimeFaces Button Widget
@@ -1645,20 +1641,22 @@ $(function() {
     $.widget("primeui.puibutton", {
 
         options: {
-            icon: null
-            ,iconPos : 'left'
+            value: null,
+            icon: null,
+            iconPos: 'left',
+            click: null
         },
 
         _create: function() {
             var element = this.element,
-                text = element.text()||'pui-button',
+                elementText = element.text(),
+                value = this.options.value||(elementText === '' ? 'pui-button' : elementText),
                 disabled = element.prop('disabled'),
                 styleClass = null;
 
             if(this.options.icon) {
-                styleClass = (text === 'pui-button') ? 'pui-button-icon-only' : 'pui-button-text-icon-' + this.options.iconPos;
-            }
-            else {
+                styleClass = (value === 'pui-button') ? 'pui-button-icon-only' : 'pui-button-text-icon-' + this.options.iconPos;
+            } else {
                 styleClass = 'pui-button-text-only';
             }
 
@@ -1672,7 +1670,7 @@ $(function() {
                 this.element.append('<span class="pui-button-icon-' + this.options.iconPos + ' ui-icon ' + this.options.icon + '" />');
             }
 
-            this.element.append('<span class="pui-button-text">' + text + '</span>');
+            this.element.append('<span class="pui-button-text">' + value + '</span>');
 
             //aria
             element.attr('role', 'button').attr('aria-disabled', disabled);
@@ -2572,7 +2570,7 @@ $(function() {
                 boundaries = this.calculateBoundaries({
                     page: paginator.options.page,
                     pageLinks: paginator.options.pageLinks,
-                    pageCount: paginator.getPageCount(),
+                    pageCount: paginator.getPageCount()
                 }),
                 start = boundaries[0],
                 end = boundaries[1];
@@ -2809,8 +2807,7 @@ angular.module('angular.prime').directive('puiDialog', function () {
 );
 
 }());
-;/*jshint laxcomma:true*/
-/*globals $ document PUI window*/
+;/*globals $ document PUI window*/
 
 /**
  * PrimeUI Dialog Widget
@@ -3011,8 +3008,8 @@ $(function() {
             this._trigger('afterShow', null);
 
             this.element.attr({
-                'aria-hidden': false
-                ,'aria-live': 'polite'
+                'aria-hidden': false,
+                'aria-live': 'polite'
             });
 
             this._applyFocus();
@@ -3048,8 +3045,8 @@ $(function() {
             this._trigger('afterHide', null);
 
             this.element.attr({
-                'aria-hidden': true
-                ,'aria-live': 'off'
+                'aria-hidden': true,
+                'aria-live': 'off'
             });
         },
 
@@ -3086,7 +3083,7 @@ $(function() {
                     var keyCode = $.ui.keyCode,
                         active = parseInt($this.element.css('z-index'), 10) === PUI.zindex;
 
-                    if(e.which === keyCode.ESCAPE && active && $this.element.is(':visible')) { // Changed for AngularPrime
+                    if(e.which === keyCode.ESCAPE && $this.element.is(':visible') && active) {
                         $this.hide();
                     }
                 });
@@ -3095,8 +3092,8 @@ $(function() {
             if(this.options.modal) {
                 $(window).on('resize.puidialog', function() {
                     $(document.body).children('.ui-widget-overlay').css({
-                        'width': $(document).width()
-                        ,'height': $(document).height()
+                        'width': $(document).width(),
+                        'height': $(document).height()
                     });
                 });
             }
@@ -3129,18 +3126,18 @@ $(function() {
                 this.options.location = this.options.location.replace(',', ' ');
 
                 this.element.position({
-                    my: 'center'
-                    ,at: this.options.location
-                    ,collision: 'fit'
-                    ,of: window
+                    my: 'center',
+                    at: this.options.location,
+                    collision: 'fit',
+                    of: window,
                     //make sure dialog stays in viewport
-                    ,using: function(pos) {
+                    using: function(pos) {
                         var l = pos.left < 0 ? 0 : pos.left,
                             t = pos.top < 0 ? 0 : pos.top;
 
                         $(this).css({
-                            left: l
-                            ,top: t
+                            left: l,
+                            top: t
                         });
                     }
                 });
@@ -3151,8 +3148,8 @@ $(function() {
                     y = $.trim(coords[1]);
 
                 this.element.offset({
-                    left: x
-                    ,top: y
+                    left: x,
+                    top: y
                 });
             }
 
@@ -3181,11 +3178,11 @@ $(function() {
                 var win = $(window);
 
                 this.element.addClass('pui-dialog-maximized').css({
-                    'width': win.width() - 6
-                    ,'height': win.height()
+                    'width': win.width() - 6,
+                    'height': win.height()
                 }).offset({
-                        top: win.scrollTop()
-                        ,left: win.scrollLeft()
+                        top: win.scrollTop(),
+                        left: win.scrollLeft()
                     });
 
                 //maximize content
@@ -3231,8 +3228,8 @@ $(function() {
 
                 if(animate) {
                     this.element.effect('transfer', {
-                            to: dockingZone
-                            ,className: 'pui-dialog-minimizing'
+                            to: dockingZone,
+                            className: 'pui-dialog-minimizing'
                         }, 500,
                         function() {
                             $this._dock(dockingZone);
@@ -3267,8 +3264,8 @@ $(function() {
 
         _saveState: function() {
             this.state = {
-                width: this.element.width()
-                ,height: this.element.height()
+                width: this.element.width(),
+                height: this.element.height()
             };
 
             var win = $(window);
@@ -3282,16 +3279,16 @@ $(function() {
 
             var win = $(window);
             this.element.offset({
-                top: this.state.offset.top + (win.scrollTop() - this.state.windowScrollTop)
-                ,left: this.state.offset.left + (win.scrollLeft() - this.state.windowScrollLeft)
+                top: this.state.offset.top + (win.scrollTop() - this.state.windowScrollTop),
+                left: this.state.offset.left + (win.scrollLeft() - this.state.windowScrollLeft)
             });
         },
 
         _applyARIA: function() {
             this.element.attr({
-                'role': 'dialog'
-                ,'aria-labelledby': this.element.attr('id') + '_title'
-                ,'aria-hidden': !this.options.visible
+                'role': 'dialog',
+                'aria-labelledby': this.element.attr('id') + '_title',
+                'aria-hidden': !this.options.visible
             });
 
             this.titlebar.children('a.pui-dialog-titlebar-icon').attr('role', 'button');
@@ -3413,8 +3410,7 @@ angular.module('angular.prime').directive('puiDropdown', ['$parse', function ($p
 );
 
 }());
-;/*jshint laxcomma:true*/
-/*globals $ document PUI window*/
+;/*globals $ document PUI window*/
 
 /**
  * PrimeUI dropdown widget
@@ -3431,15 +3427,15 @@ $(function() {
             filterMatchMode: 'startsWith',
             caseSensitiveFilter: false,
             filterFunction: null,
-            source: null,
+            data: null,
             content: null,
             scrollHeight: 200
         },
 
         _create: function() {
-            if(this.options.source) {
-                for(var i = 0; i < this.options.source.length; i++) {
-                    var choice = this.options.source[i];
+            if(this.options.data) {
+                for(var i = 0; i < this.options.data.length; i++) {
+                    var choice = this.options.data[i];
                     if(choice.label)
                         this.element.append('<option value="' + choice.value + '">' + choice.label + '</option>');
                     else
@@ -3516,7 +3512,7 @@ $(function() {
             for(var i = 0; i < this.choices.length; i++) {
                 var option = this.choices.eq(i),
                     optionLabel = option.text(),
-                    content = this.options.content ? this.options.content.call(this, this.options.source[i]) : optionLabel;
+                    content = this.options.content ? this.options.content.call(this, this.options.data[i]) : optionLabel;
 
                 this.itemsContainer.append('<li data-label="' + optionLabel + '" class="pui-dropdown-item pui-dropdown-list-item ui-corner-all">' + content + '</li>');
             }
@@ -3527,18 +3523,9 @@ $(function() {
         _bindEvents: function() {
             var $this = this;
 
-            this.items.filter(':not(.ui-state-disabled)').on('mouseover.puidropdown', function() {
-                var el = $(this);
-
-                if(!el.hasClass('ui-state-highlight'))
-                    $(this).addClass('ui-state-hover');
-            })
-                .on('mouseout.puidropdown', function() {
-                    $(this).removeClass('ui-state-hover');
-                })
-                .on('click.puidropdown', function() {
-                    $this._selectItem($(this));
-                });
+            this.items.filter(':not(.ui-state-disabled)').each(function(i, item) {
+                $this._bindItemEvents($(item));
+            });
 
             this.triggers.on('mouseenter.puidropdown', function() {
                 if(!$this.container.hasClass('ui-state-focus')) {
@@ -3599,6 +3586,23 @@ $(function() {
             }
         },
 
+        _bindItemEvents: function(item) {
+            var $this = this;
+
+            item.on('mouseover.puidropdown', function() {
+                var el = $(this);
+
+                if(!el.hasClass('ui-state-highlight'))
+                    $(this).addClass('ui-state-hover');
+            })
+                .on('mouseout.puidropdown', function() {
+                    $(this).removeClass('ui-state-hover');
+                })
+                .on('click.puidropdown', function() {
+                    $this._selectItem($(this));
+                });
+        },
+
         _bindConstantEvents: function() {
             var $this = this;
 
@@ -3634,13 +3638,14 @@ $(function() {
 
             this.focusElement.on('keydown.puiselectonemenu', function(e) {
                 var keyCode = $.ui.keyCode,
-                    key = e.which;
+                    key = e.which,
+                    activeItem;
 
                 switch(key) {
                     case keyCode.UP:
                     case keyCode.LEFT:
-                        var activeItem = $this._getActiveItem(),
-                            prev = activeItem.prevAll(':not(.ui-state-disabled,.ui-selectonemenu-item-group):first');
+                        activeItem = $this._getActiveItem();
+                        var prev = activeItem.prevAll(':not(.ui-state-disabled,.ui-selectonemenu-item-group):first');
 
                         if(prev.length == 1) {
                             if($this.panel.is(':hidden')) {
@@ -3657,8 +3662,8 @@ $(function() {
 
                     case keyCode.DOWN:
                     case keyCode.RIGHT:
-                        var activeItem = $this._getActiveItem(),
-                            next = activeItem.nextAll(':not(.ui-state-disabled,.ui-selectonemenu-item-group):first');
+                        activeItem = $this._getActiveItem();
+                        var next = activeItem.nextAll(':not(.ui-state-disabled,.ui-selectonemenu-item-group):first');
 
                         if(next.length == 1) {
                             if($this.panel.is(':hidden')) {
@@ -3849,9 +3854,9 @@ $(function() {
 
         _alignPanel: function() {
             this.panel.css({left:'', top:''}).position({
-                my: 'left top'
-                ,at: 'left bottom'
-                ,of: this.container
+                my: 'left top',
+                at: 'left bottom',
+                of: this.container
             });
         },
 
@@ -3889,10 +3894,10 @@ $(function() {
 
         _setupFilterMatcher: function() {
             this.filterMatchers = {
-                'startsWith': this._startsWithFilter
-                ,'contains': this._containsFilter
-                ,'endsWith': this._endsWithFilter
-                ,'custom': this.options.filterFunction
+                'startsWith': this._startsWithFilter,
+                'contains': this._containsFilter,
+                'endsWith': this._endsWithFilter,
+                'custom': this.options.filterFunction
             };
 
             this.filterMatcher = this.filterMatchers[this.options.filterMatchMode];
@@ -3962,6 +3967,18 @@ $(function() {
             var option = this.choices.filter('[value="' + value + '"]');
 
             this._selectItem(this.items.eq(option.index()), true);
+        },
+
+        addOption: function(label, value) {
+            var item = $('<li data-label="' + label + '" class="pui-dropdown-item pui-dropdown-list-item ui-corner-all">' + label + '</li>'),
+                choice = $('<option value="' + value + '">' + label + '</option>');
+
+            choice.appendTo(this.element);
+            this._bindItemEvents(item);
+            item.appendTo(this.itemsContainer);
+            this.items.push(item[0]);
+            //this.choices.push(choice);  There is an issue when this form is used when selecting an option.
+            this.choices = this.element.children('option');
         },
 
         // Added for AngularPrime
@@ -4502,7 +4519,7 @@ $(function() {
             markup += '<span class="pui-growl-image pui-growl-image-' + msg.severity + '" />';
             markup += '<div class="pui-growl-message">';
             markup += '<span class="pui-growl-title">' + msg.summary + '</span>';
-            markup += '<p>' + msg.detail + '</p>';
+            markup += '<p>' + (msg.detail||'') + '</p>';
             markup += '</div><div style="clear: both;"></div></div></div>';
 
             var message = $(markup);
@@ -5114,8 +5131,7 @@ $(function() {
 
     });
 
-});;/*jshint laxcomma:true*/
-/*globals $ document PUI window _self*/
+});;/*globals $ document PUI window _self*/
 
 /**
  * PrimeUI inputtextarea widget
@@ -5126,13 +5142,13 @@ $(function() {
     $.widget("primeui.puiinputtextarea", {
 
         options: {
-            autoResize: false
-            ,autoComplete: false
-            ,maxlength: null
-            ,counter: null
-            ,counterTemplate: '{0}'
-            ,minQueryLength: 3
-            ,queryDelay: 700
+            autoResize: false,
+            autoComplete: false,
+            maxlength: null,
+            counter: null,
+            counterTemplate: '{0}',
+            minQueryLength: 3,
+            queryDelay: 700
         },
 
         _create: function() {
@@ -5250,14 +5266,15 @@ $(function() {
 
             }).keydown(function(e) {
                     var overlayVisible = $this.panel.is(':visible'),
-                        keyCode = $.ui.keyCode;
+                        keyCode = $.ui.keyCode,
+                        highlightedItem;
 
                     switch(e.which) {
                         case keyCode.UP:
                         case keyCode.LEFT:
                             if(overlayVisible) {
-                                var highlightedItem = $this.items.filter('.ui-state-highlight'),
-                                    prev = highlightedItem.length === 0 ? $this.items.eq(0) : highlightedItem.prev();
+                                highlightedItem = $this.items.filter('.ui-state-highlight');
+                                var prev = highlightedItem.length === 0 ? $this.items.eq(0) : highlightedItem.prev();
 
                                 if(prev.length == 1) {
                                     highlightedItem.removeClass('ui-state-highlight');
@@ -5278,8 +5295,8 @@ $(function() {
                         case keyCode.DOWN:
                         case keyCode.RIGHT:
                             if(overlayVisible) {
-                                var highlightedItem = $this.items.filter('.ui-state-highlight'),
-                                    next = highlightedItem.length === 0 ? _self.items.eq(0) : highlightedItem.next();
+                                highlightedItem = $this.items.filter('.ui-state-highlight');
+                                var next = highlightedItem.length === 0 ? _self.items.eq(0) : highlightedItem.next();
 
                                 if(next.length == 1) {
                                     highlightedItem.removeClass('ui-state-highlight');
@@ -5882,8 +5899,7 @@ angular.module('angular.prime').directive('puiLightbox', ['$compile', function (
 });
 
 }());
-;/*jshint laxcomma:true*/
-/*globals $ document window PUI*/
+;/*globals $ document window PUI*/
 
 /**
  * PrimeUI Lightbox Widget
@@ -5972,8 +5988,8 @@ $(function() {
             $(window).resize(function() {
                 if(!$this.isHidden()) {
                     $(document.body).children('.ui-widget-overlay').css({
-                        'width': $(document).width()
-                        ,'height': $(document).height()
+                        'width': $(document).width(),
+                        'height': $(document).height()
                     });
                 }
             });
@@ -5998,8 +6014,8 @@ $(function() {
 
                 //resize content for new image
                 $this.content.removeClass('pui-lightbox-loading').animate({
-                        width: image.width()
-                        ,height: image.height()
+                        width: image.width(),
+                        height: image.height()
                     },
                     500,
                     function() {
@@ -6010,8 +6026,8 @@ $(function() {
                     });
 
                 $this.panel.animate({
-                    left: '+=' + leftOffset
-                    ,top: '+=' + topOffset
+                    left: '+=' + leftOffset,
+                    top: '+=' + topOffset
                 }, 500);
             });
 
@@ -6020,17 +6036,17 @@ $(function() {
             })
                 .click(function(e) {
                     var nav = $(this),
-                        index; // Added for AngularPrime
+                        index;
 
                     $this._hideNavigators();
 
                     if(nav.hasClass('pui-lightbox-nav-left')) {
-                        index = $this.current === 0 ? $this.links.length - 1 : $this.current - 1; // Changed for AngularPrime
+                        index = $this.current === 0 ? $this.links.length - 1 : $this.current - 1;
 
                         $this.links.eq(index).trigger('click');
                     }
                     else {
-                        index = $this.current == $this.links.length - 1 ? 0 : $this.current + 1; // Changed for AngularPrime
+                        index = $this.current == $this.links.length - 1 ? 0 : $this.current + 1;
 
                         $this.links.eq(index).trigger('click');
                     }
@@ -6049,8 +6065,8 @@ $(function() {
                     $this.imageDisplay.fadeOut(function() {
                         //clear for onload scaling
                         $(this).css({
-                            'width': 'auto'
-                            ,'height': 'auto'
+                            'width': 'auto',
+                            'height': 'auto'
                         });
 
                         $this.content.addClass('pui-lightbox-loading');
@@ -6092,8 +6108,8 @@ $(function() {
             }
 
             image.css({
-                'width':imageWidth + 'px'
-                ,'height':imageHeight + 'px'
+                'width':imageWidth + 'px',
+                'height':imageHeight + 'px'
             });
         },
 
@@ -6129,8 +6145,8 @@ $(function() {
             this.element.click(function(e) {
                 if(!$this.iframeLoaded) {
                     $this.content.addClass('pui-lightbox-loading').css({
-                        width: $this.options.iframeWidth
-                        ,height: $this.options.iframeHeight
+                        width: $this.options.iframeWidth,
+                        height: $this.options.iframeHeight
                     });
 
                     $this.show();
@@ -6194,9 +6210,9 @@ $(function() {
         _enableModality: function() {
             this.modality = $('<div class="ui-widget-overlay"></div>')
                 .css({
-                    'width': $(document).width()
-                    ,'height': $(document).height()
-                    ,'z-index': this.panel.css('z-index') - 1
+                    'width': $(document).width(),
+                    'height': $(document).height(),
+                    'z-index': this.panel.css('z-index') - 1
                 })
                 .appendTo(document.body);
         },
@@ -6314,7 +6330,6 @@ $(function() {
  */
 $(function() {
 
-    // added for AngularPrime
     "use strict"; // Added for AngularPrime
     $.widget("primeui.puilistbox", {
 
@@ -6570,8 +6585,7 @@ angular.module('angular.prime').directive('puiMenu', ['$log', function ($log) {
 }]);
 
 }());
-;/*jshint laxcomma:true*/
-/*globals $ PUI */
+;/*globals $ PUI document window*/
 /**
  * PrimeUI Menu widget
  */
@@ -6632,11 +6646,12 @@ $(function() {
     });
 });
 
+
 /*
  * PrimeUI TieredMenu Widget
  */
 $(function() {
-
+    "use strict"; // Added for AngularPrime
     $.widget("primeui.puitieredmenu", $.primeui.puibasemenu, {
 
         options: {
@@ -6802,9 +6817,9 @@ $(function() {
 
         _showSubmenu: function(menuitem, submenu) {
             submenu.css({
-                'left': menuitem.outerWidth()
-                ,'top': 0
-                ,'z-index': ++PUI.zindex
+                'left': menuitem.outerWidth(),
+                'top': 0,
+                'z-index': ++PUI.zindex
             });
 
             submenu.show();
@@ -6819,7 +6834,7 @@ $(function() {
  */
 
 $(function() {
-
+    "use strict"; // Added for AngularPrime
     $.widget("primeui.puicontextmenu", $.primeui.puitieredmenu, {
 
         options: {
@@ -6930,7 +6945,7 @@ $(function() {
  */
 
 $(function() {
-
+    "use strict"; // Added for AngularPrime
     $.widget("primeui.puislidemenu", $.primeui.puibasemenu, {
 
         _create: function() {
@@ -7088,8 +7103,7 @@ $(function() {
         }
     });
 
-});
-;/*globals angular $ */
+});;/*globals angular $ */
 
 (function () {
     "use strict";
@@ -7149,7 +7163,6 @@ $(function() {
             else {
                 submenuCSS.left = 0;
                 submenuCSS.top = menuitem.outerHeight();
-                menuitem.offset().top - win.scrollTop(); // AngularPrime Question?
                 submenuOffsetTop = menuitem.offset().top + submenuCSS.top - win.scrollTop();
             }
 
@@ -7164,9 +7177,7 @@ $(function() {
         }
     });
 
-});
-
-;/*globals angular $ */
+});;/*globals angular $ */
 
 (function () {
     "use strict";
@@ -7384,8 +7395,7 @@ angular.module('angular.prime').directive('puiPanel', ['$interpolate', function 
 }]);
 
 }());
-;/*jshint laxcomma:true*/
-/*globals $ */
+;/*globals $ */
 
 /**
  * PrimeUI Panel Widget
@@ -7411,8 +7421,7 @@ $(function() {
             var title = this.element.attr('title');
             if(title) {
                 this.element.prepend('<div class="pui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all"><span class="ui-panel-title">' +
-                        title + "</span></div>")
-                    .removeAttr('title');
+                    title + "</span></div>").removeAttr('title');
             }
 
             this.header = this.element.children('div.pui-panel-titlebar');
@@ -7550,9 +7559,9 @@ $(function() {
                 $this.options.collapsed = !$this.options.collapsed;
 
                 $this.content.css({
-                    'visibility': 'visible'
-                    ,'display': 'block'
-                    ,'height': 'auto'
+                    'visibility': 'visible',
+                    'display': 'block',
+                    'height': 'auto'
                 });
             });
         },
@@ -8660,8 +8669,7 @@ angular.module('angular.prime').directive('puiSpinner', function () {
 });
 
 }());
-;/*jshint laxcomma:true*/
-/*globals $ window*/
+;/*globals $ window*/
 
 /**
  * PrimeUI spinner widget
@@ -8702,9 +8710,9 @@ $(function() {
 
             //aria
             input.attr({
-                'role': 'spinner'
-                ,'aria-multiline': false
-                ,'aria-valuenow': this.value
+                'role': 'spinner',
+                'aria-multiline': false,
+                'aria-valuenow': this.value
             });
 
             if(this.options.min !== undefined)
@@ -8812,8 +8820,8 @@ $(function() {
         },
 
         _spin: function(step) {
-            var newValue, // Changed for AngularPrime
-            currentValue = this.value ? this.value : 0;
+            var newValue,
+                currentValue = this.value ? this.value : 0;
 
             if(this.options.precision)
                 newValue = parseFloat(this._toFixed(currentValue + step, this.options.precision));
@@ -8991,67 +8999,67 @@ angular.module('angular.prime').directive('puiSplitbutton', ['$interpolate', fun
 $(function() {
     "use strict"; // Added for angularPrime
     $.widget("primeui.puisplitbutton", {
-       
+
         options: {
             icon: null,
             iconPos: 'left',
             items: null
         },
-        
+
         _create: function() {
             this.element.wrap('<div class="pui-splitbutton pui-buttonset ui-widget"></div>');
             this.container = this.element.parent().uniqueId();
             this.menuButton = this.container.append('<button class="pui-splitbutton-menubutton" type="button"></button>').children('.pui-splitbutton-menubutton');
             this.options.disabled = this.element.prop('disabled');
-            
+
             if(this.options.disabled) {
                 this.menuButton.prop('disabled', true);
             }
-            
+
             this.element.puibutton(this.options).removeClass('ui-corner-all').addClass('ui-corner-left');
             this.menuButton.puibutton({
                 icon: 'ui-icon-triangle-1-s'
             }).removeClass('ui-corner-all').addClass('ui-corner-right');
-            
-            if(this.options.items && this.options.items.length) {            
+
+            if(this.options.items && this.options.items.length) {
                 this._renderPanel();
+                this._bindEvents();
             }
-            
-            this._bindEvents();
+
         },
-                
+
         _renderPanel: function() {
             this.menu = $('<div class="pui-menu pui-menu-dynamic ui-widget ui-widget-content ui-corner-all ui-helper-clearfix pui-shadow"></div>').
-                    append('<ul class="pui-menu-list ui-helper-reset"></ul>');
+                append('<ul class="pui-menu-list ui-helper-reset"></ul>');
             this.menuList = this.menu.children('.pui-menu-list');
-            
+
             for(var i = 0; i < this.options.items.length; i++) {
                 var item = this.options.items[i],
-                menuitem = $('<li class="pui-menuitem ui-widget ui-corner-all" role="menuitem"></li>'),
+                    menuitem = $('<li class="pui-menuitem ui-widget ui-corner-all" role="menuitem"></li>'),
                     icon = '<span class="pui-menuitem-icon ui-icon ' + (item.icon ? item.icon : 'ui-icon-empty' ) + '"></span>' , // Added for Angularprime
                 link = $('<a class="pui-menuitem-link ui-corner-all">' + icon + '<span class="ui-menuitem-text">' + item.text +'</span></a>'); // Changed for AngularPrime
-                
+
                 if(item.url) {
                     link.attr('href', item.url);
                 }
-                
+
                 if(item.click) {
                     link.on('click.puisplitbutton', item.click);
                 }
-                
+
                 menuitem.append(link).appendTo(this.menuList);
             }
-            
+
             this.menu.appendTo(this.options.appendTo||this.container);
-            
+
             this.options.position = {
                 my: 'left top',
                 at: 'left bottom',
                 of: this.element
             };
         },
-                
-        _bindEvents: function() {  
+
+        _bindEvents: function() {
             var $this = this;
 
             this.menuButton.on('click.puisplitbutton', function() {
@@ -9064,11 +9072,11 @@ $(function() {
             this.menuList.children().on('mouseover.puisplitbutton', function(e) {
                 $(this).addClass('ui-state-hover');
             }).on('mouseout.puisplitbutton', function(e) {
-                $(this).removeClass('ui-state-hover');
-            }).on('click.puisplitbutton', function() {
-                $this.hide();
-            });
-            
+                    $(this).removeClass('ui-state-hover');
+                }).on('click.puisplitbutton', function() {
+                    $this.hide();
+                });
+
             $(document.body).bind('mousedown.' + this.container.attr('id'), function (e) {
                 if($this.menu.is(":hidden")) {
                     return;
@@ -9097,7 +9105,7 @@ $(function() {
                 }
             });
         },
-                
+
         show: function() {
             this._alignPanel();
             this.menuButton.trigger('focus');
@@ -9129,7 +9137,6 @@ $(function() {
         setTitle: function(title) {
             this.element.puibutton('setTitle', title);
         }
-
     });
 });;/*globals angular $ */
 
@@ -9156,19 +9163,20 @@ $(function() {
 $(function() {
     "use strict"; // Added for angularPrime
     $.widget("primeui.puisticky", {
-       
+
         _create: function() {
+
             var element = this.element;
 
             this.initialState = {
-                    top: element.offset().top,
-                    width: element.width(),
-                    height: element.height()
+                top: element.offset().top,
+                width: element.width(),
+                height: element.height()
             };
-           
+
             var win = $(window),
-            $this = this;
-            
+                $this = this;
+
             win.on('scroll',function(){
                 if(win.scrollTop() > $this.initialState.top) {
                     $this._fix();
@@ -9177,14 +9185,14 @@ $(function() {
                     $this._restore();
                 }
             });
-          
+
         },
-                
+
         _refresh: function() {
             $(window).off('scroll');
 
             this._create();
-        },          
+        },
 
         _fix: function() {
             if(!this.fixed) {
@@ -9194,7 +9202,7 @@ $(function() {
                     'z-index': 10000,
                     'width': this.initialState.width
                 })
-                .addClass('pui-shadow ui-sticky');
+                    .addClass('pui-shadow ui-sticky');
 
                 $('<div class="ui-sticky-ghost"></div>').height(this.initialState.height).insertBefore(this.element);
 
@@ -9210,17 +9218,17 @@ $(function() {
                     top: 'auto',
                     'width': this.initialState.width
                 })
-                .removeClass('pui-shadow ui-sticky');
+                    .removeClass('pui-shadow ui-sticky');
 
                 this.element.prev('.ui-sticky-ghost').remove();
 
                 this.fixed = false;
             }
 
-          }
-        
+        }
+
     });
-    
+
 });;/*globals angular $ */
 (function () {
     "use strict";
@@ -9354,8 +9362,7 @@ angular.module('angular.prime').directive('puiTabview', ['$http', '$templateCach
 }]);
 
 }());
-;/*jshint laxcomma:true*/
-/*globals $ */
+;/*globals $ */
 
 /**
  * PrimeUI tabview widget
@@ -9365,8 +9372,8 @@ $(function() {
     $.widget("primeui.puitabview", {
 
         options: {
-            activeIndex:0
-            ,orientation:'top'
+            activeIndex:0,
+            orientation:'top'
         },
 
         _create: function() {
@@ -9556,8 +9563,7 @@ $(function() {
 });
 
 }());
-;/*jshint laxcomma:true*/
-/*globals $ */
+;/*globals $ */
 
 /**
  * PrimeUI Terminal widget
@@ -9649,8 +9655,7 @@ $(function() {
             this.input.val('');
         }
     });
-});
-;/*globals angular $ */
+});;/*globals angular $ */
 (function () {
     "use strict";
 
@@ -9666,7 +9671,7 @@ $(function() {
         themeService.createThemeSwitcher = function(element) {
             themeElement = element;
             $(element).puidropdown({
-                source: themes,
+                data: themes,
                 change: function(e) {
                     var themeLink = $('link[href$="theme.css"]'),
                         newThemeURL =  'themes/' + $(this).val() + '/theme.css';
@@ -9797,7 +9802,7 @@ angular.module('angular.prime').directive('puiTooltip', ['$interpolate', functio
  * PrimeFaces Tooltip Widget
  */
 $(function() {
-    "use strict"; // Added for AnfularPrime
+    "use strict"; // Added for AngularPrime
 
     $.widget("primeui.puitooltip", {
 
@@ -9910,7 +9915,7 @@ $(function() {
         },
 
         hide: function() {
-            window.learTimeout(this.timeout);
+            window.clearTimeout(this.timeout);
 
             this.container.hide(this.options.hideEffect, {}, this.options.hideEffectSpeed, function() {
                 $(this).css('z-index', '');
@@ -10036,28 +10041,28 @@ $(function() {
  * PrimeUI Tree widget
  */
 $(function() {
-
+    "use strict"; // Added for AngularPrime
     $.widget("primeui.puitree", {
-       
+
         options: {
-             nodes: null,
-             lazy: false,
-             animate: false,
-             selectionMode: null,
-             icons: null
+            nodes: null,
+            lazy: false,
+            animate: false,
+            selectionMode: null,
+            icons: null
         },
-        
+
         _create: function() {
             this.element.uniqueId().addClass('pui-tree ui-widget ui-widget-content ui-corner-all')
-                    .append('<ul class="pui-tree-container"></ul>');
+                .append('<ul class="pui-tree-container"></ul>');
             this.rootContainer = this.element.children('.pui-tree-container');
-            
+
             if(this.options.selectionMode) {
                 this.selection = [];
             }
-            
+
             this._bindEvents();
-               
+
             if($.type(this.options.nodes) === 'array') {
                 this._renderNodes(this.options.nodes, this.rootContainer);
             }
@@ -10068,50 +10073,50 @@ $(function() {
                 throw 'Unsupported type. nodes option can be either an array or a function';
             }
         },
-                
+
         _renderNodes: function(nodes, container) {
             for(var i = 0; i < nodes.length; i++) {
                 this._renderNode(nodes[i], container);
             }
         },
-                
+
         _renderNode: function(node, container) {
             var leaf = this.options.lazy ? node.leaf : !(node.children && node.children.length),
-            iconType = node.iconType||'def',
-            expanded = node.expanded,
-            selectable = this.options.selectionMode ? (node.selectable === false ? false : true) : false,
-            toggleIcon = leaf ? 'pui-treenode-leaf-icon' : 
-                        (node.expanded ? 'pui-tree-toggler ui-icon ui-icon-triangle-1-s' : 'pui-tree-toggler ui-icon ui-icon-triangle-1-e'),
-            styleClass = leaf ? 'pui-treenode pui-treenode-leaf' : 'pui-treenode pui-treenode-parent',
-            nodeElement = $('<li class="' + styleClass + '"></li>'),
-            contentElement = $('<span class="pui-treenode-content"></span>');
-    
+                iconType = node.iconType||'def',
+                expanded = node.expanded,
+                selectable = this.options.selectionMode ? (node.selectable === false ? false : true) : false,
+                toggleIcon = leaf ? 'pui-treenode-leaf-icon' :
+                    (node.expanded ? 'pui-tree-toggler ui-icon ui-icon-triangle-1-s' : 'pui-tree-toggler ui-icon ui-icon-triangle-1-e'),
+                styleClass = leaf ? 'pui-treenode pui-treenode-leaf' : 'pui-treenode pui-treenode-parent',
+                nodeElement = $('<li class="' + styleClass + '"></li>'),
+                contentElement = $('<span class="pui-treenode-content"></span>');
+
             nodeElement.data('puidata', node.data).appendTo(container);
 
             if(selectable) {
                 contentElement.addClass('pui-treenode-selectable');
             }
-       
+
             contentElement.append('<span class="' + toggleIcon + '"></span>')
-                            .append('<span class="pui-treenode-icon"></span>')
-                            .append('<span class="pui-treenode-label ui-corner-all">' + node.label + '</span>')
-                            .appendTo(nodeElement);
-                    
+                .append('<span class="pui-treenode-icon"></span>')
+                .append('<span class="pui-treenode-label ui-corner-all">' + node.label + '</span>')
+                .appendTo(nodeElement);
+
             var iconConfig = this.options.icons && this.options.icons[iconType];
             if(iconConfig) {
                 var iconContainer = contentElement.children('.pui-treenode-icon'),
-                icon = ($.type(iconConfig) === 'string') ? iconConfig : (expanded ? iconConfig.expanded : iconConfig.collapsed);
+                    icon = ($.type(iconConfig) === 'string') ? iconConfig : (expanded ? iconConfig.expanded : iconConfig.collapsed);
                 iconContainer.addClass('ui-icon ' + icon);
             }
-                    
+
             if(!leaf) {
                 var childrenContainer = $('<ul class="pui-treenode-children"></ul>');
                 if(!node.expanded) {
                     childrenContainer.hide();
                 }
-                
+
                 childrenContainer.appendTo(nodeElement);
-                
+
                 if(node.children) {
                     for(var i = 0; i < node.children.length; i++) {
                         this._renderNode(node.children[i], childrenContainer);
@@ -10119,54 +10124,54 @@ $(function() {
                 }
             }
         },
-                
+
         _initData: function(data) {
-            this._renderNodes(data, this.rootContainer);          
+            this._renderNodes(data, this.rootContainer);
         },
-                
+
         _handleNodeData: function(data, node) {
-            this._renderNodes(data, node.children('.pui-treenode-children'));    
+            this._renderNodes(data, node.children('.pui-treenode-children'));
             this._showNodeChildren(node);
             node.data('puiloaded', true);
         },
-      
+
         _bindEvents: function() {
             var $this = this,
-            elementId = this.element.attr('id'),
-            togglerSelector = '#' + elementId + ' .pui-tree-toggler';
-    
+                elementId = this.element.attr('id'),
+                togglerSelector = '#' + elementId + ' .pui-tree-toggler';
+
             $(document).off('click.puitree-' + elementId, togglerSelector)
                 .on('click.puitree-' + elementId, togglerSelector, null, function(e) {
                     var toggleIcon = $(this),
-                    node = toggleIcon.closest('li');
+                        node = toggleIcon.closest('li');
 
                     if(node.hasClass('pui-treenode-expanded'))
                         $this.collapseNode(node);
                     else
                         $this.expandNode(node);
                 });
-                
+
             if(this.options.selectionMode) {
                 var nodeLabelSelector = '#' + elementId + ' .pui-treenode-selectable .pui-treenode-label',
-                nodeContentSelector = '#' + elementId + ' .pui-treenode-selectable.pui-treenode-content';
+                    nodeContentSelector = '#' + elementId + ' .pui-treenode-selectable.pui-treenode-content';
 
                 $(document).off('mouseout.puitree-' + elementId + ' mouseover.puitree-' + elementId, nodeLabelSelector)
-                        .on('mouseout.puitree-' + elementId, nodeLabelSelector, null, function() {
-                            $(this).removeClass('ui-state-hover');
-                        })
-                        .on('mouseover.puitree-' + elementId, nodeLabelSelector, null, function() {
-                            $(this).addClass('ui-state-hover');
-                        })
-                        .off('click.puitree-' + elementId, nodeContentSelector)
-                        .on('click.puitree-' + elementId, nodeContentSelector, null, function(e) {
-                            $this._nodeClick(e, $(this));
-                        });
+                    .on('mouseout.puitree-' + elementId, nodeLabelSelector, null, function() {
+                        $(this).removeClass('ui-state-hover');
+                    })
+                    .on('mouseover.puitree-' + elementId, nodeLabelSelector, null, function() {
+                        $(this).addClass('ui-state-hover');
+                    })
+                    .off('click.puitree-' + elementId, nodeContentSelector)
+                    .on('click.puitree-' + elementId, nodeContentSelector, null, function(e) {
+                        $this._nodeClick(e, $(this));
+                    });
             }
         },
-        
+
         expandNode: function(node) {
             this._trigger('beforeExpand', null, {'node': node, 'data': node.data('puidata')});
-    
+
             if(this.options.lazy && !node.data('puiloaded')) {
                 this.options.nodes.call(this, {
                     'node': node,
@@ -10176,22 +10181,22 @@ $(function() {
             else {
                 this._showNodeChildren(node);
             }
-            
+
         },
-                
+
         collapseNode: function(node) {
             this._trigger('beforeCollapse', null, {'node': node, 'data': node.data('puidata')});
-    
+
             node.removeClass('pui-treenode-expanded');
-            
+
             var iconType = node.iconType||'def',
-            iconConfig = this.options.icons && this.options.icons[iconType];
+                iconConfig = this.options.icons && this.options.icons[iconType];
             if(iconConfig && $.type(iconConfig) !== 'string') {
                 node.find('> .pui-treenode-content > .pui-treenode-icon').removeClass(iconConfig.expanded).addClass(iconConfig.collapsed);
             }
-            
+
             var toggleIcon = node.find('> .pui-treenode-content > .pui-tree-toggler'),
-            childrenContainer = node.children('.pui-treenode-children');
+                childrenContainer = node.children('.pui-treenode-children');
 
             toggleIcon.addClass('ui-icon-triangle-1-e').removeClass('ui-icon-triangle-1-s');
 
@@ -10199,15 +10204,15 @@ $(function() {
                 childrenContainer.slideUp('fast');
             else
                 childrenContainer.hide();
-            
+
             this._trigger('afterCollapse', null, {'node': node, 'data': node.data('puidata')});
         },
-                
+
         _showNodeChildren: function(node) {
             node.addClass('pui-treenode-expanded').attr('aria-expanded', true);
-            
+
             var iconType = node.iconType||'def',
-            iconConfig = this.options.icons && this.options.icons[iconType];
+                iconConfig = this.options.icons && this.options.icons[iconType];
             if(iconConfig && $.type(iconConfig) !== 'string') {
                 node.find('> .pui-treenode-content > .pui-treenode-icon').removeClass(iconConfig.collapsed).addClass(iconConfig.expanded);
             }
@@ -10219,18 +10224,18 @@ $(function() {
                 node.children('.pui-treenode-children').slideDown('fast');
             else
                 node.children('.pui-treenode-children').show();
-            
+
             this._trigger('afterExpand', null, {'node': node, 'data': node.data('puidata')});
         },
-                
+
         _nodeClick: function(event, nodeContent) {
             PUI.clearSelection();
-        
+
             if($(event.target).is(':not(.pui-tree-toggler)')) {
                 var node = nodeContent.parent();
 
                 var selected = this._isNodeSelected(node.data('puidata')),
-                metaKey = event.metaKey||event.ctrlKey;
+                    metaKey = event.metaKey||event.ctrlKey;
 
                 if(selected && metaKey) {
                     this.unselectNode(node);
@@ -10244,39 +10249,39 @@ $(function() {
                 }
             }
         },
-                
+
         selectNode: function(node) {
             node.attr('aria-selected', true).find('> .pui-treenode-content > .pui-treenode-label').removeClass('ui-state-hover').addClass('ui-state-highlight');
             this._addToSelection(node.data('puidata'));
             this._trigger('nodeSelect', null, {'node': node, 'data': node.data('puidata')});
         },
-                
-        unselectNode: function(node) {           
+
+        unselectNode: function(node) {
             node.attr('aria-selected', false).find('> .pui-treenode-content > .pui-treenode-label').removeClass('ui-state-highlight ui-state-hover');
             this._removeFromSelection(node.data('puidata'));
             this._trigger('nodeUnselect', null, {'node': node, 'data': node.data('puidata')});
         },
-                
+
         unselectAllNodes: function() {
             this.selection = [];
             this.element.find('.pui-treenode-label.ui-state-highlight').each(function() {
                 $(this).removeClass('ui-state-highlight').closest('.ui-treenode').attr('aria-selected', false);
             });
         },
-                
+
         _addToSelection: function(nodedata) {
             if(nodedata) {
-                var selected = this._isNodeSelected(nodedata);                
+                var selected = this._isNodeSelected(nodedata);
                 if(!selected) {
                     this.selection.push(nodedata);
                 }
-            }            
+            }
         },
 
         _removeFromSelection: function(nodedata) {
             if(nodedata) {
                 var index = -1;
-    
+
                 for(var i = 0; i < this.selection.length; i++) {
                     var data = this.selection[i];
                     if(data && (JSON.stringify(data) === JSON.stringify(nodedata))) {
@@ -10284,13 +10289,13 @@ $(function() {
                         break;
                     }
                 }
-                
+
                 if(index >= 0) {
                     this.selection.splice(index, 1);
                 }
-            }            
+            }
         },
-                
+
         _isNodeSelected: function(nodedata) {
             var selected = false;
 
@@ -10303,17 +10308,17 @@ $(function() {
                     }
                 }
             }
-            
+
             return selected;
         },
-                
+
         _isSingleSelection: function() {
             return this.options.selectionMode && this.options.selectionMode === 'single';
         },
-                
+
         _isMultipleSelection: function() {
             return this.options.selectionMode && this.options.selectionMode === 'multiple';
         }
     });
-    
+
 });

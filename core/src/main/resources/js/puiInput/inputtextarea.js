@@ -1,4 +1,3 @@
-/*jshint laxcomma:true*/
 /*globals $ document PUI window _self*/
 
 /**
@@ -10,13 +9,13 @@ $(function() {
     $.widget("primeui.puiinputtextarea", {
 
         options: {
-            autoResize: false
-            ,autoComplete: false
-            ,maxlength: null
-            ,counter: null
-            ,counterTemplate: '{0}'
-            ,minQueryLength: 3
-            ,queryDelay: 700
+            autoResize: false,
+            autoComplete: false,
+            maxlength: null,
+            counter: null,
+            counterTemplate: '{0}',
+            minQueryLength: 3,
+            queryDelay: 700
         },
 
         _create: function() {
@@ -134,14 +133,15 @@ $(function() {
 
             }).keydown(function(e) {
                     var overlayVisible = $this.panel.is(':visible'),
-                        keyCode = $.ui.keyCode;
+                        keyCode = $.ui.keyCode,
+                        highlightedItem;
 
                     switch(e.which) {
                         case keyCode.UP:
                         case keyCode.LEFT:
                             if(overlayVisible) {
-                                var highlightedItem = $this.items.filter('.ui-state-highlight'),
-                                    prev = highlightedItem.length === 0 ? $this.items.eq(0) : highlightedItem.prev();
+                                highlightedItem = $this.items.filter('.ui-state-highlight');
+                                var prev = highlightedItem.length === 0 ? $this.items.eq(0) : highlightedItem.prev();
 
                                 if(prev.length == 1) {
                                     highlightedItem.removeClass('ui-state-highlight');
@@ -162,8 +162,8 @@ $(function() {
                         case keyCode.DOWN:
                         case keyCode.RIGHT:
                             if(overlayVisible) {
-                                var highlightedItem = $this.items.filter('.ui-state-highlight'),
-                                    next = highlightedItem.length === 0 ? _self.items.eq(0) : highlightedItem.next();
+                                highlightedItem = $this.items.filter('.ui-state-highlight');
+                                var next = highlightedItem.length === 0 ? _self.items.eq(0) : highlightedItem.next();
 
                                 if(next.length == 1) {
                                     highlightedItem.removeClass('ui-state-highlight');

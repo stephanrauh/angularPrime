@@ -114,8 +114,7 @@ angular.module('angular.prime').directive('puiDropdown', ['$parse', function ($p
 );
 
 }());
-;/*jshint laxcomma:true*/
-/*globals $ document PUI window*/
+;/*globals $ document PUI window*/
 
 /**
  * PrimeUI dropdown widget
@@ -132,15 +131,15 @@ $(function() {
             filterMatchMode: 'startsWith',
             caseSensitiveFilter: false,
             filterFunction: null,
-            source: null,
+            data: null,
             content: null,
             scrollHeight: 200
         },
 
         _create: function() {
-            if(this.options.source) {
-                for(var i = 0; i < this.options.source.length; i++) {
-                    var choice = this.options.source[i];
+            if(this.options.data) {
+                for(var i = 0; i < this.options.data.length; i++) {
+                    var choice = this.options.data[i];
                     if(choice.label)
                         this.element.append('<option value="' + choice.value + '">' + choice.label + '</option>');
                     else
@@ -217,7 +216,7 @@ $(function() {
             for(var i = 0; i < this.choices.length; i++) {
                 var option = this.choices.eq(i),
                     optionLabel = option.text(),
-                    content = this.options.content ? this.options.content.call(this, this.options.source[i]) : optionLabel;
+                    content = this.options.content ? this.options.content.call(this, this.options.data[i]) : optionLabel;
 
                 this.itemsContainer.append('<li data-label="' + optionLabel + '" class="pui-dropdown-item pui-dropdown-list-item ui-corner-all">' + content + '</li>');
             }
@@ -228,18 +227,9 @@ $(function() {
         _bindEvents: function() {
             var $this = this;
 
-            this.items.filter(':not(.ui-state-disabled)').on('mouseover.puidropdown', function() {
-                var el = $(this);
-
-                if(!el.hasClass('ui-state-highlight'))
-                    $(this).addClass('ui-state-hover');
-            })
-                .on('mouseout.puidropdown', function() {
-                    $(this).removeClass('ui-state-hover');
-                })
-                .on('click.puidropdown', function() {
-                    $this._selectItem($(this));
-                });
+            this.items.filter(':not(.ui-state-disabled)').each(function(i, item) {
+                $this._bindItemEvents($(item));
+            });
 
             this.triggers.on('mouseenter.puidropdown', function() {
                 if(!$this.container.hasClass('ui-state-focus')) {
@@ -300,6 +290,23 @@ $(function() {
             }
         },
 
+        _bindItemEvents: function(item) {
+            var $this = this;
+
+            item.on('mouseover.puidropdown', function() {
+                var el = $(this);
+
+                if(!el.hasClass('ui-state-highlight'))
+                    $(this).addClass('ui-state-hover');
+            })
+                .on('mouseout.puidropdown', function() {
+                    $(this).removeClass('ui-state-hover');
+                })
+                .on('click.puidropdown', function() {
+                    $this._selectItem($(this));
+                });
+        },
+
         _bindConstantEvents: function() {
             var $this = this;
 
@@ -335,13 +342,14 @@ $(function() {
 
             this.focusElement.on('keydown.puiselectonemenu', function(e) {
                 var keyCode = $.ui.keyCode,
-                    key = e.which;
+                    key = e.which,
+                    activeItem;
 
                 switch(key) {
                     case keyCode.UP:
                     case keyCode.LEFT:
-                        var activeItem = $this._getActiveItem(),
-                            prev = activeItem.prevAll(':not(.ui-state-disabled,.ui-selectonemenu-item-group):first');
+                        activeItem = $this._getActiveItem();
+                        var prev = activeItem.prevAll(':not(.ui-state-disabled,.ui-selectonemenu-item-group):first');
 
                         if(prev.length == 1) {
                             if($this.panel.is(':hidden')) {
@@ -358,8 +366,8 @@ $(function() {
 
                     case keyCode.DOWN:
                     case keyCode.RIGHT:
-                        var activeItem = $this._getActiveItem(),
-                            next = activeItem.nextAll(':not(.ui-state-disabled,.ui-selectonemenu-item-group):first');
+                        activeItem = $this._getActiveItem();
+                        var next = activeItem.nextAll(':not(.ui-state-disabled,.ui-selectonemenu-item-group):first');
 
                         if(next.length == 1) {
                             if($this.panel.is(':hidden')) {
@@ -550,9 +558,9 @@ $(function() {
 
         _alignPanel: function() {
             this.panel.css({left:'', top:''}).position({
-                my: 'left top'
-                ,at: 'left bottom'
-                ,of: this.container
+                my: 'left top',
+                at: 'left bottom',
+                of: this.container
             });
         },
 
@@ -590,10 +598,10 @@ $(function() {
 
         _setupFilterMatcher: function() {
             this.filterMatchers = {
-                'startsWith': this._startsWithFilter
-                ,'contains': this._containsFilter
-                ,'endsWith': this._endsWithFilter
-                ,'custom': this.options.filterFunction
+                'startsWith': this._startsWithFilter,
+                'contains': this._containsFilter,
+                'endsWith': this._endsWithFilter,
+                'custom': this.options.filterFunction
             };
 
             this.filterMatcher = this.filterMatchers[this.options.filterMatchMode];
@@ -663,6 +671,18 @@ $(function() {
             var option = this.choices.filter('[value="' + value + '"]');
 
             this._selectItem(this.items.eq(option.index()), true);
+        },
+
+        addOption: function(label, value) {
+            var item = $('<li data-label="' + label + '" class="pui-dropdown-item pui-dropdown-list-item ui-corner-all">' + label + '</li>'),
+                choice = $('<option value="' + value + '">' + label + '</option>');
+
+            choice.appendTo(this.element);
+            this._bindItemEvents(item);
+            item.appendTo(this.itemsContainer);
+            this.items.push(item[0]);
+            //this.choices.push(choice);  There is an issue when this form is used when selecting an option.
+            this.choices = this.element.children('option');
         },
 
         // Added for AngularPrime

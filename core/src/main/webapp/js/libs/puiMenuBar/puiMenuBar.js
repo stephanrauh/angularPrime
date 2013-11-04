@@ -58,7 +58,6 @@ $(function() {
             else {
                 submenuCSS.left = 0;
                 submenuCSS.top = menuitem.outerHeight();
-                menuitem.offset().top - win.scrollTop(); // AngularPrime Question?
                 submenuOffsetTop = menuitem.offset().top + submenuCSS.top - win.scrollTop();
             }
 
@@ -74,4 +73,3 @@ $(function() {
     });
 
 });
-

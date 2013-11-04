@@ -82,7 +82,7 @@ $(function() {
         select: function(index) {
             var panel = this.panels.eq(index);
 
-            //this._trigger('change', panel);
+            //this._trigger('change', panel); // AngularPrime disabled
 
             //update state
             if(this.options.multiple)

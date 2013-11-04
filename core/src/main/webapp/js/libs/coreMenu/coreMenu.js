@@ -1,5 +1,3 @@
-/*jshint laxcomma:true*/
-
 /*globals $ document window PUI */
 
 /**
@@ -30,9 +28,9 @@ $(function() {
             this.element.closest('.pui-menu').addClass('pui-menu-dynamic pui-shadow').appendTo(document.body);
 
             this.positionConfig = {
-                my: this.options.my
-                ,at: this.options.at
-                ,of: this.options.trigger
+                my: this.options.my,
+                at: this.options.at,
+                of: this.options.trigger
             };
 
             this.options.trigger.on(this.options.triggerEvent + '.pui-menu', function(e) {

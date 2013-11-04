@@ -68,8 +68,7 @@ angular.module('angular.prime').directive('puiMenu', ['$log', function ($log) {
 }]);
 
 }());
-;/*jshint laxcomma:true*/
-/*globals $ PUI */
+;/*globals $ PUI document window*/
 /**
  * PrimeUI Menu widget
  */
@@ -130,11 +129,12 @@ $(function() {
     });
 });
 
+
 /*
  * PrimeUI TieredMenu Widget
  */
 $(function() {
-
+    "use strict"; // Added for AngularPrime
     $.widget("primeui.puitieredmenu", $.primeui.puibasemenu, {
 
         options: {
@@ -300,9 +300,9 @@ $(function() {
 
         _showSubmenu: function(menuitem, submenu) {
             submenu.css({
-                'left': menuitem.outerWidth()
-                ,'top': 0
-                ,'z-index': ++PUI.zindex
+                'left': menuitem.outerWidth(),
+                'top': 0,
+                'z-index': ++PUI.zindex
             });
 
             submenu.show();
@@ -317,7 +317,7 @@ $(function() {
  */
 
 $(function() {
-
+    "use strict"; // Added for AngularPrime
     $.widget("primeui.puicontextmenu", $.primeui.puitieredmenu, {
 
         options: {
@@ -428,7 +428,7 @@ $(function() {
  */
 
 $(function() {
-
+    "use strict"; // Added for AngularPrime
     $.widget("primeui.puislidemenu", $.primeui.puibasemenu, {
 
         _create: function() {

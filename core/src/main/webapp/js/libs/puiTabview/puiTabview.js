@@ -131,8 +131,7 @@ angular.module('angular.prime').directive('puiTabview', ['$http', '$templateCach
 }]);
 
 }());
-;/*jshint laxcomma:true*/
-/*globals $ */
+;/*globals $ */
 
 /**
  * PrimeUI tabview widget
@@ -142,8 +141,8 @@ $(function() {
     $.widget("primeui.puitabview", {
 
         options: {
-            activeIndex:0
-            ,orientation:'top'
+            activeIndex:0,
+            orientation:'top'
         },
 
         _create: function() {

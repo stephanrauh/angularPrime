@@ -5,7 +5,6 @@
  */
 $(function() {
 
-    // added for AngularPrime
     "use strict"; // Added for AngularPrime
     $.widget("primeui.puilistbox", {
 

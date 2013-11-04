@@ -14,7 +14,7 @@
         themeService.createThemeSwitcher = function(element) {
             themeElement = element;
             $(element).puidropdown({
-                source: themes,
+                data: themes,
                 change: function(e) {
                     var themeLink = $('link[href$="theme.css"]'),
                         newThemeURL =  'themes/' + $(this).val() + '/theme.css';
