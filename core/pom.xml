@@ -267,6 +267,14 @@
 
         </profile>
         <profile>
+            <id>Angular120</id>
+            <!-- This is the RC3 -->
+            <properties>
+                <angular-version>1.2.0</angular-version>
+            </properties>
+
+        </profile>
+        <profile>
             <id>documentation</id>
             <build>
                 <plugins>

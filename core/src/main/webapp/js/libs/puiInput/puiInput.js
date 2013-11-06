@@ -42,6 +42,7 @@ angular.module('angular.prime').factory('puiInput.helper', function () {
 angular.module('angular.prime').directive('puiInput', function () {
     return {
         restrict: 'A',
+        priority: angular.version.minor > 1 ? 1500 : 0,
         require: '?ngModel', // get a hold of NgModelController
         link: function (scope, element, attrs, ngModel) {
             if (!ngModel) {
