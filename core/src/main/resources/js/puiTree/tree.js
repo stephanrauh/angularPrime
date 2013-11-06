@@ -1,3 +1,5 @@
+/*globals $ document PUI*/
+
 /**
  * PrimeUI Tree widget
  */
