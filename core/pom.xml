@@ -26,7 +26,7 @@
 	<artifactId>angularprime</artifactId>
 	<name>Angular Prime Development project</name>
 	<packaging>war</packaging>
-	<version>0.5</version>
+	<version>0.6</version>
 
     <pluginRepositories>
         <pluginRepository>
