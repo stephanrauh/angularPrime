@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.*;
 
-public class Datatableservlet2 extends HttpServlet {
+public class DatatableServlet extends HttpServlet {
 
     private static final String[] colors;
 
