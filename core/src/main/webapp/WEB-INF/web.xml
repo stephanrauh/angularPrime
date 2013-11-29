@@ -8,7 +8,7 @@
     </servlet>
     <servlet>
         <servlet-name>datatableServlet</servlet-name>
-        <servlet-class>be.rubus.angularprime.demo.DatatableServlet</servlet-class>
+        <servlet-class>be.rubus.angularprime.demo.Datatableservlet2</servlet-class>
     </servlet>
 
     <servlet-mapping>
