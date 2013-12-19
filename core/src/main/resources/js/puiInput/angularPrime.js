@@ -63,15 +63,19 @@ angular.module('angular.prime').directive('puiInput', function () {
 
                 if ('INPUT' === htmlElementName) {
                     if (attrs.type === 'password') {
-                        options.inline = (options.inline !== undefined) ? options.inline : false;
-                        element.puipassword({
-                            inline: options.inline,
-                            promptLabel: options.promptLabel || 'Please enter a password',
-                            weakLabel: options.weakLabel || 'Weak',
-                            goodLabel: options.goodLabel || 'Medium',
-                            strongLabel: options.strongLabel || 'Strong'
-                        });
-                        password = true;
+                        if (options.noPasswordStrength) {
+                            element.puiinputtext();
+                        } else {
+                            options.inline = (options.inline !== undefined) ? options.inline : false;
+                            element.puipassword({
+                                inline: options.inline,
+                                promptLabel: options.promptLabel || 'Please enter a password',
+                                weakLabel: options.weakLabel || 'Weak',
+                                goodLabel: options.goodLabel || 'Medium',
+                                strongLabel: options.strongLabel || 'Strong'
+                            });
+                            password = true;
+                        }
                     }
                     if (attrs.type === 'checkbox') {
                         element.puicheckbox();

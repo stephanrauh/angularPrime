@@ -8,6 +8,9 @@
 			<header>Default integration</header>
 
 			<input id="default" type="password" pui-input ng-model="value1"/><br/>
+
+            No strength panel <br/>
+            <input id="noStrength" type="password" pui-input="{noPasswordStrength: true}" ng-model="value1"/><br/>
 		</section>
 
 		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
@@ -21,6 +24,8 @@
 					<div id="d_html">
 						<pre pretty-print="html" >
 	<input id="default" type="password" pui-input ng-model="value1"/><br/>
+
+    <input id="noStrength" type="password" pui-input="{noPasswordStrength: true}" ng-model="value1"/><br/>
 						</pre>
 					</div>
 					<div id="d_script">
