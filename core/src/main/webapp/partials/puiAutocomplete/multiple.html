@@ -15,20 +15,14 @@
 		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
 			<legend>Source</legend>
 			<div id="sourceTabs" pui-tabview>
-				<ul>
-					<li><a href="#d_html">html</a></li>
-					<li><a href="#d_script">controller</a></li>
-				</ul>
-				<div>
-					<div id="d_html">
-						<pre pretty-print="html" >
-	<input id="multiple" type="text" pui-input ng-model="country" pui-autocomplete="multipleCountry"/><br/>
-	Field value is : {{country}}<br/>
-	Selected values are : {{multipleCountry.multipleValues}}
-						</pre>
-					</div>
-					<div id="d_script">
-
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
+<input id="multiple" type="text" pui-input ng-model="country" pui-autocomplete="multipleCountry"/><br/>
+Field value is : {{country}}<br/>
+Selected values are : {{multipleCountry.multipleValues}}
+                    </pre>
+                </div>
+                <div pui-panel title="controller">
 						<pre pretty-print="js" >
 	$scope.country = null;
 	$scope.countries = new Array("Afghanistan", "Albania", "Algeria", "Andorra", ...);
@@ -39,9 +33,8 @@
 		, multipleValues: []
 	};
 						</pre>
-					</div>
-				</div>
-			</div>
+                </div>
+            </div>
 		</fieldset>
 
 	</div>

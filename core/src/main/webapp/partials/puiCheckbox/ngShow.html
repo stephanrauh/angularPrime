@@ -14,26 +14,20 @@
 		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
 			<legend>Source</legend>
 			<div id="sourceTabs" pui-tabview>
-				<ul>
-					<li><a href="#d_html">html</a></li>
-					<li><a href="#d_script">controller</a></li>
-				</ul>
-				<div>
-					<div id="d_html">
-						<pre pretty-print="html" >
-            <div id="chk6" pui-checkbox="Option 1" ng-model="checkboxSelectedValue1" ng-show="checkboxVisible"></div> <br/>
-            Controller value = <span id="modelValue">{{checkboxSelectedValue1}}</span><br/>
-            <div id="chk7" pui-checkbox="visible" ng-model="checkboxVisible"></div> <br/>
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
+        <div id="chk6" pui-checkbox="Option 1" ng-model="checkboxSelectedValue1" ng-show="checkboxVisible"></div> <br/>
+        Controller value = <span id="modelValue">{{checkboxSelectedValue1}}</span><br/>
+        <div id="chk7" pui-checkbox="visible" ng-model="checkboxVisible"></div> <br/>
 
-						</pre>
-					</div>
-					<div id="d_script">
-						<pre pretty-print="js" >
-    $scope.checkboxSelectedValue1 = true;
-    $scope.checkboxVisible = true;
-						</pre>
-					</div>
-				</div>
+                    </pre>
+                </div>
+                <div pui-panel title="controller">
+                    <pre pretty-print="js" >
+$scope.checkboxSelectedValue1 = true;
+$scope.checkboxVisible = true;
+                    </pre>
+                </div>
 			</div>
 		</fieldset>
 	</div>

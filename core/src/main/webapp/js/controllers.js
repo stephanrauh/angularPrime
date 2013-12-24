@@ -766,8 +766,8 @@ function BreadcrumbController($scope, Widgets) {
     ];
 
     $scope.newItem = {
-        id : ''
-        , label : ''
+        id : '',
+        label : ''
     };
 
 

@@ -22,46 +22,38 @@
 		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
 			<legend>Source</legend>
 			<div id="sourceTabs" pui-tabview>
-				<ul>
-					<li><a href="#d_html">html</a></li>
-					<li><a href="#d_script">controller</a></li>
-				</ul>
-				<div>
-					<div id="d_html">
-						<pre pretty-print="html" >
-	<button id="btn-show" type="button" ng-click="nonModalShowDlg()">Show</button>
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
+<button id="btn-show" type="button" ng-click="nonModalShowDlg()">Show</button>
 
-	<div id="dlg" title="Godfather I" pui-dialog="nonModalDialogOptions" >
-		<p>The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
-		...
-		but given to ruthless violence whenever anything stands against the good of the family.</p>
-		<button id="btn-close" type="button" ng-click="nonModalCloseDlg()" pui-button="{'icon': 'ui-icon-close'}">Close</button>
-	</div>
+<div id="dlg" title="Godfather I" pui-dialog="nonModalDialogOptions" >
+    <p>The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
+        ...
+        but given to ruthless violence whenever anything stands against the good of the family.</p>
+    <button id="btn-close" type="button" ng-click="nonModalCloseDlg()" pui-button="{'icon': 'ui-icon-close'}">Close</button>
+</div>
 
-						</pre>
+                    </pre>
+                </div>
+                <div pui-panel title="controller">
+                    <pre pretty-print="js" >
+$scope.nonModalDialogOptions = {
+    dlgVisible : false
+    ,modal : false
+    ,minimizable: true
+    ,maximizable: true
+};
 
-					</div>
-					<div id="d_script">
-						<pre pretty-print="js" >
-	$scope.nonModalDialogOptions = {
-		dlgVisible : false
-		,modal : false
-		,minimizable: true
-		,maximizable: true
-	};
+$scope.nonModalShowDlg = function() {
+    $scope.nonModalDialogOptions.dlgVisible = true;
+};
 
-	$scope.nonModalShowDlg = function() {
-		$scope.nonModalDialogOptions.dlgVisible = true;
-	};
+$scope.nonModalCloseDlg = function() {
+    $scope.nonModalDialogOptions.dlgVisible = false;
+};
 
-	$scope.nonModalCloseDlg = function() {
-		$scope.nonModalDialogOptions.dlgVisible = false;
-	};
-
-						</pre>
-
-					</div>
-				</div>
+                    </pre>
+                </div>
 			</div>
 		</fieldset>
 	</div>
