@@ -372,7 +372,7 @@ function LightboxController($scope, Widgets) {
          ,thumbnail: 'demo/images/sopranos/sopranos3_small.jpg'
         }
 
-    ]
+    ];
 
     $scope.addItem = function() {
         $scope.items.push({ title: 'Sopranos4'

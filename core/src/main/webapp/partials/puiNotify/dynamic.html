@@ -21,45 +21,38 @@
 		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
 			<legend>Source</legend>
 			<div id="sourceTabs" pui-tabview>
-				<ul>
-					<li><a href="#d_html">html</a></li>
-					<li><a href="#d_script">controller</a></li>
-				</ul>
-				<div>
-					<div id="d_html">
-						<pre pretty-print="html" >
-	<button id="btn-show" type="button" ng-click="showDynamic()" ng-hide="notifyDynamicOptions.visible">Show</button>
-	<button id="btn-hide" type="button" ng-click="hideDynamic()" ng-show="notifyDynamicOptions.visible">Hide</button>
-	<br>
-	<input type="text" ng-model="prop"/> <br/>
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
+<button id="btn-show" type="button" ng-click="showDynamic()" ng-hide="notifyDynamicOptions.visible">Show</button>
+<button id="btn-hide" type="button" ng-click="hideDynamic()" ng-show="notifyDynamicOptions.visible">Hide</button>
+<br>
+<input type="text" ng-model="prop"/> <br/>
 
-	<div id="ntfy" pui-notify="notifyDynamicOptions" >
-		<h1>Notify Widget</h1>
-		This value is defined by the input text under the show button : {{prop}}
-	</div>
+<div id="ntfy" pui-notify="notifyDynamicOptions" >
+    <h1>Notify Widget</h1>
+    This value is defined by the input text under the show button : {{prop}}
+</div>
 
-						</pre>
+                    </pre>
+                </div>
+                <div pui-panel title="controller">
+                    <pre pretty-print="js" >
+$scope.prop = 'Change me';
 
-					</div>
-					<div id="d_script">
-						<pre pretty-print="js" >
-	$scope.prop = 'Change me';
+$scope.notifyDynamicOptions = {
+    visible : false
+};
 
-	$scope.notifyDynamicOptions = {
-		visible : false
-	};
+$scope.showDynamic = function() {
+    $scope.notifyDynamicOptions.visible = true;
+};
 
-	$scope.showDynamic = function() {
-		$scope.notifyDynamicOptions.visible = true;
-	};
+$scope.hideDynamic = function() {
+    $scope.notifyDynamicOptions.visible = false;
+};
 
-	$scope.hideDynamic = function() {
-		$scope.notifyDynamicOptions.visible = false;
-	};
-
-						</pre>
-					</div>
-				</div>
+                    </pre>
+                </div>
 			</div>
 		</fieldset>
 	</div>

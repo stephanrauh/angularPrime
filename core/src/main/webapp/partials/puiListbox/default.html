@@ -20,30 +20,24 @@
 		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
 			<legend>Source</legend>
 			<div id="sourceTabs" pui-tabview>
-				<ul>
-					<li><a href="#d_html">html</a></li>
-					<li><a href="#d_script">controller</a></li>
-				</ul>
-				<div>
-					<div id="d_html">
-						<pre pretty-print="html" >
-            <select id="basic" pui-listbox ng-model="selectedOption">
-                <option value="0">Select One</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
-                <option value="4">Option 4</option>
-                <option value="5">Option 5</option>
-            </select> <br/>
-            Selected option (index) : <span id="selectedOption">{{selectedOption}}</span>
-						</pre>
-					</div>
-					<div id="d_script">
-						<pre pretty-print="js" >
-    $scope.selectedOption = null;
-                        </pre>
-					</div>
-				</div>
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
+        <select id="basic" pui-listbox ng-model="selectedOption">
+            <option value="0">Select One</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+            <option value="4">Option 4</option>
+            <option value="5">Option 5</option>
+        </select> <br/>
+        Selected option (index) : <span id="selectedOption">{{selectedOption}}</span>
+                    </pre>
+                </div>
+                <div pui-panel title="controller">
+                    <pre pretty-print="js" >
+$scope.selectedOption = null;
+                    </pre>
+                </div>
 			</div>
 		</fieldset>
 	</div>

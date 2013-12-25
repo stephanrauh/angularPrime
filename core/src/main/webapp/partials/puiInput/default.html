@@ -16,29 +16,22 @@
 		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
 			<legend>Source</legend>
 			<div id="sourceTabs" pui-tabview>
-				<ul>
-					<li><a href="#d_html">html</a></li>
-					<li><a href="#d_script">controller</a></li>
-				</ul>
-				<div>
-					<div id="d_html">
-						<pre pretty-print="html" >
-	<input id="default" type="text" pui-input ng-model="value1"/><br/>
-	Controller value is : {{value1}}<br/>
-	<input id="digits" type="number" pui-input ng-model="numbers"/><br/>
-	Controller value is : {{numbers}}
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
+<input id="default" type="text" pui-input ng-model="value1"/><br/>
+Controller value is : {{value1}}<br/>
+<input id="digits" type="number" pui-input ng-model="numbers"/><br/>
+Controller value is : {{numbers}}
 
-						</pre>
+                    </pre>
+                </div>
+                <div pui-panel title="controller">
+                    <pre pretty-print="js" >
+$scope.value1 = 'Change me';
 
-					</div>
-					<div id="d_script">
-						<pre pretty-print="js" >
-	$scope.value1 = 'Change me';
-
-	$scope.numbers = 123;
-						</pre>
-					</div>
-				</div>
+$scope.numbers = 123;
+                    </pre>
+                </div>
 			</div>
 		</fieldset>
 

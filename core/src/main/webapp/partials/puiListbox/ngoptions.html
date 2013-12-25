@@ -15,32 +15,26 @@
 		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
 			<legend>Source</legend>
 			<div id="sourceTabs" pui-tabview>
-				<ul>
-					<li><a href="#d_html">html</a></li>
-					<li><a href="#d_script">controller</a></li>
-				</ul>
-				<div>
-					<div id="d_html">
-						<pre pretty-print="html" >
-            <select id="basic" pui-listbox ng-model="selectedOption" ng-options="f.name for f in friends">
-            </select> <br/>
-            Selected option (index) : {{selectedOption}}
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
+        <select id="basic" pui-listbox ng-model="selectedOption" ng-options="f.name for f in friends">
+        </select> <br/>
+        Selected option (index) : {{selectedOption}}
 
-						</pre>
-					</div>
-					<div id="d_script">
-						<pre pretty-print="js" >
-    $scope.selectedOption = null;
+                    </pre>
+                </div>
+                <div pui-panel title="controller">
+                    <pre pretty-print="js" >
+$scope.selectedOption = null;
 
-    $scope.friends =
-        [{name:'John', phone:'555-1212', age:10},
-            {name:'Mary', phone:'555-9876', age:19},
-            {name:'Mike', phone:'555-4321', age:21},
-            {name:'Adam', phone:'555-5678', age:35},
-            {name:'Julie', phone:'555-8765', age:29}];
-                        </pre>
-					</div>
-				</div>
+$scope.friends =
+    [{name:'John', phone:'555-1212', age:10},
+        {name:'Mary', phone:'555-9876', age:19},
+        {name:'Mike', phone:'555-4321', age:21},
+        {name:'Adam', phone:'555-5678', age:35},
+        {name:'Julie', phone:'555-8765', age:29}];
+                    </pre>
+                </div>
 			</div>
 		</fieldset>
 	</div>

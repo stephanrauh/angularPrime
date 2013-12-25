@@ -70,88 +70,82 @@
 		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
 			<legend>Source</legend>
 			<div id="sourceTabs" pui-tabview>
-				<ul>
-					<li><a href="#d_html">html</a></li>
-					<li><a href="#d_script">controller</a></li>
-				</ul>
-				<div>
-					<div id="d_html">
-						<pre pretty-print="html" >
-    <ul id="submenu2" pui-menu>
-        <li><a data-icon="ui-icon-document">File</a>
-            <ul>
-                <li><a data-icon="ui-icon-contact">New</a>
-                    <ul>
-                        <li><a ng-click="doCommand('project')">Project</a></li>
-                        <li><a ng-click="doCommand('other')">Other</a></li>
-                    </ul>
-                </li>
-                <li><a ng-click="doCommand('open')">Open</a></li>
-                <li><a ng-click="doCommand('quit')">Quit</a></li>
-            </ul>
-        </li>
-        <li><a data-icon="ui-icon-pencil">Edit</a>
-            <ul>
-                <li><a data-icon="ui-icon-arrowreturnthick-1-w" ng-click="doCommand('undo')">Undo</a></li>
-                <li><a data-icon="ui-icon-arrowreturnthick-1-e" ng-click="doCommand('redo')">Redo</a></li>
-            </ul>
-        </li>
-        <li>
-            <a data-icon="ui-icon-help">Help</a>
-            <ul>
-                <li><a ng-click="doCommand('contents')">Contents</a></li>
-                <li>
-                    <a data-icon="ui-icon-search" ng-click="doCommand('search')">Search</a>
-                    <ul>
-                        <li><a ng-click="doCommand('text')">Text</a>
-                            <ul>
-                                <li><a ng-click="doCommand('workspace')">Workspace</a></li>
-                            </ul>
-                        </li>
-                        <li><a ng-click="doCommand('file')">File</a></li>
-                    </ul>
-                </li>
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
+<ul id="submenu2" pui-menu>
+    <li><a data-icon="ui-icon-document">File</a>
+        <ul>
+            <li><a data-icon="ui-icon-contact">New</a>
+                <ul>
+                    <li><a ng-click="doCommand('project')">Project</a></li>
+                    <li><a ng-click="doCommand('other')">Other</a></li>
+                </ul>
+            </li>
+            <li><a ng-click="doCommand('open')">Open</a></li>
+            <li><a ng-click="doCommand('quit')">Quit</a></li>
+        </ul>
+    </li>
+    <li><a data-icon="ui-icon-pencil">Edit</a>
+        <ul>
+            <li><a data-icon="ui-icon-arrowreturnthick-1-w" ng-click="doCommand('undo')">Undo</a></li>
+            <li><a data-icon="ui-icon-arrowreturnthick-1-e" ng-click="doCommand('redo')">Redo</a></li>
+        </ul>
+    </li>
+    <li>
+        <a data-icon="ui-icon-help">Help</a>
+        <ul>
+            <li><a ng-click="doCommand('contents')">Contents</a></li>
+            <li>
+                <a data-icon="ui-icon-search" ng-click="doCommand('search')">Search</a>
+                <ul>
+                    <li><a ng-click="doCommand('text')">Text</a>
+                        <ul>
+                            <li><a ng-click="doCommand('workspace')">Workspace</a></li>
+                        </ul>
+                    </li>
+                    <li><a ng-click="doCommand('file')">File</a></li>
+                </ul>
+            </li>
 
-            </ul>
+        </ul>
 
-        </li>
-        <li>
-            <a data-icon="ui-icon-gear">Actions</a>
-            <ul>
-                <li><a data-icon="ui-icon-refresh" ng-click="doCommand('ajax')">Ajax</a>
-                    <ul>
-                        <li><a data-icon="ui-icon-disk" ng-click="doCommand('save')">Save</a></li>
-                        <li><a data-icon="ui-icon-arrowrefresh-1-w" ng-click="doCommand('update')">Update</a></li>
-                    </ul>
-                </li>
-                <li><a data-icon="ui-icon-document">Non-Ajax</a>
-                    <ul>
-                        <li><a data-icon="ui-icon-close" ng-click="doCommand('delete')">Delete</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a data-icon="ui-icon-close" ng-click="doCommand('quit')">Quit</a>
-        </li>
-    </ul>
+    </li>
+    <li>
+        <a data-icon="ui-icon-gear">Actions</a>
+        <ul>
+            <li><a data-icon="ui-icon-refresh" ng-click="doCommand('ajax')">Ajax</a>
+                <ul>
+                    <li><a data-icon="ui-icon-disk" ng-click="doCommand('save')">Save</a></li>
+                    <li><a data-icon="ui-icon-arrowrefresh-1-w" ng-click="doCommand('update')">Update</a></li>
+                </ul>
+            </li>
+            <li><a data-icon="ui-icon-document">Non-Ajax</a>
+                <ul>
+                    <li><a data-icon="ui-icon-close" ng-click="doCommand('delete')">Delete</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a data-icon="ui-icon-close" ng-click="doCommand('quit')">Quit</a>
+    </li>
+</ul>
 
-						</pre>
-					</div>
-					<div id="d_script">
-						<pre pretty-print="js" >
-    $scope.submenuOptions = {
-        autoDisplay : false
-    }
+                    </pre>
+                </div>
+                <div pui-panel title="controller">
+                    <pre pretty-print="js" >
+$scope.submenuOptions = {
+    autoDisplay : false
+}
 
 
-    $scope.doCommand = function(commandText) {
-        alert("Click on item '"+commandText+"'");
-    };
+$scope.doCommand = function(commandText) {
+    alert("Click on item '"+commandText+"'");
+};
 
-                        </pre>
-					</div>
-				</div>
+                    </pre>
+                </div>
 			</div>
 		</fieldset>
 	</div>
