@@ -25,63 +25,57 @@
 		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
 			<legend>Source</legend>
 			<div id="sourceTabs" pui-tabview>
-				<ul>
-					<li><a href="#d_html">html</a></li>
-					<li><a href="#d_script">controller</a></li>
-				</ul>
-				<div>
-					<div id="d_html">
-						<pre pretty-print="html" >
-            <select id="progSelect" pui-picklist ng-model="selectedCars">
-                <option value="1">Volkswagen</option>
-                <option value="2">Ford</option>
-                <option value="3">Mercedes</option>
-                <option value="4">Audi</option>
-                <option value="5">BMW</option>
-                <option value="6">Honda</option>
-                <option value="7">Porsche</option>
-                <option value="8">Chevrolet</option>
-                <option value="9">Jaguar</option>
-            </select>    <br/>
-            Selected options = <span id="selectedOptions">{{selectedCars}}</span> <br/>
-            <button ng-click="addSelectedCar()" ng-disabled="selectedCars.length > 5" id="add">Add</button>
-            <button ng-click="removeSelectedCar()" ng-disabled="selectedCars.length < 1" id="remove">Remove</button>
-						</pre>
-					</div>
-					<div id="d_script">
-						<pre pretty-print="js" >
-    $scope.selectedCars = ["3"];
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
+        <select id="progSelect" pui-picklist ng-model="selectedCars">
+            <option value="1">Volkswagen</option>
+            <option value="2">Ford</option>
+            <option value="3">Mercedes</option>
+            <option value="4">Audi</option>
+            <option value="5">BMW</option>
+            <option value="6">Honda</option>
+            <option value="7">Porsche</option>
+            <option value="8">Chevrolet</option>
+            <option value="9">Jaguar</option>
+        </select>    <br/>
+        Selected options = <span id="selectedOptions">{{selectedCars}}</span> <br/>
+        <button ng-click="addSelectedCar()" ng-disabled="selectedCars.length > 5" id="add">Add</button>
+        <button ng-click="removeSelectedCar()" ng-disabled="selectedCars.length < 1" id="remove">Remove</button>
+                    </pre>
+                </div>
+                <div pui-panel title="controller">
+                    <pre pretty-print="js" >
+$scope.selectedCars = ["3"];
 
-    $scope.createValue = function() {
-        var val = Math.floor(Math.random() * 8) + 1;
-        return val.toString();
-    };
+$scope.createValue = function() {
+    var val = Math.floor(Math.random() * 8) + 1;
+    return val.toString();
+};
 
-    $scope.addSelectedCar = function() {
-        var l = $scope.selectedCars.length,
-            value;
+$scope.addSelectedCar = function() {
+    var l = $scope.selectedCars.length,
+        value;
 
-        do {
-            value = $scope.createValue();
-            if ($scope.selectedCars.indexOf(value) === -1) {
-                $scope.safeApply(function() {
-                    $scope.selectedCars.push(value);
-                });
+    do {
+        value = $scope.createValue();
+        if ($scope.selectedCars.indexOf(value) === -1) {
+            $scope.safeApply(function() {
+                $scope.selectedCars.push(value);
+            });
 
-            }
-        } while ($scope.selectedCars.length == l);
-    };
+        }
+    } while ($scope.selectedCars.length == l);
+};
 
-    $scope.removeSelectedCar = function() {
-        var idx = Math.floor(Math.random() * $scope.selectedCars.length);
-        $scope.safeApply(function() {
-            $scope.selectedCars.splice(idx, 1);
-        });
-    };
+$scope.removeSelectedCar = function() {
+    var idx = Math.floor(Math.random() * $scope.selectedCars.length);
+    $scope.safeApply(function() {
+        $scope.selectedCars.splice(idx, 1);
+    });
+};
 
-                        </pre>
-					</div>
-				</div>
+                    </pre>
+                </div>
 			</div>
 		</fieldset>
 	</div>

@@ -22,37 +22,31 @@
 		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
 			<legend>Source</legend>
 			<div id="sourceTabs" pui-tabview>
-				<ul>
-					<li><a href="#d_html">html</a></li>
-					<li><a href="#d_script">controller</a></li>
-				</ul>
-				<div>
-					<div id="d_html">
-						<pre pretty-print="html" >
-	<button ng-click="expandPanel()" type="button" ng-show="panelOptions.collapsed" >Expand panel</button>
-	<button ng-click="collapsePanel()" type="button" ng-hide="panelOptions.collapsed">Collapse panel</button>
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
+<button ng-click="expandPanel()" type="button" ng-show="panelOptions.collapsed" >Expand panel</button>
+<button ng-click="collapsePanel()" type="button" ng-hide="panelOptions.collapsed">Collapse panel</button>
 
-	<div id="progToggle" pui-panel="panelOptions" style="margin-bottom:20px" title="Programmatic control">
-		The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
-		...
-		but given to ruthless violence whenever anything stands against the good of the family.
-	</div>
-						</pre>
-					</div>
-					<div id="d_script">
-						<pre pretty-print="js" >
-	$scope.panelOptions = {collapsed: false};
+<div id="progToggle" pui-panel="panelOptions" style="margin-bottom:20px" title="Programmatic control">
+    The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
+    ...
+    but given to ruthless violence whenever anything stands against the good of the family.
+</div>
+                    </pre>
+                </div>
+                <div pui-panel title="controller">
+                    <pre pretty-print="js" >
+$scope.panelOptions = {collapsed: false};
 
-	$scope.expandPanel = function () {
-		$scope.panelOptions.collapsed = false;
-	};
+$scope.expandPanel = function () {
+    $scope.panelOptions.collapsed = false;
+};
 
-	$scope.collapsePanel = function () {
-		$scope.panelOptions.collapsed = true;
-	};
-							</pre>
-					</div>
-				</div>
+$scope.collapsePanel = function () {
+    $scope.panelOptions.collapsed = true;
+};
+                        </pre>
+                </div>
 			</div>
 		</fieldset>
 

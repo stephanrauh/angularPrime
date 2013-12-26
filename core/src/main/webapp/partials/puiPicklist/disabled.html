@@ -25,46 +25,40 @@
 		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
 			<legend>Source</legend>
 			<div id="sourceTabs" pui-tabview>
-				<ul>
-					<li><a href="#d_html">html</a></li>
-					<li><a href="#d_script">controller</a></li>
-				</ul>
-				<div>
-					<div id="d_html">
-						<pre pretty-print="html" >
-	            <select id="disabled" pui-picklist ng-model="selectedOptions" ng-disabled="disabledWidget">
-                    <option value="1">Volkswagen</option>
-                    <option value="2">Ford</option>
-                    <option value="3">Mercedes</option>
-                    <option value="4">Audi</option>
-                    <option value="5">BMW</option>
-                    <option value="6">Honda</option>
-                    <option value="7">Porsche</option>
-                    <option value="8">Chevrolet</option>
-                    <option value="9">Jaguar</option>
-                </select>    <br/>
-            Selected options = <span id="selectedOptions">{{selectedOptions}}</span> <br/>
-            <button ng-click="enableWidget()" type="button" ng-show="disabledWidget" id="enableBtn">Enable input</button>
-            <button ng-click="disableWidget()" type="button" ng-hide="disabledWidget" id="disableBtn">Disable input</button>
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
+            <select id="disabled" pui-picklist ng-model="selectedOptions" ng-disabled="disabledWidget">
+                <option value="1">Volkswagen</option>
+                <option value="2">Ford</option>
+                <option value="3">Mercedes</option>
+                <option value="4">Audi</option>
+                <option value="5">BMW</option>
+                <option value="6">Honda</option>
+                <option value="7">Porsche</option>
+                <option value="8">Chevrolet</option>
+                <option value="9">Jaguar</option>
+            </select>    <br/>
+        Selected options = <span id="selectedOptions">{{selectedOptions}}</span> <br/>
+        <button ng-click="enableWidget()" type="button" ng-show="disabledWidget" id="enableBtn">Enable input</button>
+        <button ng-click="disableWidget()" type="button" ng-hide="disabledWidget" id="disableBtn">Disable input</button>
 					</pre>
-					</div>
-					<div id="d_script">
-						<pre pretty-print="js" >
-    $scope.selectedOptions = [];
+                </div>
+                <div pui-panel title="controller">
+                    <pre pretty-print="js" >
+$scope.selectedOptions = [];
 
-    $scope.disabledWidget = true;
+$scope.disabledWidget = true;
 
-    $scope.enableWidget = function() {
-        $scope.disabledWidget = false;
-    };
+$scope.enableWidget = function() {
+    $scope.disabledWidget = false;
+};
 
-    $scope.disableWidget = function() {
-        $scope.disabledWidget =  true;
-    };
+$scope.disableWidget = function() {
+    $scope.disabledWidget =  true;
+};
 
-                        </pre>
-					</div>
-				</div>
+                    </pre>
+                </div>
 			</div>
 		</fieldset>
 	</div>

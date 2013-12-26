@@ -14,24 +14,18 @@
 		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
 			<legend>Source</legend>
 			<div id="sourceTabs" pui-tabview>
-				<ul>
-					<li><a href="#d_html">html</a></li>
-					<li><a href="#d_script">controller</a></li>
-				</ul>
-				<div>
-					<div id="d_html">
-						<pre pretty-print="html" >
-	<input id="default" type="text" pui-spinner="{step: 0.25, min: 0.0, max: 5.0}" ng-model="value" /><br/>
-	Scope value {{value}}
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
+<input id="default" type="text" pui-spinner="{step: 0.25, min: 0.0, max: 5.0}" ng-model="value" /><br/>
+Scope value {{value}}
 
-						</pre>
-					</div>
-					<div id="d_script">
-						<pre pretty-print="js" >
-	$scope.value = null;
-						</pre>
-					</div>
-				</div>
+                    </pre>
+                </div>
+                <div pui-panel title="controller">
+                    <pre pretty-print="js" >
+$scope.value = null;
+                    </pre>
+                </div>
 			</div>
 		</fieldset>
 

@@ -20,42 +20,36 @@
 		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
 			<legend>Source</legend>
 			<div id="sourceTabs" pui-tabview>
-				<ul>
-					<li><a href="#d_html">html</a></li>
-					<li><a href="#d_script">controller</a></li>
-				</ul>
-				<div>
-					<div id="d_html">
-						<pre pretty-print="html" >
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
 
-            <div id="disabled" pui-splitbutton ng-click="showMessage('Save clicked')" type="button" ng-disabled="buttonDisabled" >Save
-                <button ng-click="showMessage('Update clicked')" type="button" pui-button>Update</button>
-                <button ng-click="showMessage('Delete clicked')" type="button" pui-button="{'icon':'ui-icon-trash'}" >Delete</button>
-            </div>
-            <br/>
-            <button ng-click="enableButton()" type="button" ng-show="buttonDisabled" id="enableBtn">Enable splitButton</button>
-            <button ng-click="disableButton()" type="button" ng-hide="buttonDisabled" id="disableBtn">Disable splitButton</button>
-						</pre>
-					</div>
-					<div id="d_script">
-						<pre pretty-print="js" >
-    $scope.showMessage = function(msg) {
-        alert(msg);
-    };
+        <div id="disabled" pui-splitbutton ng-click="showMessage('Save clicked')" type="button" ng-disabled="buttonDisabled" >Save
+            <button ng-click="showMessage('Update clicked')" type="button" pui-button>Update</button>
+            <button ng-click="showMessage('Delete clicked')" type="button" pui-button="{'icon':'ui-icon-trash'}" >Delete</button>
+        </div>
+        <br/>
+        <button ng-click="enableButton()" type="button" ng-show="buttonDisabled" id="enableBtn">Enable splitButton</button>
+        <button ng-click="disableButton()" type="button" ng-hide="buttonDisabled" id="disableBtn">Disable splitButton</button>
+                    </pre>
+                </div>
+                <div pui-panel title="controller">
+                    <pre pretty-print="js" >
+$scope.showMessage = function(msg) {
+    alert(msg);
+};
 
-    $scope.buttonDisabled = true;
+$scope.buttonDisabled = true;
 
-    $scope.enableButton = function() {
-        $scope.buttonDisabled = false;
-    };
+$scope.enableButton = function() {
+    $scope.buttonDisabled = false;
+};
 
-    $scope.disableButton = function() {
-        $scope.buttonDisabled =  true;
-    };
+$scope.disableButton = function() {
+    $scope.buttonDisabled =  true;
+};
 
-						</pre>
-					</div>
-				</div>
+                    </pre>
+                </div>
 			</div>
 		</fieldset>
 

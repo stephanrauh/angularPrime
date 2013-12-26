@@ -18,21 +18,25 @@
 		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
 			<legend>Source</legend>
 			<div id="sourceTabs" pui-tabview>
-				<ul>
-					<li><a href="#d_html">html</a></li>
-					<li><a href="#d_script">controller</a></li>
-				</ul>
-				<div>
-					<div id="d_html">
-						<pre pretty-print="html" >
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
+            <div id="dynamic" pui-splitbutton ng-click="showMessage('Save clicked')" type="button" >{{buttonTitle}}
+                <button ng-click="showMessage('Update clicked')" type="button" pui-button>Update</button>
+                <button ng-click="showMessage('Delete clicked')" type="button" pui-button >Delete</button>
+            </div>
+            <br/><input id="title" type="text" ng-model="buttonTitle"/>
 
-						</pre>
-					</div>
-					<div id="d_script">
-						<pre pretty-print="js" >
-						</pre>
-					</div>
-				</div>
+                    </pre>
+                </div>
+                <div pui-panel title="controller">
+                    <pre pretty-print="js" >
+$scope.showMessage = function(msg) {
+    alert(msg);
+};
+
+$scope.buttonTitle = "Title";
+                    </pre>
+                </div>
 			</div>
 		</fieldset>
 

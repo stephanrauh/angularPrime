@@ -23,40 +23,34 @@
 		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
 			<legend>Source</legend>
 			<div id="sourceTabs" pui-tabview>
-				<ul>
-					<li><a href="#d_html">html</a></li>
-					<li><a href="#d_script">controller</a></li>
-				</ul>
-				<div>
-					<div id="d_html">
-						<pre pretty-print="html" >
-            <select id="options" pui-picklist="picklistOptions" ng-model="selectedOptions">
-                <option value="1">Volkswagen</option>
-                <option value="2">Ford</option>
-                <option value="3">Mercedes</option>
-                <option value="4">Audi</option>
-                <option value="5">BMW</option>
-                <option value="6">Honda</option>
-                <option value="7">Porsche</option>
-                <option value="8">Chevrolet</option>
-                <option value="9">Jaguar</option>
-            </select>    <br/>
-            Selected options = {{selectedOptions}}
-                            </section>
-						</pre>
-					</div>
-					<div id="d_script">
-						<pre pretty-print="js" >
-    $scope.picklistOptions = {
-        sourceCaption : "Available",
-        targetCaption : "Selected",
-        showSourceControls : true,
-        showTargetControls : true
-    };
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
+        <select id="options" pui-picklist="picklistOptions" ng-model="selectedOptions">
+            <option value="1">Volkswagen</option>
+            <option value="2">Ford</option>
+            <option value="3">Mercedes</option>
+            <option value="4">Audi</option>
+            <option value="5">BMW</option>
+            <option value="6">Honda</option>
+            <option value="7">Porsche</option>
+            <option value="8">Chevrolet</option>
+            <option value="9">Jaguar</option>
+        </select>    <br/>
+        Selected options = {{selectedOptions}}
+                        </section>
+                    </pre>
+                </div>
+                <div pui-panel title="controller">
+                    <pre pretty-print="js" >
+$scope.picklistOptions = {
+    sourceCaption : "Available",
+    targetCaption : "Selected",
+    showSourceControls : true,
+    showTargetControls : true
+};
 
-                        </pre>
-					</div>
-				</div>
+                    </pre>
+                </div>
 			</div>
 		</fieldset>
 	</div>

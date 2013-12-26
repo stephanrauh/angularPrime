@@ -26,48 +26,41 @@
 		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
 			<legend>Source</legend>
 			<div id="sourceTabs" pui-tabview>
-				<ul>
-					<li><a href="#d_html">html</a></li>
-					<li><a href="#d_script">controller</a></li>
-				</ul>
-				<div>
-					<div id="d_html">
-						<pre pretty-print="html" >
-	<table>
-		<tr>
-			<td><input type="radio" pui-input ng-model="radioValue1" name="rd" id="rd1" value="1"/></td>
-			<td><label for="rd1">Option 1</label></td>
-		</tr>
-		<tr>
-			<td><input type="radio" pui-input ng-model="radioValue1" ng-disabled="disabledWidget" name="rd" id="rd2" value="2"/></td>
-			<td><label for="rd2">Option 2</label></td>
-		</tr>
-	</table>
-	Controller value = {{radioValue1}}
-	<br/>
-	<button ng-click="enableWidget()" type="button" ng-show="disabledWidget">Enable input</button>
-	<button ng-click="disableWidget()" type="button" ng-hide="disabledWidget">Disable input</button>
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
+<table>
+    <tr>
+        <td><input type="radio" pui-input ng-model="radioValue1" name="rd" id="rd1" value="1"/></td>
+        <td><label for="rd1">Option 1</label></td>
+    </tr>
+    <tr>
+        <td><input type="radio" pui-input ng-model="radioValue1" ng-disabled="disabledWidget" name="rd" id="rd2" value="2"/></td>
+        <td><label for="rd2">Option 2</label></td>
+    </tr>
+</table>
+Controller value = {{radioValue1}}
+<br/>
+<button ng-click="enableWidget()" type="button" ng-show="disabledWidget">Enable input</button>
+<button ng-click="disableWidget()" type="button" ng-hide="disabledWidget">Disable input</button>
 
-						</pre>
-					</div>
-					<div id="d_script">
-						<pre pretty-print="js" >
-	$scope.radioValue1 = null;
+                    </pre>
+                </div>
+                <div pui-panel title="controller">
+                    <pre pretty-print="js" >
+$scope.radioValue1 = null;
 
-	$scope.disabledWidget = true;
+$scope.disabledWidget = true;
 
-	$scope.enableWidget = function() {
-		$scope.disabledWidget = false;
-	};
+$scope.enableWidget = function() {
+    $scope.disabledWidget = false;
+};
 
-	$scope.disableWidget = function() {
-		$scope.disabledWidget =  true;
-	};
+$scope.disableWidget = function() {
+    $scope.disabledWidget =  true;
+};
 
-						</pre>
-
-					</div>
-				</div>
+                    </pre>
+                </div>
 			</div>
 		</fieldset>
 	</div>

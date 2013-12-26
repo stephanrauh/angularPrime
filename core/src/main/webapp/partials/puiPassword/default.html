@@ -16,21 +16,15 @@
 		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
 			<legend>Source</legend>
 			<div id="sourceTabs" pui-tabview>
-				<ul>
-					<li><a href="#d_html">html</a></li>
-					<li><a href="#d_script">controller</a></li>
-				</ul>
-				<div>
-					<div id="d_html">
-						<pre pretty-print="html" >
-	<input id="default" type="password" pui-input ng-model="value1"/><br/>
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
+<input id="default" type="password" pui-input ng-model="value1"/><br/>
 
-    <input id="noStrength" type="password" pui-input="{noPasswordStrength: true}" ng-model="value1"/><br/>
-						</pre>
-					</div>
-					<div id="d_script">
-					</div>
-				</div>
+<input id="noStrength" type="password" pui-input="{noPasswordStrength: true}" ng-model="value1"/><br/>
+                    </pre>
+                </div>
+                <div pui-panel title="controller">
+                </div>
 			</div>
 		</fieldset>
 

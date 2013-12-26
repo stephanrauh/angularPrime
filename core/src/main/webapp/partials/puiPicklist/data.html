@@ -14,36 +14,30 @@
 		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
 			<legend>Source</legend>
 			<div id="sourceTabs" pui-tabview>
-				<ul>
-					<li><a href="#d_html">html</a></li>
-					<li><a href="#d_script">controller</a></li>
-				</ul>
-				<div>
-					<div id="d_html">
-						<pre pretty-print="html" >
-            <select id="data" pui-picklist="picklistData" ng-model="selectedOptions"></select>
-            <br/>
-            Selected options = {{selectedOptions}}
-						</pre>
-					</div>
-					<div id="d_script">
-						<pre pretty-print="js" >
-    $scope.picklistData = [
-        {value: "1", label: "Volkswagen" },
-        {value: "2", label: "Ford" },
-        {value: "3", label: "Mercedes" },
-        {value: "4", label: "Audi" },
-        {value: "5", label: "BMW" },
-        {value: "6", label: "Honda" },
-        {value: "7", label: "Porsche" },
-        {value: "8", label: "Chevrolet" },
-        {value: "9", label: "Jaguar"}
-    ];
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
+        <select id="data" pui-picklist="picklistData" ng-model="selectedOptions"></select>
+        <br/>
+        Selected options = {{selectedOptions}}
+                    </pre>
+                </div>
+                <div pui-panel title="controller">
+                    <pre pretty-print="js" >
+$scope.picklistData = [
+    {value: "1", label: "Volkswagen" },
+    {value: "2", label: "Ford" },
+    {value: "3", label: "Mercedes" },
+    {value: "4", label: "Audi" },
+    {value: "5", label: "BMW" },
+    {value: "6", label: "Honda" },
+    {value: "7", label: "Porsche" },
+    {value: "8", label: "Chevrolet" },
+    {value: "9", label: "Jaguar"}
+];
 
 
-                        </pre>
-					</div>
-				</div>
+                    </pre>
+                </div>
 			</div>
 		</fieldset>
 	</div>
