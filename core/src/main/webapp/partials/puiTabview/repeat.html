@@ -18,40 +18,33 @@
 		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
 			<legend>Source</legend>
 			<div id="sourceTabs" pui-tabview>
-				<ul>
-					<li><a href="#d_html">html</a></li>
-					<li><a href="#d_script">controller</a></li>
-				</ul>
-				<div>
-					<div id="d_html">
-						<pre pretty-print="html" >
-    <div id="repeat" pui-tabview=includeList>
-    </div>
-    data field1: {{distributedData.field1}} <br/>
-    data field2: {{distributedData.field2}} <br/>
-    data field3: {{distributedData.field3}} <br/>
-    <button type="button" ng-click="addPanel()">Add panel</button>
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
+<div id="repeat" pui-tabview=includeList>
+</div>
+data field1: {{distributedData.field1}} <br/>
+data field2: {{distributedData.field2}} <br/>
+data field3: {{distributedData.field3}} <br/>
+<button type="button" ng-click="addPanel()">Add panel</button>
 
-						</pre>
+                    </pre>
+                </div>
+                <div pui-panel title="controller">
+                    <pre pretty-print="js" >
+$scope.includeList = ["partials/puiTabview/include/panel1.html"
+   , "partials/puiTabview/include/panel2.html"];
 
-					</div>
-					<div id="d_script">
-                        <pre pretty-print="js" >
-    $scope.includeList = ["partials/puiTabview/include/panel1.html"
-       , "partials/puiTabview/include/panel2.html"];
+$scope.distributedData = {
+    field1: "field1"
+    , field2: "field2"
+    , field3: "field3"
+};
 
-    $scope.distributedData = {
-        field1: "field1"
-        , field2: "field2"
-        , field3: "field3"
-    };
-
-    $scope.addPanel = function() {
-        $scope.includeList.push("partials/puiTabview/include/panel3.html");
-    }
-                        </pre>
-					</div>
-				</div>
+$scope.addPanel = function() {
+    $scope.includeList.push("partials/puiTabview/include/panel3.html");
+}
+                    </pre>
+                </div>
 			</div>
 		</fieldset>
 

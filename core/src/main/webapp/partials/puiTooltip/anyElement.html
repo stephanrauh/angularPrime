@@ -13,21 +13,14 @@
 		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
 			<legend>Source</legend>
 			<div id="sourceTabs" pui-tabview>
-				<ul>
-					<li><a href="#d_html">html</a></li>
-					<li><a href="#d_script">controller</a></li>
-				</ul>
-				<div>
-					<div id="d_html">
-						<pre pretty-print="html" >
-	<p pui-tooltip="{'content': 'This is the tooltip placed on a p element', 'at': 'left bottom'}">On this Paragraph, there is a tooltip defined</p>
-	<p>But not on this one.</p>
-						</pre>
-
-					</div>
-					<div id="d_script">
-					</div>
-				</div>
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
+<p pui-tooltip="{'content': 'This is the tooltip placed on a p element', 'at': 'left bottom'}">On this Paragraph, there is a tooltip defined</p>
+<p>But not on this one.</p>
+                    </pre>
+                </div>
+                <div pui-panel title="controller">
+                </div>
 			</div>
 		</fieldset>
 	</div>

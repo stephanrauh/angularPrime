@@ -13,32 +13,26 @@
 		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
 			<legend>Source</legend>
 			<div id="sourceTabs" pui-tabview>
-				<ul>
-					<li><a href="#d_html">html</a></li>
-					<li><a href="#d_script">controller</a></li>
-				</ul>
-				<div>
-					<div id="d_html">
-						<pre pretty-print="html" >
-	<textarea id="basic" rows="5" cols="30" pui-input ng-model="value2" pui-autocomplete="autoCompleteMethod"></textarea>
-						</pre>
-					</div>
-					<div id="d_script">
-						<pre pretty-print="js" >
-	$scope.value2 = '';
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
+<textarea id="basic" rows="5" cols="30" pui-input ng-model="value2" pui-autocomplete="autoCompleteMethod"></textarea>
+                    </pre>
+                </div>
+                <div pui-panel title="controller">
+                    <pre pretty-print="js" >
+$scope.value2 = '';
 
-	$scope.autoCompleteMethod = function (request, response) {
-		var data = [];
-		var query = request.query;
-		for (var i = 0; i < 5; i++) {
-			data.push({"label": query + i, "value": query + i});
-		}
-		response.call(this, data);
-	};
+$scope.autoCompleteMethod = function (request, response) {
+    var data = [];
+    var query = request.query;
+    for (var i = 0; i < 5; i++) {
+        data.push({"label": query + i, "value": query + i});
+    }
+    response.call(this, data);
+};
 
-						</pre>
-					</div>
-				</div>
+                    </pre>
+                </div>
 			</div>
 		</fieldset>
 
