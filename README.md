@@ -12,6 +12,27 @@ Wiki
 [see here](https://github.com/primeui-extensions/angularPrime/wiki)
 
 
+Roadmap
+--------
+
+__Version 0.6__
+
++ Custom content for items of puiDropdown, puiListbox and puiPicklist widgets
++ Tag versions of the directives with binding attribute for the configuration (first step in mimic PrimeFaces syntax)
++ PrimeUI 1.1 code alignment
++ Allow selection of widgets in download
++ Basic documentation of widgets
++ ...
+
+See also [issue list](https://github.com/primeui-extensions/angularPrime/issues?milestone=2)
+
+__Version 0.7__
+
++ Support for all attributes of PrimeFaces
++ PrimeUI xx code alignment
++ Detailed documentation of widgets
++ ...
+
 Getting started
 ------------------
 
@@ -42,5 +63,5 @@ Getting started
 ``` 
 
 ### AngularPrime Directives
-  AngularPrime has amny directives for his widgets.  See the [demo](http://angularprime.appspot.com) for the basic usage.
+  AngularPrime has many directives for his widgets.  See the [demo](http://angularprime.appspot.com) for the basic usage.
   
