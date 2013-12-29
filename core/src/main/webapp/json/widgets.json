@@ -285,6 +285,11 @@
             {
                 "label": "callback",
                 "path": "puiDropdown/callback"
+            },
+            {
+                "label": "Custom content",
+                "path": "puiDropdown/customContent",
+                "tooltip": "new in 0.6"
             }
         ]
     },

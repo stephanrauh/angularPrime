@@ -7,23 +7,6 @@ angular.module('angular.prime').factory('puiInput.helper', function () {
 
     var puiInputHelper = {};
 
-    puiInputHelper.handleAttrubutes = function (element, attrs, handledAttributes, attrsToRemove) {
-        var contents = '';
-        for (var property in attrs) {
-            if (attrs.hasOwnProperty(property) && property.substring(0, 1) !== '$') {
-                if (handledAttributes.indexOf(property) === -1) {
-                    // attrs.$attr[property] is the original name of the attribute on the element
-                    contents += attrs.$attr[property] + '="' + attrs[property] + '" ';
-                }
-                if (attrsToRemove.indexOf(property) !== -1) {
-                    element.removeAttr(attrs.$attr[property]);
-                }
-            }
-
-        }
-        return contents;
-    };
-
     puiInputHelper.defineLabel = function(id, label, prefix) {
         var contents = '';
 
@@ -231,8 +214,8 @@ angular.module('angular.prime').directive('puiInput', function () {
     };
 });
 
-angular.module('angular.prime').directive('puiCheckbox', ['$compile', '$parse', 'puiInput.helper', 'angular.prime.config',
-                                                function ($compile, $parse,  puiInputHelper, angularPrimeConfig) {
+angular.module('angular.prime').directive('puiCheckbox', ['$compile', '$parse', 'puiComponent.componentHelper', 'puiInput.helper', 'angular.prime.config',
+                                                function ($compile, $parse,  componentHelper, puiInputHelper, angularPrimeConfig) {
 
     return {
         restrict: 'EA',
@@ -256,7 +239,7 @@ angular.module('angular.prime').directive('puiCheckbox', ['$compile', '$parse', 
                 contents += 'id="' + id + '"';
                 contents += 'ng-model="' + attrs.ngModel + '" ';
 
-                contents += puiInputHelper.handleAttrubutes(element, attrs, handledAttributes, attrsToRemove, contents);
+                contents += componentHelper.handleAttributes(element, attrs, handledAttributes, attrsToRemove, contents);
 
                 contents += ' />';
 
@@ -272,8 +255,8 @@ angular.module('angular.prime').directive('puiCheckbox', ['$compile', '$parse', 
     };
 }]);
 
-angular.module('angular.prime').directive('puiRadiobutton', ['$compile', '$parse', 'puiInput.helper', 'angular.prime.config',
-                                                    function ($compile, $parse, puiInputHelper, angularPrimeConfig) {
+angular.module('angular.prime').directive('puiRadiobutton', ['$compile', '$parse', 'puiComponent.componentHelper', 'puiInput.helper', 'angular.prime.config',
+                                                    function ($compile, $parse, componentHelper, puiInputHelper, angularPrimeConfig) {
 
     return {
         restrict: 'EA',
@@ -299,7 +282,7 @@ angular.module('angular.prime').directive('puiRadiobutton', ['$compile', '$parse
                 contents += 'name="' + attrs.name + '" ';
                 contents += 'value="' + attrs.value + '" ';
 
-                contents += puiInputHelper.handleAttrubutes(element, attrs, handledAttributes, attrsToRemove, contents);
+                contents += componentHelper.handleAttributes(element, attrs, handledAttributes, attrsToRemove, contents);
 
                 contents += ' />';
 

@@ -1,0 +1,40 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiDropdown">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Custom content <span version="0.6"/></header>
+
+			<pui-dropdown id="customContent" ng-model="selectedValue" ng-options="theme for theme in dropdownContent" style="width: 175px;">
+                <pui-content ><img pui-src="demo/images/themes/%LABEL%.png" alt="" /><span style="float:right;font-size:14px">%LABEL%</span></pui-content>
+			</pui-dropdown>
+            Selected value <span id="selectedValue">{{selectedValue}}</span>
+
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
+
+        <pui-dropdown id="customContent" ng-model="selectedValue" ng-options="theme for theme in dropdownContent" style="width: 175px;">
+            <pui-content ><img pui-src="demo/images/themes/%LABEL%.png" alt="" /><span style="float:right;font-size:14px">%LABEL%</span></pui-content>
+        </pui-dropdown>
+        Selected value <span id="selectedValue">{{selectedValue}}</span>
+                    </pre>
+                </div>
+                <div pui-panel title="controller">
+                    <pre pretty-print="js" >
+    $scope.dropdownContent = ['afterdark', 'afternoon', 'afterwork', 'aristo', 'black-tie', 'blitzer', 'bluesky', 'bootstrap', 'casablanca', 'cruze',
+        'cupertino', 'dark-hive', 'dot-luv', 'eggplant', 'excite-bike', 'flick', 'glass-x', 'home', 'hot-sneaks', 'humanity', 'le-frog', 'midnight',
+        'mint-choc', 'overcast', 'pepper-grinder', 'redmond', 'rocket', 'sam', 'smoothness', 'south-street', 'start', 'sunny', 'swanky-purse', 'trontastic',
+        'ui-darkness', 'ui-lightness', 'vader'];
+                    </pre>
+                </div>
+			</div>
+		</fieldset>
+	</div>
+</div>

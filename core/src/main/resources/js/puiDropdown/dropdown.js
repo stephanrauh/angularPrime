@@ -21,6 +21,14 @@ $(function() {
         },
 
         _create: function() {
+
+            // Added for AngularPrime
+            this.id = this.element.attr('id');
+            if(!this.id) {
+                this.id = this.element.uniqueId().attr('id');
+            }
+            // end AngularPrime
+
             if(this.options.data) {
                 for(var i = 0; i < this.options.data.length; i++) {
                     var choice = this.options.data[i];
@@ -41,7 +49,11 @@ $(function() {
             this.label.appendTo(this.container);
             this.menuIcon = $('<div class="pui-dropdown-trigger ui-state-default ui-corner-right"><span class="ui-icon ui-icon-triangle-1-s"></span></div>')
                 .appendTo(this.container);
-            this.panel = $('<div class="pui-dropdown-panel ui-widget-content ui-corner-all ui-helper-hidden pui-shadow" />').appendTo(document.body);
+            this.panel = $('<div class="pui-dropdown-panel ui-widget-content ui-corner-all ui-helper-hidden pui-shadow" />').appendTo(this.container.parent());
+
+            // added for AngularPrime
+            this.panel.attr('id', this.id+'_panel');
+            // end AngularPrime
             this.itemsWrapper = $('<div class="pui-dropdown-items-wrapper" />').appendTo(this.panel);
             this.itemsContainer = $('<ul class="pui-dropdown-items pui-dropdown-list ui-widget-content ui-widget ui-corner-all ui-helper-reset"></ul>')
                 .appendTo(this.itemsWrapper);
@@ -100,7 +112,7 @@ $(function() {
             for(var i = 0; i < this.choices.length; i++) {
                 var option = this.choices.eq(i),
                     optionLabel = option.text(),
-                    content = this.options.content ? this.options.content.call(this, this.options.data[i]) : optionLabel;
+                    content = this.options.content ? this.options.content.call(this, this.choices[i]) : optionLabel;  // Changed for AngularPrime
 
                 this.itemsContainer.append('<li data-label="' + optionLabel + '" class="pui-dropdown-item pui-dropdown-list-item ui-corner-all">' + content + '</li>');
             }
@@ -326,6 +338,11 @@ $(function() {
 
             //do not adjust width of container if there is user width defined
             if(!userStyle||userStyle.indexOf('width') == -1) {
+                this.container.width(this.element.outerWidth(true) + 5);
+            }
+
+            // Added for AngularPrime
+            if (this.element.data('angularprimeForcewidth')) {
                 this.container.width(this.element.outerWidth(true) + 5);
             }
 

@@ -7,10 +7,10 @@
 		<section>
 			<header>Integration with ng-options</header>
 
-			<select ng-model="selectedBasic" ng-options="f.name for f in friends" pui-dropdown >
+			<select id="options" ng-model="selectedBasic" ng-options="f.name for f in friends" pui-dropdown >
 			</select>
 
-			<br/>Selected {{selectedBasic}}
+			<br/>Selected <span id="selectedIndex">{{selectedBasic}}</span>
 
 		</section>
 

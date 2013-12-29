@@ -414,7 +414,12 @@ function DropdownController($scope, Widgets) {
         callback : function (idx, label) {
             alert('user selected option with index '+idx+' and label '+label);
         }
-    }
+    };
+
+    $scope.dropdownContent = ['afterdark', 'afternoon', 'afterwork', 'aristo', 'black-tie', 'blitzer', 'bluesky', 'bootstrap', 'casablanca', 'cruze',
+        'cupertino', 'dark-hive', 'dot-luv', 'eggplant', 'excite-bike', 'flick', 'glass-x', 'home', 'hot-sneaks', 'humanity', 'le-frog', 'midnight',
+        'mint-choc', 'overcast', 'pepper-grinder', 'redmond', 'rocket', 'sam', 'smoothness', 'south-street', 'start', 'sunny', 'swanky-purse', 'trontastic',
+        'ui-darkness', 'ui-lightness', 'vader'];
 }
 
 function FieldsetController($scope, Widgets) {
