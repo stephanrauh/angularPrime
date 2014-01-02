@@ -6344,77 +6344,116 @@ $(function() {
 (function () {
     "use strict";
 
-    angular.module('angular.prime').directive('puiListbox', function () {
-        return {
-            restrict: 'A',
-            require: '?ngModel', // get a hold of NgModelController
-            compile: function (element, attrs) {
+    angular.module('angular.prime').directive('puiListbox', ['$compile', 'puiComponent.componentHelper',
+                            function ($compile, componentHelper) {
 
-                return function postLink(scope, element, attrs, ngModel) {
-                    var options = scope.$eval(attrs.puiListbox) || {},
-                        multiple  = element.prop("multiple");
-                    if (attrs.ngOptions) {
-                        // This builds the Option tags
-                        ngModel.$render();
-                        // Remove the null option added by angular
-                        var firstChild = element.children()[0];
-                        if (firstChild.text === '' && firstChild.value === '?') {
-                            element[0].removeChild(firstChild);
-                        }
+        function createHtmlTag(element, attrs) {
+            var contents = '<select pui-listbox ',
+                handledAttributes = 'puiListbox'.split(' '),
+                attrsToRemove = 'id ngModel puiListbox ngOptions'.split(' ');
 
-                    }
+            contents += componentHelper.handleAttributes(element, attrs, handledAttributes, attrsToRemove, contents);
 
-                    element.puilistbox({
-                        scrollHeight: options.scrollHeight
+            contents += ' />';
+
+            element.empty().html(contents);
+
+        }
+
+        // Identical function then the one in puidropdown
+        function executeNgOptions(element, attrs, ngModel) {
+            if (attrs.ngOptions) {
+                // This builds the Option tags
+                ngModel.$render();
+                // Remove the null option added by angular
+                var firstChild = element.children()[0];
+                if (firstChild.text === '' && firstChild.value === '?') {
+                    element[0].removeChild(firstChild);
+                }
+            }
+        }
+
+        function linkFn(scope, element, attrs, ngModel) {
+            var options = scope.$eval(attrs.puiListbox) || {}, multiple = element.prop("multiple"), content = element.parent().data('content'), contentFn;
+
+            if ('SELECT' !== element[0].nodeName) {
+                componentHelper.handleCustomContent(scope, element);
+                createHtmlTag(element, attrs);
+                $compile(element.contents())(scope);
+                return;
+            }
+
+            executeNgOptions(element, attrs, ngModel);
+
+            // Identical part in puidropDown
+            if (content) {
+                contentFn = function (option) {
+                    var holderValues = {"%LABEL%": option.text, "%VALUE%": option.value};
+                    return content.replace(/%\w+%/g, function (all) {
+                        return holderValues[all] || all;
                     });
-
-                    if (attrs.ngDisabled) {
-                        scope.$watch(attrs.ngDisabled, function (value) {
-
-                            if (value === false) {
-                                $(function () {
-                                    element.puilistbox('enable');
-                                });
-                            } else {
-                                $(function () {
-                                    element.puilistbox('disable');
-
-                                });
-
-                            }
-                        });
-                    }
-
-                    // Specify how UI should be updated
-                    ngModel.$render = function () {
-                        // TODO Check if only single selection mode.
-                        // TODO support multiple selection mode.
-                        if (ngModel.$viewValue) {
-                            element.puilistbox('unselectAll');
-                            if (multiple) {
-                                if (angular.isArray(ngModel.$viewValue)) {
-                                    angular.forEach(ngModel.$viewValue, function(item) {
-                                        element.puilistbox('selectItem', parseInt(item, 10));
-                                    });
-                                }
-                            } else {
-                                element.puilistbox('selectItem', parseInt(ngModel.$viewValue, 10));
-                            }
-                        }
-
-                    };
-
-                    // Listen for selection events
-                    element.bind('puilistboxitemselect', function (event, option) {
-                        if (options.callback) {
-                            options.callback(option.value);
-                        }
-                    });
-
                 };
             }
+
+            element.puilistbox({
+                scrollHeight: options.scrollHeight,
+                content: contentFn
+            });
+
+            if (attrs.ngDisabled) {
+                scope.$watch(attrs.ngDisabled, function (value) {
+
+                    if (value === false) {
+                        $(function () {
+                            element.puilistbox('enable');
+                        });
+                    } else {
+                        $(function () {
+                            element.puilistbox('disable');
+
+                        });
+
+                    }
+                });
+            }
+
+            // Specify how UI should be updated
+            ngModel.$render = function () {
+                // TODO Check if only single selection mode.
+                // TODO support multiple selection mode.
+                if (ngModel.$viewValue) {
+                    element.puilistbox('unselectAll');
+                    if (multiple) {
+                        if (angular.isArray(ngModel.$viewValue)) {
+                            angular.forEach(ngModel.$viewValue, function (item) {
+                                element.puilistbox('selectItem', parseInt(item, 10));
+                            });
+                        }
+                    } else {
+                        element.puilistbox('selectItem', parseInt(ngModel.$viewValue, 10));
+                    }
+                }
+
+            };
+
+            // Listen for selection events
+            element.bind('puilistboxitemselect', function (event, option) {
+                if (options.callback) {
+                    options.callback(option.value);
+                }
+            });
+
+        }
+
+        return {
+            restrict: 'EA',
+            require: '?ngModel', // get a hold of NgModelController
+            link: linkFn
         };
-    });
+
+    }]
+
+);
 
 }());
 ;/*globals $ PUI */
@@ -6450,17 +6489,22 @@ $(function() {
             this.choices = this.element.children('option');
             for(var i = 0; i < this.choices.length; i++) {
                 var choice = this.choices.eq(i),
-                    content = this.options.content ? this.options.content.call(this, this.options.data[i]) : choice.text();
+                    content = this.options.content ? this.options.content.call(this, this.choices[i]) : choice.text(); // changed for AngularPrime
                 this.listContainer.append('<li class="pui-listbox-item ui-corner-all">' + content + '</li>');
             }
 
             this.items = this.listContainer.find('.pui-listbox-item:not(.ui-state-disabled)');
 
+            /*
+              Moved to _initDimensions() fr AngularPrime
             if(this.container.height() > this.options.scrollHeight) {
                 this.container.height(this.options.scrollHeight);
             }
+             */
 
             this._bindEvents();
+
+            this._initDimensions(); // Added for AngularPrime
         },
 
         _bindEvents: function() {
@@ -6607,6 +6651,14 @@ $(function() {
         enable: function () {
             this._bindEvents();
             this.items.removeClass('ui-state-disabled');
+        },
+
+        _initDimensions: function() {
+            if(this.container.height() > this.options.scrollHeight) {
+                this.container.height(this.options.scrollHeight);
+            }
+
+            this.container.width(this.element.width() + 5);
         }
     });
 });;/*globals angular $ */

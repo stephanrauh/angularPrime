@@ -442,7 +442,13 @@
             {
                 "label": "callback",
                 "path": "puiListbox/callback"
+            },
+            {
+                "label": "Custom content",
+                "path": "puiListbox/customContent",
+                "tooltip": "new in 0.6"
             }
+
         ]
     },
     {

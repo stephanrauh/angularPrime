@@ -98,7 +98,8 @@ angular.module('angular.prime').directive('puiDropdown', ['$compile', '$parse', 
             element.bind('puidropdownchange', function () {
                 scope.safeApply(read());
                 if (options.callback) {
-                    var idx = element.puidropdown('getSelectedValue'), label = element.puidropdown('getCustomInputVal'); // This also works when not editable
+                    var idx = element.puidropdown('getSelectedValue'),
+                        label = element.puidropdown('getCustomInputVal'); // This also works when not editable
                     options.callback(idx, label);
                 }
             });

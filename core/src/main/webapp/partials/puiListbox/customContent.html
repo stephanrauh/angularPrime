@@ -1,0 +1,32 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiListbox">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+            <header>Custom content<span version="0.6"/></header>
+            <pui-listbox id="customContent"  ng-model="selectedOption" ng-options="theme for theme in listboxContent" style="width: 150px;">
+                <pui-content ><img pui-src="demo/images/themes/%LABEL%.png" alt="" /><span style="float:right;font-size:14px">%LABEL%</span></pui-content>
+            </pui-listbox> <br/>
+            Selected option (index) : <span id="selectedOption">{{selectedOption}}</span>
+        </section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
+???
+                    </pre>
+                </div>
+                <div pui-panel title="controller">
+                    <pre pretty-print="js" >
+
+                    </pre>
+                </div>
+			</div>
+		</fieldset>
+	</div>
+
+</div>

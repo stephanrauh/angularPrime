@@ -31,17 +31,22 @@ $(function() {
             this.choices = this.element.children('option');
             for(var i = 0; i < this.choices.length; i++) {
                 var choice = this.choices.eq(i),
-                    content = this.options.content ? this.options.content.call(this, this.options.data[i]) : choice.text();
+                    content = this.options.content ? this.options.content.call(this, this.choices[i]) : choice.text(); // changed for AngularPrime
                 this.listContainer.append('<li class="pui-listbox-item ui-corner-all">' + content + '</li>');
             }
 
             this.items = this.listContainer.find('.pui-listbox-item:not(.ui-state-disabled)');
 
+            /*
+              Moved to _initDimensions() for AngularPrime
             if(this.container.height() > this.options.scrollHeight) {
                 this.container.height(this.options.scrollHeight);
             }
+             */
 
             this._bindEvents();
+
+            this._initDimensions(); // Added for AngularPrime
         },
 
         _bindEvents: function() {
@@ -188,6 +193,14 @@ $(function() {
         enable: function () {
             this._bindEvents();
             this.items.removeClass('ui-state-disabled');
+        },
+
+        _initDimensions: function() {
+            if(this.container.height() > this.options.scrollHeight) {
+                this.container.height(this.options.scrollHeight);
+            }
+
+            this.container.width(this.element.width() + 5);
         }
     });
 });
