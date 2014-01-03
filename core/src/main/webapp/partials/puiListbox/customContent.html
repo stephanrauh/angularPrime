@@ -17,12 +17,18 @@
 			<div id="sourceTabs" pui-tabview>
                 <div pui-panel title="html">
                     <pre pretty-print="html" >
-???
+            <pui-listbox id="customContent"  ng-model="selectedOption" ng-options="theme for theme in listboxContent" style="width: 150px;">
+                <pui-content ><img pui-src="demo/images/themes/%LABEL%.png" alt="" /><span style="float:right;font-size:14px">%LABEL%</span></pui-content>
+            </pui-listbox> <br/>
+            Selected option (index) : <span id="selectedOption">{{selectedOption}}</span>
                     </pre>
                 </div>
                 <div pui-panel title="controller">
                     <pre pretty-print="js" >
-
+    $scope.listboxContent = ['afterdark', 'afternoon', 'afterwork', 'aristo', 'black-tie', 'blitzer', 'bluesky', 'bootstrap', 'casablanca', 'cruze',
+        'cupertino', 'dark-hive', 'dot-luv', 'eggplant', 'excite-bike', 'flick', 'glass-x', 'home', 'hot-sneaks', 'humanity', 'le-frog', 'midnight',
+        'mint-choc', 'overcast', 'pepper-grinder', 'redmond', 'rocket', 'sam', 'smoothness', 'south-street', 'start', 'sunny', 'swanky-purse', 'trontastic',
+        'ui-darkness', 'ui-lightness', 'vader'];
                     </pre>
                 </div>
 			</div>
