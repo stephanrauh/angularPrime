@@ -32,6 +32,15 @@
             }
         }
 
+        function readValue(element, ngModel, multiple) {
+            var selectedValues = element.puilistbox('getSelectedValue');
+            if (!multiple) {
+                ngModel.$setViewValue(selectedValues[0]);
+            } else {
+                ngModel.$setViewValue(selectedValues);
+            }
+        }
+
         function linkFn(scope, element, attrs, ngModel) {
             var options = scope.$eval(attrs.puiListbox) || {}, multiple = element.prop("multiple"), content = element.parent().data('content'), contentFn;
 
@@ -100,6 +109,12 @@
                 if (options.callback) {
                     options.callback(option.value);
                 }
+            });
+
+            element.bind('puilistboxchange', function () {
+                scope.safeApply(
+                    readValue(element, ngModel, multiple)
+                );
             });
 
         }

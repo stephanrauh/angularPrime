@@ -32,6 +32,15 @@
             }
         }
 
+        function readValue(element, ngModel, multiple) {
+            var selectedValues = element.puilistbox('getSelectedValue');
+            if (!multiple) {
+                ngModel.$setViewValue(selectedValues[0]);
+            } else {
+                ngModel.$setViewValue(selectedValues);
+            }
+        }
+
         function linkFn(scope, element, attrs, ngModel) {
             var options = scope.$eval(attrs.puiListbox) || {}, multiple = element.prop("multiple"), content = element.parent().data('content'), contentFn;
 
@@ -102,6 +111,12 @@
                 }
             });
 
+            element.bind('puilistboxchange', function () {
+                scope.safeApply(
+                    readValue(element, ngModel, multiple)
+                );
+            });
+
         }
 
         return {
@@ -155,7 +170,7 @@ $(function() {
             this.items = this.listContainer.find('.pui-listbox-item:not(.ui-state-disabled)');
 
             /*
-              Moved to _initDimensions() fr AngularPrime
+              Moved to _initDimensions() for AngularPrime
             if(this.container.height() > this.options.scrollHeight) {
                 this.container.height(this.options.scrollHeight);
             }
@@ -211,7 +226,7 @@ $(function() {
                 }
 
                 this.selectItem(item);
-                this.element.trigger('change');
+                this._trigger('change'); // Changed for AngularPrime
             }
 
             this.element.trigger('click');
@@ -260,7 +275,7 @@ $(function() {
             }
 
             if(!unchanged) {
-                this.element.trigger('change');
+                this._trigger('change');  // Changed for AngularPrime
             }
 
             this.element.trigger('click');
@@ -318,6 +333,15 @@ $(function() {
             }
 
             this.container.width(this.element.width() + 5);
+        },
+
+        getSelectedValue: function() {
+            var selected = this.choices.filter(':selected'),
+                indexes  = [];
+            selected.each(function(index) {
+               indexes.push( $(this).index());
+            });
+            return indexes;
         }
     });
 });

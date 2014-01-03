@@ -94,7 +94,7 @@ $(function() {
                 }
 
                 this.selectItem(item);
-                this.element.trigger('change');
+                this._trigger('change'); // Changed for AngularPrime
             }
 
             this.element.trigger('click');
@@ -143,7 +143,7 @@ $(function() {
             }
 
             if(!unchanged) {
-                this.element.trigger('change');
+                this._trigger('change');  // Changed for AngularPrime
             }
 
             this.element.trigger('click');
@@ -201,6 +201,15 @@ $(function() {
             }
 
             this.container.width(this.element.width() + 5);
+        },
+
+        getSelectedValue: function() {
+            var selected = this.choices.filter(':selected'),
+                indexes  = [];
+            selected.each(function(index) {
+               indexes.push( $(this).index());
+            });
+            return indexes;
         }
     });
 });
