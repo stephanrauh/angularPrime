@@ -448,7 +448,6 @@
                 "path": "puiListbox/customContent",
                 "tooltip": "new in 0.6"
             }
-
         ]
     },
     {
@@ -610,6 +609,11 @@
             {
                 "label": "JSdata",
                 "path": "puiPicklist/data"
+            },
+            {
+                "label": "Custom content",
+                "path": "puiPicklist/customContent",
+                "tooltip": "new in 0.6"
             }
         ]
     },

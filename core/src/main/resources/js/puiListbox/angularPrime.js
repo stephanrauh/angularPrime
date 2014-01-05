@@ -42,7 +42,10 @@
         }
 
         function linkFn(scope, element, attrs, ngModel) {
-            var options = scope.$eval(attrs.puiListbox) || {}, multiple = element.prop("multiple"), content = element.parent().data('content'), contentFn;
+            var options = scope.$eval(attrs.puiListbox) || {},
+                multiple = element.prop("multiple"),
+                content = element.parent().data('content'),
+                contentFn;
 
             if ('SELECT' !== element[0].nodeName) {
                 componentHelper.handleCustomContent(scope, element);

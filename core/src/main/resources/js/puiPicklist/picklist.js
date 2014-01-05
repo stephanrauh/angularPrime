@@ -83,7 +83,7 @@ $(function() {
     
             for(var i = 0; i < choices.length; i++) {
                 var choice = choices.eq(i),
-                content = this.options.content ? this.options.content.call(this, data[i]) : choice.text(),
+                content = this.options.content ? this.options.content.call(this, choice[0]) : choice.text(), //Changed for AngularPrime
                 item = $('<li class="pui-picklist-item ui-corner-all">' + content + '</li>').data({
                     'item-label': choice.text(),
                     'item-value': choice.val()
