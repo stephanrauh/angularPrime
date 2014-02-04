@@ -76,6 +76,10 @@
             {
                 "label": "Callback",
                 "path": "puiAutocomplete/callback"
+            },
+            {
+                "label": "Element",
+                "path": "puiAutocomplete/element"
             }
 
         ]

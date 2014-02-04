@@ -882,18 +882,37 @@ $(function() {
 (function () {
     "use strict";
 
-angular.module('angular.prime').directive('puiAutocomplete', function () {
-    return {
-        restrict: 'A',
-        require: '?ngModel', // get a hold of NgModelController
-        link: function (scope, element, attrs, ngModel) {
+    angular.module('angular.prime').directive('puiAutocomplete', [ '$compile', 'puiComponent.componentHelper',
+                                                    function ($compile, componentHelper) {
+
+        function createHtmlTag(element, attrs) {
+            var contents = '<input pui-input type="text" pui-autocomplete="'+attrs.puiBinding+'" ',
+                handledAttributes = 'puiBinding puiAutocomplete type'.split(' '),
+                attrsToRemove = 'id ngModel puiAutocomplete '.split(' ');
+
+            contents += componentHelper.handleAttributes(element, attrs, handledAttributes, attrsToRemove, contents);
+
+            contents += ' />';
+
+            element.empty().html(contents);
+        }
+
+        function linkFn(scope, element, attrs, ngModel) {
+
+            if ('INPUT' !== element[0].nodeName && 'TEXTAREA' !== element[0].nodeName) {
+                componentHelper.handleCustomContent(scope, element);
+                createHtmlTag(element, attrs);
+                $compile(element.contents())(scope);
+                return;
+            }
+
             if (!ngModel) {
                 return;
             } // do nothing if no ng-model
 
             var htmlElementName = element[0].nodeName;
             if ('TEXTAREA' === htmlElementName) {
-                // This is handles by the pui-input on a text area element.
+                // This is handled by the pui-input on a text area element.
                 return;
             }
             var options = scope.$eval(attrs.puiAutocomplete) || {},
@@ -920,6 +939,33 @@ angular.module('angular.prime').directive('puiAutocomplete', function () {
                 completeSource = options.completeSource;
             }
 
+            var helper = {
+                read: function (label, addForMultiple) {
+                    $(function () {
+                        if (options.multiple) {
+
+                            if (addForMultiple) {
+                                scope.safeApply(function () {
+                                    options.multipleValues.push(label);
+                                    ngModel.$setViewValue("");
+                                });
+                            } else {
+                                var index = options.multipleValues.indexOf(label);
+                                scope.safeApply(function () {
+                                    options.multipleValues.splice(index, 1);
+                                });
+                            }
+                        } else {
+                            scope.safeApply(function () {
+                                ngModel.$setViewValue(element.val());
+                            });
+                        }
+
+                    });
+
+                }
+            };
+
             $(function () {
 
                 element.puiautocomplete({
@@ -936,33 +982,6 @@ angular.module('angular.prime').directive('puiAutocomplete', function () {
                     effect: options.effect ,
                     effectOptions: options.effectOptions
                 });
-
-                var helper = {
-                    read: function (label, addForMultiple) {
-                        $(function () {
-                            if (options.multiple) {
-
-                                if (addForMultiple) {
-                                    scope.safeApply(function () {
-                                        options.multipleValues.push(label);
-                                        ngModel.$setViewValue("");
-                                    });
-                                } else {
-                                    var index = options.multipleValues.indexOf(label);
-                                    scope.safeApply(function () {
-                                        options.multipleValues.splice(index, 1);
-                                    });
-                                }
-                            } else {
-                                scope.safeApply(function () {
-                                    ngModel.$setViewValue(element.val());
-                                });
-                            }
-
-                        });
-
-                    }
-                };
 
                 // Listen for select events to enable binding
                 element.bind('puiautocompleteselect', function (event, token) {
@@ -1000,9 +1019,14 @@ angular.module('angular.prime').directive('puiAutocomplete', function () {
 
         }
 
-    };
+        return {
+            restrict: 'EA',
+            require: '?ngModel', // get a hold of NgModelController
+            link: linkFn
+        };
+    }]
 
-});
+);
 
 }());
 ;/*globals $ window PUI document*/
@@ -1031,7 +1055,8 @@ $(function() {
 
         _create: function() {
             this.element.puiinputtext();
-            this.panel = $('<div class="pui-autocomplete-panel ui-widget-content ui-corner-all ui-helper-hidden pui-shadow"></div>').appendTo('body');
+            this.id = this.element.attr('id'); // Added for AngularPrime
+            this.panel = $('<div id="'+ this.id+'_Panel" class="pui-autocomplete-panel ui-widget-content ui-corner-all ui-helper-hidden pui-shadow"></div>').appendTo(this.element.parent()); // Changed for AngularPrime
 
             if(this.options.multiple) {
                 this.element.wrap('<ul class="pui-autocomplete-multiple ui-widget pui-inputtext ui-state-default ui-corner-all">' +

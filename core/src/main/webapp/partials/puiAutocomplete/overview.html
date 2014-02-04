@@ -16,20 +16,23 @@
 				<li>Integration with ng-disabled</li>
 				<li>Show multiple selected values</li>
 				<li>Limit the allowed values to fix list</li>
+                <li>Element and attribute directive version<span version="0.6"/></li>
 			</ul>
 		</fieldset>
 		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
 			<legend>Known issues</legend>
+            <ul>
+                <li>When individual JavaScript files are used, the file for puiInput is also needed.</li>
+            </ul>
 		</fieldset>
 		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
 			<legend>Planned</legend>
-			<ul>
-				<li>Custom content/layout of proposed values</li>
-			</ul>
 		</fieldset>
 
 		<fieldset id="Configuration" pui-fieldset style="margin-bottom:20px">
 			<legend>Configuration</legend>
+            Specified in pui-autocomplete or pui-binding when using element format.<br/>
+
 			There are 3 types supported as the value of the pui-autocomplete directive <br/>
 			<ul>
 				<li>Array, values are used as the proposed values</li>
@@ -114,6 +117,15 @@
 				</tr>
 				</tbody>
 			</table>
+            There are 2 formats how you can use the autocomplete widget.
+            <h3>Attribute mode</h3>
+            <pre pretty-print="html" >
+                <input id="default" type="text" pui-input ng-model="..." pui-autocomplete="..."/>
+            </pre>
+            <h3>Element mode</h3>
+            <pre pretty-print="html" >
+                <pui-autocomplete id="default" ng-model="..." pui-binding="..."></pui-autocomplete>
+            </pre>
 		</fieldset>
 
 

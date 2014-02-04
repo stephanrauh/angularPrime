@@ -24,7 +24,8 @@ $(function() {
 
         _create: function() {
             this.element.puiinputtext();
-            this.panel = $('<div class="pui-autocomplete-panel ui-widget-content ui-corner-all ui-helper-hidden pui-shadow"></div>').appendTo('body');
+            this.id = this.element.attr('id'); // Added for AngularPrime
+            this.panel = $('<div id="'+ this.id+'_Panel" class="pui-autocomplete-panel ui-widget-content ui-corner-all ui-helper-hidden pui-shadow"></div>').appendTo(this.element.parent()); // Changed for AngularPrime
 
             if(this.options.multiple) {
                 this.element.wrap('<ul class="pui-autocomplete-multiple ui-widget pui-inputtext ui-state-default ui-corner-all">' +

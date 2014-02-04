@@ -5,9 +5,10 @@
 		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
 
 		<section>
-			<header>Default integration</header>
+			<header>Custom element</header>
 
-			<input id="default" type="text" pui-input ng-model="country" pui-autocomplete="countries"/> (hint: countries)<br/>
+
+			<pui-autocomplete id="element" ng-model="country" pui-binding="countries"></pui-autocomplete> (hint: countries)<br/>
 			Controller value is : <span id="controllerValue">{{country}}</span>
 		</section>
 
@@ -16,7 +17,7 @@
 			<div id="sourceTabs" pui-tabview>
                 <div pui-panel title="html">
                     <pre pretty-print="html" >
-<input id="default" type="text" pui-input ng-model="country" pui-autocomplete="countries"/> (hint: countries)<br/>
+<pui-autocomplete id="default" ng-model="country" pui-binding="countries"/> (hint: countries)<br/>
 Controller value is : {{country}}
                     </pre>
                 </div>

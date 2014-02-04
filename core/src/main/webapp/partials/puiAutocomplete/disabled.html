@@ -9,10 +9,10 @@
 
 			<input id="default" type="text" pui-input ng-model="country" pui-autocomplete="countries" ng-disabled="fieldDisabled"/><br/>
 			<input id="dropdown" type="text" pui-input ng-model="country" pui-autocomplete="{dropdown: true, completeSource :countries}" ng-disabled="fieldDisabled"/><br/>
-			Controller value is : {{country}}
+			Controller value is :  <span id="controllerValue">{{country}}</span>
 			<br/>
-			<button ng-click="enableField()" type="button" ng-show="fieldDisabled">Enable</button>
-			<button ng-click="disableField()" type="button" ng-hide="fieldDisabled">Disable</button>
+			<button ng-click="enableField()" type="button" ng-show="fieldDisabled" id="enableBtn">Enable</button>
+			<button ng-click="disableField()" type="button" ng-hide="fieldDisabled" id="disableBtn">Disable</button>
 
 		</section>
 
