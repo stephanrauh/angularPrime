@@ -79,7 +79,13 @@
             },
             {
                 "label": "Element",
-                "path": "puiAutocomplete/element"
+                "path": "puiAutocomplete/element",
+                "tooltip": "new in 0.6"
+            },
+            {
+                "label": "Custom content",
+                "path": "puiAutocomplete/customContent",
+                "tooltip": "new in 0.6"
             }
 
         ]

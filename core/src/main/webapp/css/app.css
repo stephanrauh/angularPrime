@@ -91,3 +91,7 @@ tr.pui-datatable-odd {
     overflow:auto;
     height:205px;  /* Otherwise there apears a scrollbar when hovering over pickList items */
 }
+
+.tagName {
+    font-weight: bold;
+}

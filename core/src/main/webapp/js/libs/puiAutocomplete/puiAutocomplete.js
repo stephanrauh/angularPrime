@@ -39,7 +39,18 @@
             var options = scope.$eval(attrs.puiAutocomplete) || {},
                 optionIsFunction = angular.isFunction(options),
                 optionIsArray = angular.isArray(options),
-                completeSource = null;
+                completeSource = null,
+                content = element.parent().data('content'),
+                contentFn;
+
+            if (content) {
+                contentFn = function (option) {
+                    var holderValues = {"%LABEL%": option.label, "%VALUE%": option.value};
+                    return content.replace(/%\w+%/g, function (all) {
+                        return holderValues[all] || all;
+                    });
+                };
+            }
 
             if (optionIsFunction || optionIsArray) {
                 completeSource = options;
@@ -101,7 +112,8 @@
                     effectSpeed: options.effectSpeed ,
                     caseSensitive: options.caseSensitive ,
                     effect: options.effect ,
-                    effectOptions: options.effectOptions
+                    effectOptions: options.effectOptions,
+                    content: contentFn
                 });
 
                 // Listen for select events to enable binding

@@ -1,0 +1,42 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiAutocomplete">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Custom content</header>
+
+			<pui-autocomplete id="customContent" ng-model="theme" pui-binding="themes" style="width: 175px;">
+                <pui-content ><img pui-src="demo/images/themes/%LABEL%.png" alt="" /><span style="float:right;font-size:14px">%LABEL%</span></pui-content>
+			</pui-autocomplete> (hint: themes)<br/>
+			Controller value is : <span id="controllerValue">{{theme}}</span>
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
+            <pui-autocomplete id="customContent" ng-model="theme" pui-binding="themes" style="width: 175px;">
+               <pui-content ><img pui-src="demo/images/themes/%LABEL%.png" alt="" /><span style="float:right;font-size:14px">%LABEL%</span></pui-content>
+            </pui-autocomplete> (hint: themes)<br/>
+            Controller value is : {{theme}}
+                    </pre>
+                </div>
+                <div pui-panel title="controller">
+
+                    <pre pretty-print="js" >
+    $scope.themes = null;
+
+    $scope.themes = new Array('afterdark', 'afternoon',
+                        ...
+        'ui-darkness', 'ui-lightness', 'varder');
+
+                    </pre>
+                </div>
+			</div>
+		</fieldset>
+
+	</div>
+</div>

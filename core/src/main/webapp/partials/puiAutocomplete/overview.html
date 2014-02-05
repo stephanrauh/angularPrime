@@ -17,6 +17,7 @@
 				<li>Show multiple selected values</li>
 				<li>Limit the allowed values to fix list</li>
                 <li>Element and attribute directive version<span version="0.6"/></li>
+                <li>Custom content <span version="0.6"/></li>
 			</ul>
 		</fieldset>
 		<fieldset id="issues" pui-fieldset style="margin-bottom:20px">
@@ -25,6 +26,18 @@
                 <li>When individual JavaScript files are used, the file for puiInput is also needed.</li>
             </ul>
 		</fieldset>
+        <fieldset id="fixes" pui-fieldset style="margin-bottom:20px">
+            <legend>History</legend>
+            <ul>
+                <li>0.6</li>
+                <li style="list-style-type:none">
+                    <ul>
+                        <li>widget is now also available as element/tag</li>
+                        <li>Support for custom content</li>
+                    </ul>
+                </li>
+            </ul>
+        </fieldset>
 		<fieldset id="planned" pui-fieldset style="margin-bottom:20px">
 			<legend>Planned</legend>
 		</fieldset>
@@ -117,6 +130,9 @@
 				</tr>
 				</tbody>
 			</table>
+            The custom content can be defined by using an element <span class="tagName">pui-content</span> nested within the <span class="tagName">pui-autocomplete</span> element/tag. <br/>
+            The content can be any valid HTML where you can use the placeholders %LABEL% and %VALUE%.<br/>
+            <br/>
             There are 2 formats how you can use the autocomplete widget.
             <h3>Attribute mode</h3>
             <pre pretty-print="html" >
@@ -126,6 +142,8 @@
             <pre pretty-print="html" >
                 <pui-autocomplete id="default" ng-model="..." pui-binding="..."></pui-autocomplete>
             </pre>
+
+
 		</fieldset>
 
 

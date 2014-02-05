@@ -54,17 +54,25 @@
     angular.module('angular.prime').directive('puiContent', ['$log', function ($log) {
         var supportedPlaceHolderNames = ['%LABEL%','%VALUE%'];
 
+        // TODO for Dropdown etc , This is only called because ask it in puiComponentHelper.handleCustomContent
+        // for autocomplete, this is also run during linking of AngularJS itself.
         function linkFn (scope, element, attrs) {
             var content = element.html(),
                 placeHolders = content.match(/%\w+%/g);
 
-            for(var i = 0; i < placeHolders.length; i++) {
-                if (!PUI.inArray(supportedPlaceHolderNames, placeHolders[i])) {
-                    $log.error(placeHolders[i] + ' is not a supported placeHolder, only %LABEL% and %VALUE% is.');
+            if (placeHolders) {
+                for(var i = 0; i < placeHolders.length; i++) {
+                    if (!PUI.inArray(supportedPlaceHolderNames, placeHolders[i])) {
+                        $log.error(placeHolders[i] + ' is not a supported placeHolder, only %LABEL% and %VALUE% is.');
+                    }
                 }
             }
-            element.parent().data('content', content.replace('pui-src','src'));
-            element.empty().html('');  // remove the html code from this element as we don't want it here anymore.
+            if (content.length > 0) { // TODO see remark few lines above.
+                element.parent().data('content', content.replace('pui-src','src'));
+                element.empty().html('');  // remove the html code from this element as we don't want it here anymore.
+
+            }
+
         }
 
         return {

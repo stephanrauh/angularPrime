@@ -54,17 +54,25 @@
     angular.module('angular.prime').directive('puiContent', ['$log', function ($log) {
         var supportedPlaceHolderNames = ['%LABEL%','%VALUE%'];
 
+        // TODO for Dropdown etc , This is only called because ask it in puiComponentHelper.handleCustomContent
+        // dor autocomplete, this is also run during linking of AngularJS itself.
         function linkFn (scope, element, attrs) {
             var content = element.html(),
                 placeHolders = content.match(/%\w+%/g);
 
-            for(var i = 0; i < placeHolders.length; i++) {
-                if (!PUI.inArray(supportedPlaceHolderNames, placeHolders[i])) {
-                    $log.error(placeHolders[i] + ' is not a supported placeHolder, only %LABEL% and %VALUE% is.');
+            if (placeHolders) {
+                for(var i = 0; i < placeHolders.length; i++) {
+                    if (!PUI.inArray(supportedPlaceHolderNames, placeHolders[i])) {
+                        $log.error(placeHolders[i] + ' is not a supported placeHolder, only %LABEL% and %VALUE% is.');
+                    }
                 }
             }
-            element.parent().data('content', content.replace('pui-src','src'));
-            element.empty().html('');  // remove the html code from this element as we don't want it here anymore.
+            if (content.length > 0) {
+                element.parent().data('content', content.replace('pui-src','src'));
+                element.empty().html('');  // remove the html code from this element as we don't want it here anymore.
+
+            }
+
         }
 
         return {
@@ -918,7 +926,18 @@ $(function() {
             var options = scope.$eval(attrs.puiAutocomplete) || {},
                 optionIsFunction = angular.isFunction(options),
                 optionIsArray = angular.isArray(options),
-                completeSource = null;
+                completeSource = null,
+                content = element.parent().data('content'),
+                contentFn;
+
+            if (content) {
+                contentFn = function (option) {
+                    var holderValues = {"%LABEL%": option.label, "%VALUE%": option.value};
+                    return content.replace(/%\w+%/g, function (all) {
+                        return holderValues[all] || all;
+                    });
+                };
+            }
 
             if (optionIsFunction || optionIsArray) {
                 completeSource = options;
@@ -980,7 +999,8 @@ $(function() {
                     effectSpeed: options.effectSpeed ,
                     caseSensitive: options.caseSensitive ,
                     effect: options.effect ,
-                    effectOptions: options.effectOptions
+                    effectOptions: options.effectOptions,
+                    content: contentFn
                 });
 
                 // Listen for select events to enable binding
