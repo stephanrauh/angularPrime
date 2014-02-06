@@ -1,9 +1,0 @@
-=== Input
-
-The input html element can be styled by using the +pui-input+ directive.
-
-[source,xml]
-.inputBasic.html
-----
-<input id="default" type="text" pui-input ng-model="value1"/>
-----

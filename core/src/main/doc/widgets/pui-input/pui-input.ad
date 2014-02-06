@@ -1,0 +1,16 @@
+= pui-input widget
+
+== Description
+
+This widget adds some style classes to a standard HTML5 input element to integrate it with current theme. It adds also a specific style when the input element is hovered.
+
+== Usage
+
+=== Attribute
+
+Add the attribute pui-input to a standard HTML input element.
+
+[source,xml]
+----
+<input id="default" type="text" pui-input ng-model="value"/>
+----
