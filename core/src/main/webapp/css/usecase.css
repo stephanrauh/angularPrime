@@ -1,0 +1,19 @@
+.col1 {
+    float: left;
+    width: 400px;
+}
+
+.col2 {
+    float: left;
+    width: 400px;
+}
+
+.col3 {
+    float: left;
+    width: 400px;
+}
+
+
+.pui-radiobutton {
+    display: inline-block !important;
+}
