@@ -12,10 +12,8 @@ angular.module('angular.prime').directive('puiPanel', ['$interpolate', function 
                     withinPuiAccordion = false,
                     withinPuiTabview = false;
 
-                $(function () {
                     withinPuiAccordion = element.parent().attr('pui-accordion') !== undefined;
                     withinPuiTabview = element.parent().attr('pui-tabview') !== undefined;
-                });
 
                 if (withinPuiAccordion) {
                     element.replaceWith('<h3>'+element.attr('title')+'</h3><div>'+element.html()+'</div>');

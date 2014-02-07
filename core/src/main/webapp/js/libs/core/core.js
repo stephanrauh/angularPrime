@@ -55,7 +55,7 @@
         var supportedPlaceHolderNames = ['%LABEL%','%VALUE%'];
 
         // TODO for Dropdown etc , This is only called because ask it in puiComponentHelper.handleCustomContent
-        // dor autocomplete, this is also run during linking of AngularJS itself.
+        // for autocomplete, this is also run during linking of AngularJS itself.
         function linkFn (scope, element, attrs) {
             var content = element.html(),
                 placeHolders = content.match(/%\w+%/g);
@@ -67,7 +67,7 @@
                     }
                 }
             }
-            if (content.length > 0) {
+            if (content.length > 0) { // TODO see remark few lines above.
                 element.parent().data('content', content.replace('pui-src','src'));
                 element.empty().html('');  // remove the html code from this element as we don't want it here anymore.
 
