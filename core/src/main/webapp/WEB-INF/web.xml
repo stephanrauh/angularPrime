@@ -20,6 +20,6 @@
         <url-pattern>/data/cars/lazylist/*</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
-		<welcome-file>angularPrime.html</welcome-file>
+		<welcome-file>angularPrime12.html</welcome-file>
 	</welcome-file-list>
 </web-app>
