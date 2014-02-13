@@ -9,6 +9,7 @@
 
 			<input id="disabled" type="text" pui-input ng-model="value1" ng-disabled="fieldDisabled"/><br/>
 			<br/>
+            Controller value is : <span id="modelValue">{{value1}}</span><br/>
 			<button ng-click="enableField()" type="button" ng-show="fieldDisabled" id="enableBtn">Enable</button>
 			<button ng-click="disableField()" type="button" ng-hide="fieldDisabled" id="disableBtn">Disable</button>
 

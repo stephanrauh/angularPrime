@@ -25,6 +25,8 @@
     <script src="js/controllers.js"></script>
     <script src="js/app12.js"></script>
 
+    <script src="/angularPrime/js/libs/modernizr/modernizr.js" ></script>
+
     <style>
         [ng\:cloak], [ng-cloak], .ng-cloak {
             display: none;
@@ -77,8 +79,8 @@
         <h2>with ng-show</h2>
         <input id="case5" type="text" pui-input ng-model="value5" ng-show="visible"/> <br/>
         Controller value : <span id="ctrlValue5">{{ value5 }}</span><br/>
-        <button type="button" ng-click="showField()" ng-hide="visible">Show</button> <br/>
-        <button type="button" ng-click="hideField()" ng-show="visible">Hide</button>
+        <button type="button" ng-click="showField()" ng-hide="visible" id="showBtn">Show</button> <br/>
+        <button type="button" ng-click="hideField()" ng-show="visible" id="hideBtn">Hide</button>
         <hr>
 
         <h2>without ng-model</h2>

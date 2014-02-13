@@ -16,6 +16,7 @@ public class AbstractWidget {
     protected static final String NG_VALID = "ng-valid";
     protected static final String PUI_WIDGET = "ui-widget";
     protected static final String PUI_HOVER = "ui-state-hover";
+    protected static final String PUI_DISABLED = "ui-state-disabled";
 
     @Drone
     private WebDriver driver;
@@ -38,6 +39,12 @@ public class AbstractWidget {
         WebElement checkElement = driver.findElement(byClause);
 
         new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOf(checkElement));
+
+    }
+
+    protected void waitUntilVisibilityOf(WebElement element) {
+
+        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOf(element));
 
     }
 
@@ -66,6 +73,18 @@ public class AbstractWidget {
     protected void moveTo(WebElement element) {
         Actions builder = new Actions(driver);
         builder.moveToElement(element).build().perform();
+    }
+
+    public boolean doesBrowserSupportNumericInputTypes() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        return (Boolean) js.executeScript("return Modernizr.inputtypes.number");
+
+    }
+
+    public boolean doesBrowserSupportColorInputTypes() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        return (Boolean) js.executeScript("return Modernizr.inputtypes.color");
+
     }
 
 }
