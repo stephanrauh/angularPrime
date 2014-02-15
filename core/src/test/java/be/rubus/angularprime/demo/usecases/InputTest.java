@@ -1,6 +1,7 @@
 package be.rubus.angularprime.demo.usecases;
 
 import be.rubus.angularprime.demo.Deployed;
+import be.rubus.angularprime.widget.BrowserWindow;
 import be.rubus.angularprime.widget.KeyboardEvents;
 import be.rubus.angularprime.widget.PuiButton;
 import be.rubus.angularprime.widget.PuiInput;
@@ -25,6 +26,9 @@ public class InputTest {
 
     @Drone
     private WebDriver driver;
+
+    @FindBy(tagName = "body")
+    private BrowserWindow window;
 
     @FindBy(id = "case1")
     private PuiInput puiInput1;
@@ -86,7 +90,7 @@ public class InputTest {
         assertTrue(puiInput2.isWidget());
         assertTrue(puiInput2.hasHoverClassWhenHovered());
 
-        if (!puiInput2.doesBrowserSupportNumericInputTypes()) {
+        if (!window.doesBrowserSupportNumericInputTypes()) {
             // No point in testing the rest
             return;
         }
@@ -120,7 +124,7 @@ public class InputTest {
         assertTrue(puiInput3.isWidget());
         assertTrue(puiInput3.hasHoverClassWhenHovered());
 
-        if (!puiInput3.doesBrowserSupportColorInputTypes()) {
+        if (!window.doesBrowserSupportColorInputTypes()) {
             // No point in testing the rest
             return;
         }

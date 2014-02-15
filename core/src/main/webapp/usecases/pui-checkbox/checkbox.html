@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>AngularPrime v0.6 - Usecases - AngularJS - PrimeUI integration</title>
+
+    <link rel="stylesheet" href="/angularPrime/css/libs/angularPrime-0.6/angularPrime-0.6.css">
+    <link rel="stylesheet" href="/angularPrime/css/jquery-ui.css"/>
+
+    <link rel="stylesheet" href="/angularPrime/css/usecase.css"/>
+
+    <link rel="stylesheet" href="/angularPrime/themes/aristo/theme.css"/>
+
+    <link rel="stylesheet" href="/angularPrime/css/libs/prettify.css">
+
+    <script src="/angularPrime/js/libs/prettify/prettify.js"></script>
+
+    <script src="/angularPrime/js/libs/primeUI/jquery.js"></script>
+    <script src="/angularPrime/js/libs/primeUI/jquery-ui.js"></script>
+
+    <script src="/angularPrime/js/libs/angular/angular.js"></script>
+    <script src="/angularPrime/js/libs/angularPrime-0.6/angularPrime-0.6.js"></script>
+    <script src="../js/directives.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/app12.js"></script>
+
+    <script src="/angularPrime/js/libs/modernizr/modernizr.js" ></script>
+
+    <style>
+        [ng\:cloak], [ng-cloak], .ng-cloak {
+            display: none;
+        }
+
+        .ng-invalid-required {
+            background-color: red;
+        }
+    </style>
+
+</head>
+<body ng-app="checkbox.cases">
+<h1>pui-input widget</h1>
+
+<div ng-controller="checkbox.controller">
+
+    <div class="col1">
+        <hr>
+
+        <h2>Combination with ng-true-value and ng-false-value</h2>
+        <input id="case1" ng-model="value1" pui-input type="checkbox" ng-true-value="colour" ng-false-value="black and white"/>
+        <label id="lblSel" for="case1" > Colour copy </label><br/>
+        <input type="text" ng-model="value1" id="case1Selection" />
+
+        <hr>
+        <h2>Custom attribute on directive</h2>
+        <div id="case2" pui-checkbox="Hello world" ng-show="visible" ng-model="value2" cust-attr="AngularPrime" ></div>
+
+        model value <span id="ctrlValue2">{{value2}}</span>
+
+        <hr>
+    </div>
+    <div class="col2">
+        <hr>
+        <h2>Dynamic label (pui-checkbox version)</h2>
+        <div id="case3" pui-checkbox="value4" ng-show="visible" ng-model="value3" ></div>
+        <input type="text" ng-model="value4" id="case3Field">
+
+        <hr>
+
+        <h2>ng-xxx-value with pui-checkbox</h2>
+        <div id="case4" pui-checkbox="Colour copy" ng-model="value5"  ng-true-value="colour" ng-false-value="black and white"></div>
+
+        <input id="case4Selection" type="text" ng-model="value5" /> <br/>
+
+        <hr>
+
+    </div>
+    <div class="col3">
+    </div>
+
+
+    <div style="clear: both">
+        <div ng-repeat="option in usecases">
+                <input type="radio" ng-model="codeVisibleOf.selectedOptionValue" value="{{option.value}}" id="option-{{option.value}}" pui-input="" name="selectedCase">
+                <label>{{option.description}}</label>
+        </div>
+        <div>
+            <div id="sourceCase1" pui-tabview ng-show="codeVisibleOf.selectedOptionValue == '1'">
+                <div pui-panel title="html">
+                            <pre pretty-print="html">
+        <input id="case1" ng-model="value1" pui-input type="checkbox" ng-true-value="colour" ng-false-value="black and white"/>
+        <label id="lblSel" for="case1" > Colour copy </label><br/>
+        <input type="text" ng-model="value1" id="case1Selection" />
+
+                            </pre>
+                </div>
+                <div pui-panel title="controller">
+                            <pre pretty-print="js">
+    $scope.value1 = null;
+
+                            </pre>
+                </div>
+            </div>
+            <div id="sourceCase2" pui-tabview ng-show="codeVisibleOf.selectedOptionValue == '2'">
+                <div pui-panel title="html">
+                            <pre pretty-print="html">
+        <input id="visible" type="checkbox" ng-model="visible" pui-input />Toggle for visibility <br/>
+        model value <span id="ctrlValue2">{{value2}}</span>
+
+                            </pre>
+                </div>
+                <div pui-panel title="controller">
+                            <pre pretty-print="js">
+    $scope.value2 = null;
+
+    $scope.visible = true;
+
+                            </pre>
+                </div>
+            </div>
+            <div id="sourceCase3" pui-tabview ng-show="codeVisibleOf.selectedOptionValue == '3'">
+                <div pui-panel title="html">
+                            <pre pretty-print="html">
+        <div id="case3" pui-checkbox="value4" ng-show="visible" ng-model="value3" ></div>
+        <input type="text" ng-model="value4">
+
+                            </pre>
+                </div>
+                <div pui-panel title="controller">
+                            <pre pretty-print="js">
+    $scope.value3 = null;
+    $scope.value4 = "Label";
+
+                            </pre>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

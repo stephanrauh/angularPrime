@@ -24,4 +24,9 @@ public class WidgetSelection extends AbstractWidget {
         widgets.get(idx).click();
         waitUntilVisibilityOf(By.id("widgetSubPages"));
     }
+
+    @Override
+    public boolean isWidget() {
+        return false;
+    }
 }

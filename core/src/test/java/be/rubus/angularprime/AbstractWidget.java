@@ -10,7 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class AbstractWidget {
+public abstract class AbstractWidget {
 
     protected static final String NG_INVALID = "ng-invalid";
     protected static final String NG_VALID = "ng-valid";
@@ -19,14 +19,12 @@ public class AbstractWidget {
     protected static final String PUI_DISABLED = "ui-state-disabled";
 
     @Drone
-    private WebDriver driver;
+    protected WebDriver driver;
 
     @Root
     protected WebElement root;
 
-    public boolean isWidget() {
-        return containsClassName(root, PUI_WIDGET);
-    }
+    public abstract boolean isWidget();
 
     protected boolean containsClassName(WebElement element, String className) {
         return element.getAttribute("class").contains(className);
@@ -75,16 +73,12 @@ public class AbstractWidget {
         builder.moveToElement(element).build().perform();
     }
 
-    public boolean doesBrowserSupportNumericInputTypes() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        return (Boolean) js.executeScript("return Modernizr.inputtypes.number");
-
+    protected WebElement getParent(WebElement element) {
+        return element.findElement(By.xpath(".."));
     }
 
-    public boolean doesBrowserSupportColorInputTypes() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        return (Boolean) js.executeScript("return Modernizr.inputtypes.color");
 
+    public String getAttribute(String attributeName) {
+        return root.getAttribute(attributeName);
     }
-
 }

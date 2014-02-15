@@ -31,4 +31,9 @@ public class ContentArea extends AbstractWidget {
     public String getExampleName() {
         return exampleHeader.getText();
     }
+
+    @Override
+    public boolean isWidget() {
+        return false;
+    }
 }

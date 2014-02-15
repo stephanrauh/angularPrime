@@ -5,6 +5,10 @@ import org.openqa.selenium.Keys;
 
 public class PuiInput extends AbstractWidget {
 
+    public boolean isWidget() {
+        return containsClassName(root, PUI_WIDGET);
+    }
+
     public void type(String value) {
         root.clear();
         root.sendKeys(value);
@@ -43,5 +47,9 @@ public class PuiInput extends AbstractWidget {
 
     public boolean isVisible() {
         return root.isDisplayed();
+    }
+
+    public String getValue() {
+        return root.getAttribute("value");
     }
 }
