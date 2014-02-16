@@ -1,6 +1,5 @@
 package be.rubus.angularprime.demo.usecases;
 
-import be.rubus.angularprime.demo.Deployed;
 import be.rubus.angularprime.widget.BrowserWindow;
 import be.rubus.angularprime.widget.KeyboardEvents;
 import be.rubus.angularprime.widget.PuiButton;
@@ -19,10 +18,9 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 
 import static org.junit.Assert.*;
-import static org.junit.Assert.assertEquals;
 
 @RunWith(Arquillian.class)
-public class InputTest {
+public class InputTest extends AbstractUsecaseTest {
 
     @Drone
     private WebDriver driver;
@@ -68,10 +66,15 @@ public class InputTest {
     @FindBy(id = "case6")
     private PuiInput puiInput6;
 
+    @Override
+    protected String getLocation() {
+        return "usecases/pui-input/input.html";
+    }
+
     @Test
     @RunAsClient
     public void testUseCase1() {
-        driver.get(Deployed.ROOT + "usecases/pui-input/input.html");
+        showPage();
 
         assertTrue(puiInput1.isAngularJSInvalid());
         assertFalse(puiInput1.isAngularJSValid());
@@ -85,7 +88,7 @@ public class InputTest {
     @Test
     @RunAsClient
     public void testUseCase2() {
-        driver.get(Deployed.ROOT + "usecases/pui-input/input.html");
+        showPage();
 
         assertTrue(puiInput2.isWidget());
         assertTrue(puiInput2.hasHoverClassWhenHovered());
@@ -119,7 +122,7 @@ public class InputTest {
     @Test
     @RunAsClient
     public void testUseCase3() {
-        driver.get(Deployed.ROOT + "usecases/pui-input/input.html");
+        showPage();
 
         assertTrue(puiInput3.isWidget());
         assertTrue(puiInput3.hasHoverClassWhenHovered());
@@ -148,7 +151,7 @@ public class InputTest {
     @Test
     @RunAsClient
     public void testUseCase4() {
-        driver.get(Deployed.ROOT + "usecases/pui-input/input.html");
+        showPage();
 
         assertFalse(puiInput4.isWidget());
     }
@@ -156,7 +159,7 @@ public class InputTest {
     @Test
     @RunAsClient
     public void testUseCase5() {
-        driver.get(Deployed.ROOT + "usecases/pui-input/input.html");
+        showPage();
 
         assertTrue(puiInput5.isWidget());
         assertTrue(puiInput5.isVisible());
@@ -185,7 +188,7 @@ public class InputTest {
     @Test
     @RunAsClient
     public void testUseCase6() {
-        driver.get(Deployed.ROOT + "usecases/pui-input/input.html");
+        showPage();
 
         assertTrue(puiInput6.isWidget());
     }

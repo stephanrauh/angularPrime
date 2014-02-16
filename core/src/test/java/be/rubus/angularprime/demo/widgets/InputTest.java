@@ -1,33 +1,20 @@
 package be.rubus.angularprime.demo.widgets;
 
 import be.rubus.angularprime.demo.Deployed;
-import be.rubus.angularprime.widget.ContentArea;
 import be.rubus.angularprime.widget.PuiButton;
 import be.rubus.angularprime.widget.PuiInput;
-import be.rubus.angularprime.widget.WidgetSelection;
 import org.jboss.arquillian.container.test.api.RunAsClient;
-import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.junit.Arquillian;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.InvalidElementStateException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import static org.junit.Assert.*;
 
 @RunWith(Arquillian.class)
-public class InputTest {
-
-    @Drone
-    private WebDriver driver;
-
-    @FindBy(id = "widgetList")
-    private WidgetSelection widgetSelection;
-
-    @FindBy(id = "content")
-    private ContentArea contentArea;
+public class InputTest extends AbstractWidgetTest {
 
     // For the default demo
     @FindBy(id = "default")
@@ -69,14 +56,12 @@ public class InputTest {
     @Test
     @RunAsClient
     public void testDefault() {
-        driver.get(Deployed.ROOT);
-        widgetSelection.selectWidget(11);
-        contentArea.gotoExample(1);
+        showExample(11, 1);
 
         assertEquals("Default integration", contentArea.getExampleName());
 
         assertTrue(puiInputDefault.isWidget());
-        assertFalse(puiInputDisabled.isDisabled());
+        assertFalse(puiInputDefault.isDisabled());
 
         assertTrue(puiInputDefault.hasHoverClassWhenHovered());
 
@@ -95,9 +80,7 @@ public class InputTest {
     @Test
     @RunAsClient
     public void testDisabled() {
-        driver.get(Deployed.ROOT);
-        widgetSelection.selectWidget(11);
-        contentArea.gotoExample(2);
+        showExample(11, 2);
 
         assertEquals("Integration with ng-disabled", contentArea.getExampleName());
 

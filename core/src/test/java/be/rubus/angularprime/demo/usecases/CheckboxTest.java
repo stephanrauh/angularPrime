@@ -1,26 +1,19 @@
 package be.rubus.angularprime.demo.usecases;
 
-import be.rubus.angularprime.demo.Deployed;
 import be.rubus.angularprime.widget.BrowserWindow;
 import be.rubus.angularprime.widget.Label;
 import be.rubus.angularprime.widget.PuiCheckbox;
 import be.rubus.angularprime.widget.PuiInput;
 import org.jboss.arquillian.container.test.api.RunAsClient;
-import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.junit.Arquillian;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @RunWith(Arquillian.class)
-public class CheckboxTest {
-    @Drone
-    private WebDriver driver;
+public class CheckboxTest extends AbstractUsecaseTest {
 
     @FindBy(tagName = "body")
     private BrowserWindow window;
@@ -50,10 +43,15 @@ public class CheckboxTest {
     @FindBy(id = "case4Selection")
     private PuiInput case4Value;
 
+    @Override
+    protected String getLocation() {
+        return "usecases/pui-checkbox/checkbox.html";
+    }
+
     @Test
     @RunAsClient
     public void testUseCase1() {
-        driver.get(Deployed.ROOT + "usecases/pui-checkbox/checkbox.html");
+        showPage();
 
         assertFalse(puiCheckbox1.isChecked());
         //assertEquals("black and white", case1Value.getValue());
@@ -76,7 +74,7 @@ public class CheckboxTest {
     @Test
     @RunAsClient
     public void testUseCase2() {
-        driver.get(Deployed.ROOT + "usecases/pui-checkbox/checkbox.html");
+        showPage();
 
         assertEquals("AngularPrime", puiCheckbox2.getAttribute("cust-attr"));
     }
@@ -84,7 +82,7 @@ public class CheckboxTest {
     @Test
     @RunAsClient
     public void testUseCase3() {
-        driver.get(Deployed.ROOT + "usecases/pui-checkbox/checkbox.html");
+        showPage();
 
         assertEquals("Label", checkboxLabelField.getValue());
         assertEquals(checkboxLabelField.getValue(), checkboxLabel.getText());
@@ -98,7 +96,7 @@ public class CheckboxTest {
     @Test
     @RunAsClient
     public void testUseCase4() {
-        driver.get(Deployed.ROOT + "usecases/pui-checkbox/checkbox.html");
+        showPage();
 
         assertFalse(puiCheckbox4.isChecked());
         //assertEquals("black and white", case1Value.getValue());

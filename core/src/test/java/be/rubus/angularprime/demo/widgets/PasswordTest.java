@@ -1,30 +1,20 @@
 package be.rubus.angularprime.demo.widgets;
 
 import be.rubus.angularprime.demo.Deployed;
-import be.rubus.angularprime.widget.*;
+import be.rubus.angularprime.widget.BrowserWindow;
+import be.rubus.angularprime.widget.PuiPassword;
 import org.jboss.arquillian.container.test.api.RunAsClient;
-import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.junit.Arquillian;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.InvalidElementStateException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import static org.junit.Assert.*;
 
 @RunWith(Arquillian.class)
-public class PasswordTest {
+public class PasswordTest extends AbstractWidgetTest {
 
-    @Drone
-    private WebDriver driver;
-
-    @FindBy(id = "widgetList")
-    private WidgetSelection widgetSelection;
-
-    @FindBy(id = "content")
-    private ContentArea contentArea;
 
     // For the default demo
     @FindBy(id = "default")
@@ -53,9 +43,7 @@ public class PasswordTest {
     @Test
     @RunAsClient
     public void testDefault() {
-        driver.get(Deployed.ROOT);
-        widgetSelection.selectWidget(18);
-        contentArea.gotoExample(1);
+        showExample(18, 1);
 
         assertEquals("Default integration", contentArea.getExampleName());
 

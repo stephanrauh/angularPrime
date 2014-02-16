@@ -1,6 +1,5 @@
 package be.rubus.angularprime.demo.usecases;
 
-import be.rubus.angularprime.demo.Deployed;
 import be.rubus.angularprime.widget.BrowserWindow;
 import be.rubus.angularprime.widget.PuiButton;
 import be.rubus.angularprime.widget.PuiPassword;
@@ -15,7 +14,7 @@ import org.openqa.selenium.support.FindBy;
 import static org.junit.Assert.*;
 
 @RunWith(Arquillian.class)
-public class PasswordTest {
+public class PasswordTest extends AbstractUsecaseTest {
 
     @Drone
     private WebDriver driver;
@@ -55,10 +54,16 @@ public class PasswordTest {
     @FindBy(id = "hideBtn")
     private PuiButton hideButton;
 
+    @Override
+    protected String getLocation() {
+        return "usecases/pui-password/password.html";
+    }
+
+
     @Test
     @RunAsClient
     public void testUseCase1() {
-        driver.get(Deployed.ROOT + "usecases/pui-password/password.html");
+        showPage();
 
         assertTrue(puiPassword1.isWidget());
         assertTrue(puiPassword1.hasPasswordPanel());
@@ -80,7 +85,7 @@ public class PasswordTest {
     @Test
     @RunAsClient
     public void testUseCase2() {
-        driver.get(Deployed.ROOT + "usecases/pui-password/password.html");
+        showPage();
 
         assertTrue(puiPassword2.isWidget());
         assertTrue(puiPassword2.hasPasswordPanel());
@@ -105,7 +110,7 @@ public class PasswordTest {
     @Test
     @RunAsClient
     public void testUseCase3() {
-        driver.get(Deployed.ROOT + "usecases/pui-password/password.html");
+        showPage();
 
         assertTrue(puiPassword3.isAngularJSInvalid());
         assertFalse(puiPassword3.isAngularJSValid());
@@ -119,7 +124,7 @@ public class PasswordTest {
     @Test
     @RunAsClient
     public void testUseCase4() {
-        driver.get(Deployed.ROOT + "usecases/pui-password/password.html");
+        showPage();
 
         assertFalse(puiPassword4.isDisabled());
 
@@ -140,7 +145,7 @@ public class PasswordTest {
     @Test
     @RunAsClient
     public void testUseCase5() {
-        driver.get(Deployed.ROOT + "usecases/pui-password/password.html");
+        showPage();
 
         assertTrue(puiPassword5.isVisible());
 
