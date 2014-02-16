@@ -5668,7 +5668,7 @@ $(function() {
                 if(this.options.inline) {
                     this.panel.addClass('pui-password-panel-inline');
                 } else {
-                    this.panel.addClass('pui-password-panel-overlay').appendTo('body');
+                    this.panel.addClass('pui-password-panel-overlay'); //.appendTo('body'); Changed for AngularPrime
                 }
 
                 this._bindEvents();
