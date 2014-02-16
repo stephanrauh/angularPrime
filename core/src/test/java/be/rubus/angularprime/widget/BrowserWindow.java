@@ -59,4 +59,13 @@ public class BrowserWindow extends AbstractWidget {
         }
 
     }
+
+    public void waitForScreenUpdate(int timeInMiliis) {
+        try {
+            Thread.sleep(timeInMiliis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

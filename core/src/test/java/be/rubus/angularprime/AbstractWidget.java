@@ -10,6 +10,11 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.Iterator;
+import java.util.List;
+
+import static org.junit.Assert.assertFalse;
+
 public abstract class AbstractWidget {
 
     protected static final String NG_INVALID = "ng-invalid";
@@ -77,6 +82,38 @@ public abstract class AbstractWidget {
         return element.findElement(By.xpath(".."));
     }
 
+    protected WebElement getNextSibling(WebElement element) {
+        String id = getId(element);
+        assertFalse("getNextSibling() can only be called for Element with id", id.isEmpty());
+
+        WebElement result = null;
+        WebElement parent = getParent(element);
+        List<WebElement> children = parent.findElements(By.xpath(".//*"));
+        Iterator<WebElement> iterator = children.iterator();
+        while (result == null && iterator.hasNext()) {
+            WebElement child = iterator.next();
+            if (getId(child).equals(id)) {
+                if (iterator.hasNext()) {
+                    result = iterator.next();
+                }
+            }
+        }
+        return result;
+
+    }
+
+    protected String getId(WebElement element) {
+        return element.getAttribute("id");
+    }
+
+    protected void blur(WebElement someElement) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].blur();", someElement);
+
+    }
+
+    protected String getComputedCssValue(WebElement someElement, String cssName) {
+        return someElement.getCssValue(cssName);
+    }
 
     public String getAttribute(String attributeName) {
         return root.getAttribute(attributeName);
