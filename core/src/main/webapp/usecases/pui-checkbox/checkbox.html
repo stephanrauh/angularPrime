@@ -53,7 +53,7 @@
 
         <hr>
         <h2>Custom attribute on directive</h2>
-        <div id="case2" pui-checkbox="Hello world" ng-show="visible" ng-model="value2" cust-attr="AngularPrime" ></div>
+        <div id="case2" pui-checkbox="Hello world" ng-model="value2" cust-attr="AngularPrime" ></div>
 
         model value <span id="ctrlValue2">{{value2}}</span>
 
@@ -104,7 +104,9 @@
             <div id="sourceCase2" pui-tabview ng-show="codeVisibleOf.selectedOptionValue == '2'">
                 <div pui-panel title="html">
                             <pre pretty-print="html">
-        <input id="visible" type="checkbox" ng-model="visible" pui-input />Toggle for visibility <br/>
+
+        <div id="case2" pui-checkbox="Hello world" ng-model="value2" cust-attr="AngularPrime" ></div>
+
         model value <span id="ctrlValue2">{{value2}}</span>
 
                             </pre>
@@ -112,8 +114,6 @@
                 <div pui-panel title="controller">
                             <pre pretty-print="js">
     $scope.value2 = null;
-
-    $scope.visible = true;
 
                             </pre>
                 </div>
@@ -130,6 +130,24 @@
                             <pre pretty-print="js">
     $scope.value3 = null;
     $scope.value4 = "Label";
+
+                            </pre>
+                </div>
+            </div>
+
+            <div id="sourceCase4" pui-tabview ng-show="codeVisibleOf.selectedOptionValue == '4'">
+                <div pui-panel title="html">
+                            <pre pretty-print="html">
+        <div id="case4" pui-checkbox="Colour copy" ng-model="value5"  ng-true-value="colour" ng-false-value="black and white"></div>
+
+        <input id="case4Selection" type="text" ng-model="value5" /> <br/>
+
+
+                            </pre>
+                </div>
+                <div pui-panel title="controller">
+                            <pre pretty-print="js">
+    $scope.value5 = null;
 
                             </pre>
                 </div>

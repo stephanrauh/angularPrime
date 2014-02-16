@@ -27,7 +27,7 @@ controllers.controller('checkbox.controller', ['$scope', function ($scope) {
             value: "3", description: "Dynamic label"
         },
         {
-            value: "3", description: "ng-xx-value with pui-checkbox"
+            value: "4", description: "ng-xx-value with pui-checkbox"
         }
 
     ];

@@ -76,7 +76,7 @@ public class InputTest {
         assertTrue(puiInput1.isAngularJSInvalid());
         assertFalse(puiInput1.isAngularJSValid());
 
-        puiInput1.type("test");
+        puiInput1.type("t");
 
         assertFalse(puiInput1.isAngularJSInvalid());
         assertTrue(puiInput1.isAngularJSValid());
