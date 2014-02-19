@@ -5002,7 +5002,7 @@ angular.module('angular.prime').directive('puiRadiobutton', ['$compile', '$parse
                     label = '',
                     contents = '<input type="radio" pui-input ',
                     handledAttributes = 'id ngModel puiInput ngShow ngHide puiRadiobutton name value'.split(' '),
-                    attrsToRemove = 'id ngModel puiInput'.split(' ');
+                    attrsToRemove = 'id ngModel puiInput name value'.split(' ');
 
                 try {
                     $parse(attrs.puiRadiobutton); // see if it is a valid AngularExpression

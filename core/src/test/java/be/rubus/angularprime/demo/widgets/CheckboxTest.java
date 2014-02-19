@@ -84,6 +84,8 @@ public class CheckboxTest extends AbstractWidgetTest {
         assertFalse(puiCheckboxDefault.isChecked());
         assertEquals("false", modelValue.getText());
 
+        assertTrue(puiCheckboxDefault.hasHoverClassWhenHovered());
+
     }
 
     @Test

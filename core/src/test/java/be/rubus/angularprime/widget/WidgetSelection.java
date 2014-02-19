@@ -1,7 +1,5 @@
 package be.rubus.angularprime.widget;
 
-import be.rubus.angularprime.AbstractWidget;
-import org.jboss.arquillian.graphene.fragment.Root;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 

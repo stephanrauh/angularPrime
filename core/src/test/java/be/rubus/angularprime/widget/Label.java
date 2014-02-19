@@ -1,7 +1,5 @@
 package be.rubus.angularprime.widget;
 
-import be.rubus.angularprime.AbstractWidget;
-
 public class Label extends AbstractWidget {
     @Override
     public boolean isWidget() {

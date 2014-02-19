@@ -1,6 +1,5 @@
 package be.rubus.angularprime.widget;
 
-import be.rubus.angularprime.AbstractWidget;
 import org.openqa.selenium.Keys;
 
 public class PuiInput extends AbstractWidget {
@@ -50,6 +49,6 @@ public class PuiInput extends AbstractWidget {
     }
 
     public String getValue() {
-        return root.getAttribute("value");
+        return root.getAttribute(VALUE);
     }
 }

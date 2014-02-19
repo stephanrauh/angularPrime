@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>AngularPrime v0.6 - Usecases - AngularJS - PrimeUI integration</title>
+
+    <link rel="stylesheet" href="/angularPrime/css/libs/angularPrime-0.6/angularPrime-0.6.css">
+    <link rel="stylesheet" href="/angularPrime/css/jquery-ui.css"/>
+
+    <link rel="stylesheet" href="/angularPrime/css/usecase.css"/>
+
+    <link rel="stylesheet" href="/angularPrime/themes/aristo/theme.css"/>
+
+    <link rel="stylesheet" href="/angularPrime/css/libs/prettify.css">
+
+    <script src="/angularPrime/js/libs/prettify/prettify.js"></script>
+
+    <script src="/angularPrime/js/libs/primeUI/jquery.js"></script>
+    <script src="/angularPrime/js/libs/primeUI/jquery-ui.js"></script>
+
+    <script src="/angularPrime/js/libs/angular/angular.js"></script>
+    <script src="/angularPrime/js/libs/angularPrime-0.6/angularPrime-0.6.js"></script>
+    <script src="../js/directives.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/app12.js"></script>
+
+    <script src="/angularPrime/js/libs/modernizr/modernizr.js" ></script>
+
+    <style>
+        [ng\:cloak], [ng-cloak], .ng-cloak {
+            display: none;
+        }
+
+        .ng-invalid-required {
+            background-color: red;
+        }
+    </style>
+
+</head>
+<body ng-app="radiobutton.cases">
+<h1>pui-radiobutton widget</h1>
+
+<div ng-controller="radiobutton.controller">
+
+    <div class="col1">
+        <hr>
+
+        <h2>support HTML checked attribute</h2>
+
+        <table id="checked">
+            <tr>
+                <td><input type="radio" pui-input ng-model="radioValue1" name="rd" id="rd1" value="1"/></td>
+                <td><label for="rd1">Option 1</label></td>
+            </tr>
+            <tr>
+                <td><input type="radio" pui-input ng-model="radioValue1" name="rd" id="rd2" value="2" checked="checked"/></td>
+                <td><label for="rd2">Option 2</label></td>
+            </tr>
+        </table>
+        Controller value = <span id="modelValue">{{radioValue1}}</span>
+
+        <hr>
+
+        <h2></h2>
+
+        <hr>
+    </div>
+    <div class="col2">
+        <hr>
+
+        <h2></h2>
+
+        <hr>
+
+        <h2></h2>
+
+        <hr>
+
+    </div>
+    <div class="col3">
+    </div>
+
+
+    <div style="clear: both">
+        <div ng-repeat="option in usecases">
+                <input type="radio" ng-model="codeVisibleOf.selectedOptionValue" value="{{option.value}}" id="option-{{option.value}}" pui-input="" name="selectedCase">
+                <label>{{option.description}}</label>
+        </div>
+        <div>
+            <div id="sourceCase1" pui-tabview ng-show="codeVisibleOf.selectedOptionValue == '1'">
+                <div pui-panel title="html">
+                            <pre pretty-print="html">
+
+        <table id="checked">
+            <tr>
+                <td><input type="radio" pui-input ng-model="radioValue1" name="rd" id="rd1" value="1"/></td>
+                <td><label for="rd1">Option 1</label></td>
+            </tr>
+            <tr>
+                <td><input type="radio" pui-input ng-model="radioValue1" name="rd" id="rd2" value="2" checked/></td>
+                <td><label for="rd2">Option 2</label></td>
+            </tr>
+        </table>
+
+                            </pre>
+                </div>
+                <div pui-panel title="controller">
+                            <pre pretty-print="js">
+    $scope.value1 = null;
+
+                            </pre>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

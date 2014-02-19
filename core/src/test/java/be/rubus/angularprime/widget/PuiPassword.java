@@ -1,8 +1,6 @@
 package be.rubus.angularprime.widget;
 
-import be.rubus.angularprime.AbstractWidget;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 

@@ -1,6 +1,5 @@
 package be.rubus.angularprime.widget;
 
-import be.rubus.angularprime.AbstractWidget;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;

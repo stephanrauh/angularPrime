@@ -1,15 +1,21 @@
-package be.rubus.angularprime;
+package be.rubus.angularprime.widget;
 
 import org.jboss.arquillian.drone.api.annotation.Drone;
+import org.jboss.arquillian.graphene.enricher.ReflectionHelper;
+import org.jboss.arquillian.graphene.enricher.exception.GrapheneTestEnricherException;
+import org.jboss.arquillian.graphene.findby.FindByUtilities;
 import org.jboss.arquillian.graphene.fragment.Root;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.lang.reflect.Field;
 import java.util.Iterator;
 import java.util.List;
 
@@ -17,11 +23,15 @@ import static org.junit.Assert.assertFalse;
 
 public abstract class AbstractWidget {
 
+    protected static final String NEW_LINE = System.getProperty("line.separator");
+
     protected static final String NG_INVALID = "ng-invalid";
     protected static final String NG_VALID = "ng-valid";
     protected static final String PUI_WIDGET = "ui-widget";
     protected static final String PUI_HOVER = "ui-state-hover";
     protected static final String PUI_DISABLED = "ui-state-disabled";
+
+    protected static final String VALUE = "value";
 
     @Drone
     protected WebDriver driver;
@@ -30,6 +40,53 @@ public abstract class AbstractWidget {
     protected WebElement root;
 
     public abstract boolean isWidget();
+
+    protected void initializeManually(WebElement someRoot, AbstractWidget parentWidget) {
+        root = someRoot;
+        driver = parentWidget.driver;
+
+        try {
+            List<Field> fields = ReflectionHelper.getFieldsWithAnnotation(getClass(), FindBy.class);
+            for (Field field : fields) {
+                By by = FindByUtilities.getCorrectBy(field, How.ID_OR_NAME);
+                // WebElement
+                if (field.getType().isAssignableFrom(WebElement.class)) {
+
+                    WebElement element = root.findElement(by);
+                    setValue(field, this, element);
+                    // List<WebElement>
+                } else if (field.getType().isAssignableFrom(List.class) && getListType(field)
+                        .isAssignableFrom(WebElement.class)) {
+                    List<WebElement> elements = root.findElements(by);
+                    setValue(field, this, elements);
+                }
+
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void setValue(Field field, Object target, Object value) {
+
+        boolean accessible = field.isAccessible();
+        if (!accessible) {
+            field.setAccessible(true);
+        }
+        try {
+            field.set(target, value);
+        } catch (Exception ex) {
+            throw new GrapheneTestEnricherException("During enriching of " + NEW_LINE + target.getClass() + NEW_LINE
+                    + " the field " + NEW_LINE + field + " was not able to be set! Check the cause!", ex);
+        }
+        if (!accessible) {
+            field.setAccessible(false);
+        }
+    }
+
+    private static Class<?> getListType(Field listField) throws ClassNotFoundException {
+        return Class.forName(listField.getGenericType().toString().split("<")[1].split(">")[0].split("<")[0]);
+    }
 
     protected boolean containsClassName(WebElement element, String className) {
         return element.getAttribute("class").contains(className);
@@ -118,4 +175,13 @@ public abstract class AbstractWidget {
     public String getAttribute(String attributeName) {
         return root.getAttribute(attributeName);
     }
+
+    public String getAttribute(WebElement someElement, String attributeName) {
+        return someElement.getAttribute(attributeName);
+    }
+
+    public boolean containsAttribute(WebElement someElement, String attributeName) {
+        return getAttribute(someElement, attributeName) != null;
+    }
+
 }
