@@ -1,7 +1,5 @@
 package be.rubus.angularprime.demo.widgets;
 
-import be.rubus.angularprime.demo.Deployed;
-import be.rubus.angularprime.widget.BrowserWindow;
 import be.rubus.angularprime.widget.PuiButton;
 import be.rubus.angularprime.widget.PuiCheckbox;
 import org.jboss.arquillian.container.test.api.RunAsClient;
@@ -15,9 +13,6 @@ import static org.junit.Assert.*;
 
 @RunWith(Arquillian.class)
 public class CheckboxTest extends AbstractWidgetTest {
-
-    @FindBy(tagName = "body")
-    private BrowserWindow window;
 
     // Multiple pages
     @FindBy(id = "modelValue")
@@ -56,21 +51,21 @@ public class CheckboxTest extends AbstractWidgetTest {
     @FindBy(id = "chk7")
     private PuiCheckbox puiCheckboxVisible;
 
+    @Override
+    protected int getWidgetIdx() {
+        return 4;
+    }
+
     @Test
     @RunAsClient
     public void testOverview() {
-        driver.get(Deployed.ROOT);
-        assertEquals("checkbox", widgetSelection.getWidgetName(4));
-        widgetSelection.selectWidget(4);
-        assertEquals("puiInput on <input type='checkbox'> and puiCheckbox", contentArea.getName());
-
-        assertEquals(7, contentArea.getSubpagesCount());
+        testWidgetOverviewPage("checkbox", "puiInput on <input type='checkbox'> and puiCheckbox", 7);
     }
 
     @Test
     @RunAsClient
     public void testDefault() {
-        showExample(4, 1);
+        showExample(1);
 
         assertEquals("Default integration", contentArea.getExampleName());
 
@@ -91,7 +86,7 @@ public class CheckboxTest extends AbstractWidgetTest {
     @Test
     @RunAsClient
     public void testAttributeChecked() {
-        showExample(4, 2);
+        showExample(2);
 
         assertEquals("checked attribute is integrated and takes precedence over controller value (initially)",
                 contentArea
@@ -112,7 +107,7 @@ public class CheckboxTest extends AbstractWidgetTest {
     @Test
     @RunAsClient
     public void testDisabled() {
-        showExample(4, 3);
+        showExample(3);
 
         assertEquals("Integration with ng-disabled", contentArea.getExampleName());
 
@@ -143,19 +138,20 @@ public class CheckboxTest extends AbstractWidgetTest {
     @Test
     @RunAsClient
     public void testChange() {
-        showExample(4, 4);
+        showExample(4);
 
         assertEquals("Integration with ng-change", contentArea.getExampleName());
 
         puiCheckboxChange.click();
         window.checkForAlert();
+        window.alertAccept();
 
     }
 
     @Test
     @RunAsClient
     public void testDirective() {
-        showExample(4, 5);
+        showExample(5);
 
         assertEquals("puiCheckbox directive", contentArea.getExampleName());
 
@@ -173,7 +169,7 @@ public class CheckboxTest extends AbstractWidgetTest {
     @Test
     @RunAsClient
     public void testShowHide() {
-        showExample(4, 6);
+        showExample(6);
 
         assertEquals("ngShow/ngHide supported with puiCheckbox directive", contentArea.getExampleName());
 

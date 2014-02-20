@@ -1,16 +1,13 @@
 package be.rubus.angularprime.demo.usecases;
 
-import be.rubus.angularprime.widget.BrowserWindow;
 import be.rubus.angularprime.widget.KeyboardEvents;
 import be.rubus.angularprime.widget.PuiButton;
 import be.rubus.angularprime.widget.PuiInput;
 import org.jboss.arquillian.container.test.api.RunAsClient;
-import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.junit.Arquillian;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.InvalidElementStateException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -21,12 +18,6 @@ import static org.junit.Assert.*;
 
 @RunWith(Arquillian.class)
 public class InputTest extends AbstractUsecaseTest {
-
-    @Drone
-    private WebDriver driver;
-
-    @FindBy(tagName = "body")
-    private BrowserWindow window;
 
     @FindBy(id = "case1")
     private PuiInput puiInput1;

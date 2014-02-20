@@ -44,6 +44,9 @@ public class BrowserWindow extends AbstractWidget {
     }
 
     public void alertAccept() {
+        if (alert == null) {
+            getAlertText();
+        }
         alert.accept();
     }
 

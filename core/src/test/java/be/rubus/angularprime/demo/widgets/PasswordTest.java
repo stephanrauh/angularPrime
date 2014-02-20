@@ -1,7 +1,5 @@
 package be.rubus.angularprime.demo.widgets;
 
-import be.rubus.angularprime.demo.Deployed;
-import be.rubus.angularprime.widget.BrowserWindow;
 import be.rubus.angularprime.widget.PuiPassword;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
@@ -26,24 +24,21 @@ public class PasswordTest extends AbstractWidgetTest {
     @FindBy(id = "noStrength")
     private PuiPassword puiPasswordNoStrength;
 
-    @FindBy(tagName = "body")
-    private BrowserWindow window;
+    @Override
+    protected int getWidgetIdx() {
+        return 18;
+    }
 
     @Test
     @RunAsClient
     public void testOverview() {
-        driver.get(Deployed.ROOT);
-        assertEquals("password", widgetSelection.getWidgetName(18));
-        widgetSelection.selectWidget(18);
-        assertEquals("puiInput on <input type='password'>", contentArea.getName());
-
-        assertEquals(2, contentArea.getSubpagesCount());
+        testWidgetOverviewPage("password", "puiInput on <input type='password'>", 2);
     }
 
     @Test
     @RunAsClient
     public void testDefault() {
-        showExample(18, 1);
+        showExample(1);
 
         assertEquals("Default integration", contentArea.getExampleName());
 
@@ -69,7 +64,7 @@ public class PasswordTest extends AbstractWidgetTest {
 
         // Blur occured in default field and thus panel should be hidden
         puiPasswordNoStrength.click();
-        window.waitForScreenUpdate(200);
+        window.waitForScreenUpdate(500);
 
         assertFalse(puiPasswordDefault.isPanelVisible());
 

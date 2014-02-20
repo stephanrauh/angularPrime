@@ -1,6 +1,5 @@
 package be.rubus.angularprime.demo.widgets;
 
-import be.rubus.angularprime.demo.Deployed;
 import be.rubus.angularprime.widget.PuiButton;
 import be.rubus.angularprime.widget.PuiInput;
 import org.jboss.arquillian.container.test.api.RunAsClient;
@@ -42,21 +41,21 @@ public class InputTest extends AbstractWidgetTest {
     @FindBy(id = "disableBtn")
     private PuiButton disableButton;
 
+    @Override
+    protected int getWidgetIdx() {
+        return 11;
+    }
+
     @Test
     @RunAsClient
     public void testOverview() {
-        driver.get(Deployed.ROOT);
-        assertEquals("puiInput", widgetSelection.getWidgetName(11));
-        widgetSelection.selectWidget(11);
-        assertEquals("puiInput", contentArea.getName());
-
-        assertEquals(3, contentArea.getSubpagesCount());
+        testWidgetOverviewPage("puiInput", "puiInput", 3);
     }
 
     @Test
     @RunAsClient
     public void testDefault() {
-        showExample(11, 1);
+        showExample(1);
 
         assertEquals("Default integration", contentArea.getExampleName());
 
@@ -80,7 +79,7 @@ public class InputTest extends AbstractWidgetTest {
     @Test
     @RunAsClient
     public void testDisabled() {
-        showExample(11, 2);
+        showExample(2);
 
         assertEquals("Integration with ng-disabled", contentArea.getExampleName());
 

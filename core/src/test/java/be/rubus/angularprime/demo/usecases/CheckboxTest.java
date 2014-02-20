@@ -15,9 +15,6 @@ import static org.junit.Assert.*;
 @RunWith(Arquillian.class)
 public class CheckboxTest extends AbstractUsecaseTest {
 
-    @FindBy(tagName = "body")
-    private BrowserWindow window;
-
     // Usecase 1
     @FindBy(id = "case1")
     private PuiCheckbox puiCheckbox1;

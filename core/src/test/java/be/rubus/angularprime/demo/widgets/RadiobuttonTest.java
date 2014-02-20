@@ -1,7 +1,9 @@
 package be.rubus.angularprime.demo.widgets;
 
-import be.rubus.angularprime.demo.Deployed;
-import be.rubus.angularprime.widget.*;
+import be.rubus.angularprime.widget.PuiButton;
+import be.rubus.angularprime.widget.PuiCheckbox;
+import be.rubus.angularprime.widget.PuiInput;
+import be.rubus.angularprime.widget.PuiRadiobuttonGroup;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
 import org.junit.Test;
@@ -13,9 +15,6 @@ import static org.junit.Assert.*;
 
 @RunWith(Arquillian.class)
 public class RadiobuttonTest extends AbstractWidgetTest {
-
-    @FindBy(tagName = "body")
-    private BrowserWindow window;
 
     // Multiple pages
     @FindBy(id = "modelValue")
@@ -44,21 +43,21 @@ public class RadiobuttonTest extends AbstractWidgetTest {
     @FindBy(id = "chk")
     private PuiCheckbox visible;
 
+    @Override
+    protected int getWidgetIdx() {
+        return 21;
+    }
+
     @Test
     @RunAsClient
     public void testOverview() {
-        driver.get(Deployed.ROOT);
-        assertEquals("radiobutton", widgetSelection.getWidgetName(21));
-        widgetSelection.selectWidget(21);
-        assertEquals("puiInput on <input type='radio'>", contentArea.getName());
-
-        assertEquals(8, contentArea.getSubpagesCount());
+        testWidgetOverviewPage("radiobutton", "puiInput on <input type='radio'>", 8);
     }
 
     @Test
     @RunAsClient
     public void testDefault() {
-        showExample(21, 1);
+        showExample(1);
 
         assertEquals("Default integration", contentArea.getExampleName());
 
@@ -79,7 +78,7 @@ public class RadiobuttonTest extends AbstractWidgetTest {
     @Test
     @RunAsClient
     public void testDisabled() {
-        showExample(21, 2);
+        showExample(2);
 
         assertEquals("Integration ng-disabled", contentArea.getExampleName());
 
@@ -119,7 +118,7 @@ public class RadiobuttonTest extends AbstractWidgetTest {
     @Test
     @RunAsClient
     public void testProgSelected() {
-        showExample(21, 3);
+        showExample(3);
 
         assertEquals("Setting selected radio button by code", contentArea.getExampleName());
 
@@ -137,7 +136,7 @@ public class RadiobuttonTest extends AbstractWidgetTest {
     @Test
     @RunAsClient
     public void testngChange() {
-        showExample(21, 4);
+        showExample(4);
 
         assertEquals("Integration with ng-change", contentArea.getExampleName());
 
@@ -145,12 +144,13 @@ public class RadiobuttonTest extends AbstractWidgetTest {
 
         puiRadiobuttonDefault.clickButton(0);
         window.checkForAlert();
+        window.alertAccept();
     }
 
     @Test
     @RunAsClient
     public void testngRepeat() {
-        showExample(21, 5);
+        showExample(5);
 
         assertEquals("Integration with ng-repeat", contentArea.getExampleName());
 
@@ -164,7 +164,7 @@ public class RadiobuttonTest extends AbstractWidgetTest {
     @Test
     @RunAsClient
     public void testDirective() {
-        showExample(21, 6);
+        showExample(6);
 
         assertEquals("puiRadiobox directive", contentArea.getExampleName());
 
@@ -186,7 +186,7 @@ public class RadiobuttonTest extends AbstractWidgetTest {
     @Test
     @RunAsClient
     public void testngShowngHide() {
-        showExample(21, 7);
+        showExample(7);
 
         assertEquals("puiRadiobox directive combined with ngShow", contentArea.getExampleName());
 
