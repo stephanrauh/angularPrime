@@ -1,6 +1,5 @@
 package be.rubus.angularprime.widget;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -13,6 +12,12 @@ public class PuiRadiobutton extends AbstractWidget {
 
     @FindBy(xpath = "../../..")
     private WebElement directive;
+
+    @FindBy(xpath = "../../div[contains(@class, 'pui-radiobutton-box')]")
+    private WebElement box;
+
+    @FindBy(xpath = "../../div[2]/span[contains(@class, 'pui-radiobutton-icon')]")
+    private WebElement icon;
 
     @Override
     public boolean isWidget() {
@@ -29,7 +34,7 @@ public class PuiRadiobutton extends AbstractWidget {
 
 
     private WebElement getRadiobuttonBox() {
-        return container.findElement(By.className("pui-radiobutton-box"));
+        return box;
     }
 
     public void click() {
@@ -37,7 +42,6 @@ public class PuiRadiobutton extends AbstractWidget {
     }
 
     public boolean isSelected() {
-        WebElement icon = container.findElement(By.className("pui-radiobutton-icon"));
         return containsClassName(icon, "ui-icon-bullet");
     }
 
