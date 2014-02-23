@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>AngularPrime v0.6 - Usecases - AngularJS - PrimeUI integration</title>
+
+    <link rel="stylesheet" href="/angularPrime/css/libs/angularPrime-0.6/angularPrime-0.6.css">
+    <link rel="stylesheet" href="/angularPrime/css/jquery-ui.css"/>
+
+    <link rel="stylesheet" href="/angularPrime/css/usecase.css"/>
+
+    <link rel="stylesheet" href="/angularPrime/themes/aristo/theme.css"/>
+
+    <link rel="stylesheet" href="/angularPrime/css/libs/prettify.css">
+
+    <script src="/angularPrime/js/libs/prettify/prettify.js"></script>
+
+    <script src="/angularPrime/js/libs/primeUI/jquery.js"></script>
+    <script src="/angularPrime/js/libs/primeUI/jquery-ui.js"></script>
+
+    <script src="/angularPrime/js/libs/angular/angular.js"></script>
+    <script src="/angularPrime/js/libs/angularPrime-0.6/angularPrime-0.6.js"></script>
+    <script src="../js/directives.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/app12.js"></script>
+
+    <script src="/angularPrime/js/libs/modernizr/modernizr.js" ></script>
+
+    <style>
+        [ng\:cloak], [ng-cloak], .ng-cloak {
+            display: none;
+        }
+
+        .ng-invalid-required {
+            background-color: red;
+        }
+    </style>
+
+</head>
+<body ng-app="textarea.cases">
+<h1>pui-textarea widget</h1>
+
+<div ng-controller="textarea.controller">
+
+    <div class="col1">
+        <hr>
+
+        <h2>with ng-required</h2>
+        <textarea id="case1" rows="5" cols="30" pui-input ng-model="value1" ng-required="true"></textarea> <br/>
+        Controller value = <span id="ctrlValue1">{{ value1 }}</span>
+
+        <hr>
+
+        <h2>with ng-show/ng-hide</h2>
+        <textarea id="case2" rows="5" cols="30" pui-input ng-model="value2" ng-show="visible"></textarea> <br/>
+        Controller value : <span id="ctrlValue2">{{ value2 }}</span><br/>
+        <button type="button" ng-click="showField()" ng-hide="visible" id="showBtn">Show</button> <br/>
+        <button type="button" ng-click="hideField()" ng-show="visible" id="hideBtn">Hide</button>
+
+        <hr>
+    </div>
+    <div class="col2">
+        <hr>
+
+        <h2>without ng-model</h2>
+        <textarea id="case3" rows="5" cols="30" pui-input ></textarea> <br/>
+        <hr>
+
+
+        <hr>
+    </div>
+    <div class="col3">
+        <hr>
+
+        <hr>
+
+         <hr>
+    </div>
+
+    <div style="clear: both">
+        <div ng-repeat="option in usecases">
+                <input type="radio" ng-model="codeVisibleOf.selectedOptionValue" value="{{option.value}}" id="option-{{option.value}}" pui-input="" name="selectedCase">
+                <label>{{option.description}}</label>
+        </div>
+        <div>
+            <div id="sourceCase1" pui-tabview ng-show="codeVisibleOf.selectedOptionValue == '1'">
+                <div pui-panel title="html">
+                            <pre pretty-print="html">
+        <textarea id="case1" rows="5" cols="30" pui-input ng-model="value1" ng-required="true"></textarea> <br/>
+        Controller value = <span id="ctrlValue1">{{ value1 }}</span>
+
+                            </pre>
+                </div>
+                <div pui-panel title="controller">
+                            <pre pretty-print="js">
+        $scope.value1 = null;
+
+                            </pre>
+                </div>
+            </div>
+            <div id="sourceCase2" pui-tabview ng-show="codeVisibleOf.selectedOptionValue == '2'">
+                <div pui-panel title="html">
+                            <pre pretty-print="html">
+        <textarea id="case2" rows="5" cols="30" pui-input ng-model="value2" ng-show="visible"></textarea> <br/>
+        Controller value : <span id="ctrlValue2">{{ value2 }}</span><br/>
+        <button type="button" ng-click="showField()" ng-hide="visible" id="showBtn">Show</button> <br/>
+        <button type="button" ng-click="hideField()" ng-show="visible" id="hideBtn">Hide</button>
+
+                            </pre>
+                </div>
+                <div pui-panel title="controller">
+                            <pre pretty-print="js">
+        $scope.value2 = null;
+
+                            </pre>
+                </div>
+            </div>
+            <div id="sourceCase3" pui-tabview ng-show="codeVisibleOf.selectedOptionValue == '3'">
+                <div pui-panel title="html">
+                            <pre pretty-print="html">
+<textarea id="case3" rows="5" cols="30" pui-input ></textarea>
+                            </pre>
+                </div>
+                <div pui-panel title="controller">
+                            <pre pretty-print="js">
+        $scope.value3 = null;
+
+        $scope.visible = true;
+
+        $scope.showField = function() {
+            $scope.visible = true;
+        };
+
+        $scope.hideField = function() {
+            $scope.visible = false;
+        };
+
+                            </pre>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

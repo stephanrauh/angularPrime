@@ -5362,10 +5362,11 @@ $(function() {
 
 
         _initAutoComplete: function() {
+            this.id = this.element.attr('id'); // Added for AngularPrime
             var panelMarkup = '<div id="' + this.id + '_panel" class="pui-autocomplete-panel ui-widget-content ui-corner-all ui-helper-hidden ui-shadow"></div>',
                 $this = this;
 
-            this.panel = $(panelMarkup).appendTo(document.body);
+            this.panel = $(panelMarkup).appendTo(this.element.parent()); // Chaned for AngularPrime
 
             this.element.keyup(function(e) {
                 var keyCode = $.ui.keyCode;
