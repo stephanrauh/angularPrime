@@ -14,3 +14,16 @@ Add the attribute pui-input to a standard HTML input element.
 ----
 <input id="default" type="text" pui-input ng-model="value"/>
 ----
+
+=== Element
+
+You can also use pui-input as element. This is enough to have a styled input widget.
+
+[source,xml]
+----
+<pui-input id="default" type="text" ng-model="value"></pui-input>
+----
+
+== Configuration
+
+For most of the HTML5 input types, there is no configuration needed or possible.

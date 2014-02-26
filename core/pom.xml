@@ -285,12 +285,13 @@
                                     <goal>process-asciidoc</goal>
                                 </goals>
                                 <configuration>
-                                    <sourceHighlighter>coderay</sourceHighlighter>
+                                    <sourceHighlighter>highlightjs</sourceHighlighter>
                                     <backend>html</backend>
                                     <attributes>
                                         <toc/>
                                         <embedAssets>true</embedAssets>
-                                        <!--linkcss>false</linkcss-->
+                                        <linkcss>true</linkcss>
+                                        <sourceHighlighter>highlightjs</sourceHighlighter>
                                     </attributes>
                                 </configuration>
                             </execution>
@@ -299,6 +300,7 @@
                         <configuration>
                             <sourceDirectory>src/main/doc/widgets</sourceDirectory>
                             <outputDirectory>src/main/webapp/docs</outputDirectory>
+                            <sourceHighlighter>highlightjs</sourceHighlighter>
                         </configuration>
                     </plugin>
                 </plugins>
