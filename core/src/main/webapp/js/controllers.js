@@ -705,7 +705,12 @@ function PasswordController($scope, Widgets) {
 
     $scope.widgets = Widgets;
 
-    $scope.value = null;
+    $scope.value1 = null;
+
+    $scope.pwOptions = {
+        inline: true ,
+        promptLabel: 'My text'
+    }
 }
 
 function ProgressbarController($scope, $timeout, Widgets) {

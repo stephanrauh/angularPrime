@@ -1,0 +1,39 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiInput on &amp;lt;input type='password'&amp;gt;">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Custom element<span version="0.6"/></header>
+
+			<pui-input id="elm" type="password" pui-input ng-model="value1" pui-binding="pwOptions"></pui-input> <br/>
+            Controller value is : <span id="defaultModel">{{value1}}</span><br/>
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
+        <pui-input id="elm" type="password" pui-input ng-model="value1" pui-binding="pwOptions"></pui-input> <br/>
+        Controller value is : <span id="defaultModel">{{value1}}</span><br/>
+
+                    </pre>
+                </div>
+                <div pui-panel title="controller">
+
+                    <pre pretty-print="js" >
+        $scope.value1 = null;
+
+        $scope.pwOptions = {
+            inline: true ,
+            promptLabel: 'My text'
+        }
+                    </pre>
+                </div>
+			</div>
+		</fieldset>
+
+	</div>
+</div>

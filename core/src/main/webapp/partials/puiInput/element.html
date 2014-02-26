@@ -1,0 +1,39 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiInput">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Custom element<span version="0.6"/></header>
+
+			<pui-input id="default" type="text" ng-model="value1"></pui-input><br/>
+			Controller value is : <span id="defaultModel">{{value1}}</span><br/>
+			<pui-input id="digits" type="number" ng-model="numbers"></pui-input><br/>
+			Controller value is : <span id="digitsModel">{{numbers}}</span>
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
+<pui-input id="default" type="text" ng-model="value1"></pui-input><br/>
+Controller value is : {{value1}}<br/>
+<pui-input id="digits" type="number" ng-model="numbers"></pui-input><br/>
+Controller value is : {{numbers}}
+
+                    </pre>
+                </div>
+                <div pui-panel title="controller">
+                    <pre pretty-print="js" >
+$scope.value1 = 'Change me';
+
+$scope.numbers = 123;
+                    </pre>
+                </div>
+			</div>
+		</fieldset>
+
+	</div>
+</div>

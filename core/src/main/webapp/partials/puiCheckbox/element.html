@@ -1,0 +1,31 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<div pui-panel title="puiInput on &amp;lt;input type='checkbox'&amp;gt;">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Custom element<span version="0.6"/></header>
+			<pui-input type="checkbox" id="chk1" ng-model="checkboxSelectedValue1" ></pui-input><label id="lblchk1" for="chk1">Option 1</label><br/>
+			Controller value = <span id="modelValue">{{checkboxSelectedValue1}}</span><br/>
+		</section>
+
+		<fieldset id="Source" pui-fieldset style="margin-bottom:20px">
+			<legend>Source</legend>
+			<div id="sourceTabs" pui-tabview>
+                <div pui-panel title="html">
+                    <pre pretty-print="html" >
+<pui-input type="checkbox" id="chk1" ng-model="checkboxSelectedValue1" ></pui-input><label id="lblchk1" for="chk1">Option 1</label><br/>
+Controller value = {{checkboxSelectedValue1}}<br/>
+
+                    </pre>
+                </div>
+                <div pui-panel title="controller">
+                    <pre pretty-print="js" >
+$scope.checkboxSelectedValue1 = true;
+                    </pre>
+                </div>
+            </div>
+		</fieldset>
+	</div>
+</div>
