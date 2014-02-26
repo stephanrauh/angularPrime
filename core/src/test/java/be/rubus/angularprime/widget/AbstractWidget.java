@@ -27,6 +27,8 @@ public abstract class AbstractWidget {
 
     protected static final String NG_INVALID = "ng-invalid";
     protected static final String NG_VALID = "ng-valid";
+    protected static final String NG_PRISTINE = "ng-pristine";
+    protected static final String NG_DIRTY = "ng-dirty";
     protected static final String PUI_WIDGET = "ui-widget";
     protected static final String PUI_HOVER = "ui-state-hover";
     protected static final String PUI_DISABLED = "ui-state-disabled";

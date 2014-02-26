@@ -14,6 +14,9 @@ import static org.junit.Assert.assertEquals;
 @Ignore
 public abstract class AbstractWidgetTest {
 
+    protected static final String VERSION_0_6 = "0.6";
+    protected static final String VERSION_INITIAL = "";
+
     @Drone
     protected WebDriver driver;
 

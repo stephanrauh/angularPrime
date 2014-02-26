@@ -51,4 +51,16 @@ public class PuiInput extends AbstractWidget {
     public String getValue() {
         return root.getAttribute(VALUE);
     }
+
+    public boolean isPristine() {
+        return containsClassName(root, NG_PRISTINE);
+    }
+
+    public boolean isDirty() {
+        return containsClassName(root, NG_DIRTY);
+    }
+
+    public String getType() {
+        return getAttribute("type");
+    }
 }

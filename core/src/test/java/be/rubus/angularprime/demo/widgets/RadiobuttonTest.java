@@ -51,7 +51,7 @@ public class RadiobuttonTest extends AbstractWidgetTest {
     @Test
     @RunAsClient
     public void testOverview() {
-        testWidgetOverviewPage("radiobutton", "puiInput on <input type='radio'>", 8);
+        testWidgetOverviewPage("radiobutton", "puiInput on <input type='radio'>", 9);
     }
 
     @Test
@@ -60,6 +60,7 @@ public class RadiobuttonTest extends AbstractWidgetTest {
         showExample(1);
 
         assertEquals("Default integration", contentArea.getExampleName());
+        assertEquals(VERSION_INITIAL, contentArea.getNewInVersionNumber());
 
         assertTrue(puiRadiobuttonDefault.isWidget());
         assertEquals(2, puiRadiobuttonDefault.getNumberOfButtons());
@@ -220,5 +221,28 @@ public class RadiobuttonTest extends AbstractWidgetTest {
         assertEquals("1", puiRadiobuttonDefault.getSelectedValue());
 
     }
+
+    @Test
+    @RunAsClient
+    public void testElement() {
+        showExample(8);
+
+        assertEquals("Custom element", contentArea.getExampleName());
+        assertEquals(VERSION_0_6, contentArea.getNewInVersionNumber());
+
+        assertTrue(puiRadiobuttonDefault.isWidget());
+        assertEquals(2, puiRadiobuttonDefault.getNumberOfButtons());
+
+        assertTrue(puiRadiobuttonDefault.hasHoverClassWhenHovered());
+
+        puiRadiobuttonDefault.clickButton(0);
+        assertEquals("1", modelValue.getText());
+        assertEquals("1", puiRadiobuttonDefault.getSelectedValue());
+
+        puiRadiobuttonDefault.clickButton(1);
+        assertEquals("2", modelValue.getText());
+        assertEquals("2", puiRadiobuttonDefault.getSelectedValue());
+    }
+
 
 }

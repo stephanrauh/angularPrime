@@ -59,7 +59,7 @@ public class CheckboxTest extends AbstractWidgetTest {
     @Test
     @RunAsClient
     public void testOverview() {
-        testWidgetOverviewPage("checkbox", "puiInput on <input type='checkbox'> and puiCheckbox", 7);
+        testWidgetOverviewPage("checkbox", "puiInput on <input type='checkbox'> and puiCheckbox", 8);
     }
 
     @Test
@@ -68,6 +68,7 @@ public class CheckboxTest extends AbstractWidgetTest {
         showExample(1);
 
         assertEquals("Default integration", contentArea.getExampleName());
+        assertEquals(VERSION_INITIAL, contentArea.getNewInVersionNumber());
 
         assertTrue(puiCheckboxDefault.isWidget());
 
@@ -184,4 +185,26 @@ public class CheckboxTest extends AbstractWidgetTest {
 
         assertTrue(puiCheckboxShowHide.isVisible());
     }
+
+    @Test
+    @RunAsClient
+    public void testElement() {
+        showExample(7);
+
+        assertEquals("Custom element", contentArea.getExampleName());
+        assertEquals(VERSION_0_6, contentArea.getNewInVersionNumber());
+
+        assertTrue(puiCheckboxDefault.isWidget());
+
+        assertTrue(puiCheckboxDefault.isChecked());
+        assertEquals("true", modelValue.getText());
+
+        puiCheckboxDefault.click();
+
+        assertFalse(puiCheckboxDefault.isChecked());
+        assertEquals("false", modelValue.getText());
+
+        assertTrue(puiCheckboxDefault.hasHoverClassWhenHovered());
+    }
+
 }

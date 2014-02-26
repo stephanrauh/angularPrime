@@ -1,8 +1,11 @@
 package be.rubus.angularprime.widget;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.List;
 
 public class ContentArea extends AbstractWidget {
 
@@ -29,6 +32,18 @@ public class ContentArea extends AbstractWidget {
 
     public String getExampleName() {
         return exampleHeader.getText();
+    }
+
+    public String getNewInVersionNumber() {
+        try {
+            WebElement version = exampleHeader.findElement(By.tagName("span"));
+            if (version != null) {
+                return getAttribute(version, "version");
+            }
+        } catch (NoSuchElementException e) {
+            ; // No span
+        }
+        return "";
     }
 
     @Override

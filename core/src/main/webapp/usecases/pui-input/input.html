@@ -57,23 +57,20 @@
         Controller value : <span id="ctrlValue2">{{ value2 }}</span>
 
         <hr>
-    </div>
-    <div class="col2">
-        <hr>
 
         <h2>type color</h2>
         <input id="case3" type="color" pui-input ng-model="value3"/><br/>
         Controller value : <span id="ctrlValue3">{{ value3 }}</span>
 
         <hr>
+    </div>
+    <div class="col2">
+        <hr>
 
         <h2>type range</h2>
         <input id="case4" type="range" pui-input ng-model="value4"/><br/>
         Controller value : <span id="ctrlValue4">{{ value4 }}</span>
 
-        <hr>
-    </div>
-    <div class="col3">
         <hr>
 
         <h2>with ng-show</h2>
@@ -85,6 +82,17 @@
 
         <h2>without ng-model</h2>
         <input id="case6" type="text" pui-input/>
+
+        <hr>
+    </div>
+    <div class="col3">
+        <hr>
+
+        <h2>default type text</h2>
+        <pui-input id="case7" ng-model="value6" ></pui-input> <br/>
+        Controller value : <span id="ctrlValue7">{{ value6 }}</span>
+
+        <hr>
 
         <hr>
     </div>
@@ -181,6 +189,19 @@
                 <div pui-panel title="html">
                             <pre pretty-print="html">
          <input id="case6" type="text" pui-input/>
+
+                            </pre>
+                </div>
+                <div pui-panel title="controller">
+                            <pre pretty-print="js">
+
+                            </pre>
+                </div>
+            </div>
+            <div id="sourceCase7" pui-tabview ng-show="codeVisibleOf.selectedOptionValue == '7'">
+                <div pui-panel title="html">
+                            <pre pretty-print="html">
+         <pui-input id="case7" ng-model="value6" ></pui-input>
 
                             </pre>
                 </div>

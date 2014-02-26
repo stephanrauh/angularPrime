@@ -49,7 +49,7 @@ public class InputTest extends AbstractWidgetTest {
     @Test
     @RunAsClient
     public void testOverview() {
-        testWidgetOverviewPage("puiInput", "puiInput", 3);
+        testWidgetOverviewPage("puiInput", "puiInput", 4);
     }
 
     @Test
@@ -58,6 +58,7 @@ public class InputTest extends AbstractWidgetTest {
         showExample(1);
 
         assertEquals("Default integration", contentArea.getExampleName());
+        assertEquals(VERSION_INITIAL, contentArea.getNewInVersionNumber());
 
         assertTrue(puiInputDefault.isWidget());
         assertFalse(puiInputDefault.isDisabled());
@@ -82,6 +83,7 @@ public class InputTest extends AbstractWidgetTest {
         showExample(2);
 
         assertEquals("Integration with ng-disabled", contentArea.getExampleName());
+        assertEquals(VERSION_INITIAL, contentArea.getNewInVersionNumber());
 
         assertTrue(puiInputDisabled.isDisabled());
 
@@ -111,4 +113,30 @@ public class InputTest extends AbstractWidgetTest {
         }
 
     }
+
+    @Test
+    @RunAsClient
+    public void testElement() {
+        showExample(3);
+
+        assertEquals("Custom element", contentArea.getExampleName());
+        assertEquals(VERSION_0_6, contentArea.getNewInVersionNumber());
+
+        assertTrue(puiInputDefault.isWidget());
+        assertFalse(puiInputDefault.isDisabled());
+
+        assertTrue(puiInputDefault.hasHoverClassWhenHovered());
+
+        assertEquals("Change me", defaultModel.getText());
+        puiInputDefault.type("JUnit");
+        assertEquals("JUnit", defaultModel.getText());
+
+        assertTrue(puiInputDigits.isWidget());
+        assertTrue(puiInputDigits.hasHoverClassWhenHovered());
+
+        assertEquals("123", digitsModel.getText());
+        puiInputDigits.type("321");
+        assertEquals("321", digitsModel.getText());
+    }
+
 }

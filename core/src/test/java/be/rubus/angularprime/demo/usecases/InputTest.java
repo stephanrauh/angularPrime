@@ -57,6 +57,13 @@ public class InputTest extends AbstractUsecaseTest {
     @FindBy(id = "case6")
     private PuiInput puiInput6;
 
+    // UseCase 7
+    @FindBy(id = "case7")
+    private PuiInput puiInput7;
+
+    @FindBy(id = "ctrlValue7")
+    private WebElement controllerValue7;
+
     @Override
     protected String getLocation() {
         return "usecases/pui-input/input.html";
@@ -183,5 +190,23 @@ public class InputTest extends AbstractUsecaseTest {
 
         assertTrue(puiInput6.isWidget());
     }
+
+    @Test
+    @RunAsClient
+    public void testUseCase7() {
+        showPage();
+
+        assertTrue(puiInput7.isWidget());
+        assertEquals("text", puiInput7.getType());
+        assertTrue(puiInput7.isPristine());
+        assertFalse(puiInput7.isDirty());
+
+        puiInput7.type("t");
+
+        assertFalse(puiInput7.isPristine());
+        assertTrue(puiInput7.isDirty());
+
+    }
+
 }
 

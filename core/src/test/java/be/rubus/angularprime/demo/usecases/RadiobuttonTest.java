@@ -28,18 +28,18 @@ public class RadiobuttonTest extends AbstractUsecaseTest {
 
     @Test
     @RunAsClient
-    public void testDefault() {
+    public void testUseCase1() {
         showPage();
 
         assertTrue(puiRadiobuttonDefault.isWidget());
         assertEquals(2, puiRadiobuttonDefault.getNumberOfButtons());
 
-        assertEquals("1", modelValue.getText());
-        assertEquals("1", puiRadiobuttonDefault.getSelectedValue());
-
-        puiRadiobuttonDefault.clickButton(1);
         assertEquals("2", modelValue.getText());
         assertEquals("2", puiRadiobuttonDefault.getSelectedValue());
+
+        puiRadiobuttonDefault.clickButton(0);
+        assertEquals("1", modelValue.getText());
+        assertEquals("1", puiRadiobuttonDefault.getSelectedValue());
     }
 
 }

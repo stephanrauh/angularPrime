@@ -9,6 +9,7 @@ controllers.controller('input.controller', ['$scope', function ($scope) {
     $scope.value3 = null;
     $scope.value4 = null;
     $scope.value5 = null;
+    $scope.value6 = null;
 
     $scope.visible = true;
 
@@ -42,6 +43,9 @@ controllers.controller('input.controller', ['$scope', function ($scope) {
         },
         {
             value: "6", description: "without ng-model"
+        },
+        {
+            value: "7", description: "default type when element"
         }
     ];
 
