@@ -25,6 +25,10 @@ angular.module('angular.prime').factory('puiInput.helper', function () {
 angular.module('angular.prime').directive('puiInput', [ '$compile', 'puiComponent.componentHelper',
                                         function ($compile, componentHelper) {
 
+    function modelRequired(inputType) {
+        return inputType === 'checkbox' || inputType === 'radio';
+    }
+
     function createHtmlTag(element, attrs, type) {
         var contents = '<input pui-input',
             handledAttributes = 'puiInput puiBinding name value id'.split(' '),
@@ -152,13 +156,13 @@ angular.module('angular.prime').directive('puiInput', [ '$compile', 'puiComponen
     }
 
     function linkFn(scope, element, attrs, ngModel) {
-        if (!ngModel) {
+        if (!ngModel && modelRequired(attrs.type)) {
             return;
         } // do nothing if no ng-model
 
         if (attrs.type === 'range') {
             return;
-            // When input type range, theming has not much sense.
+            // When input type range, themeing has not much sense.
         }
         var htmlElementName = element[0].nodeName,
             inputType = attrs.type  || 'text',

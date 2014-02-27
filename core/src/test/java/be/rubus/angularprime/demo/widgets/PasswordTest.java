@@ -90,6 +90,7 @@ public class PasswordTest extends AbstractWidgetTest {
 
         assertFalse(puiPasswordElement.isPanelVisible());
         puiPasswordElement.click();
+        window.waitForScreenUpdate(200);
         assertTrue(puiPasswordElement.isPanelVisible());
         assertEquals("My text", puiPasswordElement.getPanelText());
 

@@ -142,6 +142,7 @@ public class InputTest extends AbstractUsecaseTest {
             fail(e.getMessage());
         }
 
+        window.waitForScreenUpdate(200);
         assertEquals("#ff8080", controllerValue3.getText());
 
     }

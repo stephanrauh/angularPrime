@@ -68,7 +68,7 @@ public class PasswordTest extends AbstractUsecaseTest {
 
         puiPassword1.blur();
 
-        window.waitForScreenUpdate(500);
+        window.waitForScreenUpdate(800);
         assertFalse(puiPassword1.isPanelVisible());
     }
 
